@@ -22,7 +22,7 @@ export const WorkExperienceItem: React.FC<Career> = ({
         </Grid>
         <Grid>
           <Typography variant="body2">
-            {from}&mdash;{to === "Present" ? "Present" : to}
+            {from}&ndash;{to === "Present" ? "Present" : to}
           </Typography>
         </Grid>
       </Grid>

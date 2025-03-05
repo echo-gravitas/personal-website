@@ -11,6 +11,7 @@ export const ProfileLink: React.FC<Profile> = ({ label, url }) => {
         endIcon={<ArrowOutwardOutlinedIcon />}
         href={url}
         target={"_blank"}
+        title={label}
       >
         {label}
       </Button>

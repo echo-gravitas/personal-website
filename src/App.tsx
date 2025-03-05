@@ -1,11 +1,16 @@
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import {
+  Link,
+  Typography,
+  Grid2 as Grid,
+  IconButton,
+  Container,
+} from "@mui/material";
+import { useState, useEffect } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import { WorkExperienceItem } from "./components/WorkExperienceItem";
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid2";
+import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import IconButton from "@mui/material/IconButton";
-import Container from "@mui/material/Container";
 import { Section } from "./components/Section";
 import { baseTheme } from "./theme/theme";
 import type { Profiles, Career } from "./types/types";
@@ -16,8 +21,20 @@ import packageJSON from "../package.json";
 import NeovimIcon from "./assets/nvim-icon.svg";
 
 const App: React.FC = () => {
-  const theme = createTheme(baseTheme);
+  const preferDarkMode = window.matchMedia(
+    "(prefers-color-scheme: dark)",
+  ).matches;
+  const [darkMode, setDarkMode] = useState(preferDarkMode);
   const APIendpoint = "https://api.seventrees.io/Ss6YapO6ICzXyJoF2F_sB";
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleChange = (e: MediaQueryListEvent) => setDarkMode(e.matches);
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
+
+  const theme = createTheme(baseTheme(darkMode ? "dark" : "light"));
 
   const { data: career } = useFetch<Career[]>(
     `${APIendpoint}/career`,
@@ -45,8 +62,15 @@ const App: React.FC = () => {
               </Typography>
             </Grid>
             <Grid>
-              <IconButton color={"primary"}>
-                <DarkModeOutlinedIcon />
+              <IconButton
+                onClick={() => setDarkMode(!darkMode)}
+                color={"primary"}
+              >
+                {darkMode ? (
+                  <LightModeOutlinedIcon />
+                ) : (
+                  <DarkModeOutlinedIcon />
+                )}
               </IconButton>
             </Grid>
           </Grid>
@@ -84,9 +108,11 @@ const App: React.FC = () => {
           </Grid>
         </Section>
         <Section padding={{ bottom: 10 }}>
-          <Grid container columns={{ sm: 12 }} spacing={2}>
+          <Grid container columns={{ sm: 12 }} spacing={5}>
             <Grid size={{ sm: 6 }}>
-              <Typography variant={"h2"}>Work experience</Typography>
+              <Typography variant={"h2"}>
+                A Path Through Design &amp; Technology
+              </Typography>
             </Grid>
             <Grid size={{ sm: 6 }}>
               {career?.map((career) => (
@@ -102,9 +128,11 @@ const App: React.FC = () => {
           </Grid>
         </Section>
         <Section padding={{ bottom: 10 }}>
-          <Grid container columns={{ sm: 12 }} spacing={2}>
+          <Grid container columns={{ sm: 12 }} spacing={5}>
             <Grid size={{ sm: 6 }}>
-              <Typography variant={"h2"}>Thoughts on design</Typography>
+              <Typography variant={"h2"}>
+                Human-Centered Design: A Manifesto
+              </Typography>
             </Grid>
             <Grid size={{ sm: 6 }}>
               <Section padding={{ bottom: 5 }}>
@@ -129,9 +157,11 @@ const App: React.FC = () => {
           </Grid>
         </Section>
         <Section padding={{ bottom: 10 }}>
-          <Grid container columns={{ sm: 12 }} spacing={2}>
+          <Grid container columns={{ sm: 12 }} spacing={5}>
             <Grid size={{ sm: 6 }}>
-              <Typography variant={"h2"}>What is design ethics?</Typography>
+              <Typography variant={"h2"}>
+                Ethical Design: A Responsibility, Not a Choice
+              </Typography>
             </Grid>
             <Grid size={{ sm: 6 }}>
               <Section padding={{ bottom: 5 }}>
@@ -162,19 +192,18 @@ const App: React.FC = () => {
               </Typography>
             </Grid>
             <Grid>
-              <Typography
-                variant={"footer"}
-                //sx={{ display: "flex", alignItems: "center", gap: 1 }}
-              >
+              <Typography variant={"footer"}>
                 v{packageJSON.version} &mdash; Proudly coded in{" "}
-                <img
-                  src={NeovimIcon}
-                  alt={"Neovim"}
-                  title={"Neovim"}
-                  width={17}
-                  height={20}
-                  style={{ verticalAlign: "text-bottom" }}
-                />
+                <Link href="https://neovim.io/" target={"_blank"}>
+                  <img
+                    src={NeovimIcon}
+                    alt={"Neovim"}
+                    title={"Neovim"}
+                    width={17}
+                    height={20}
+                    style={{ verticalAlign: "text-bottom" }}
+                  />
+                </Link>
               </Typography>
             </Grid>
           </Grid>

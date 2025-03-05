@@ -13,8 +13,8 @@ export const Section: React.FC<SectionProps> = ({
       sx={{
         paddingTop: padding.top,
         paddingBottom: padding.bottom,
-        borderTop: borderTop ? `1px solid ${colors.gray}` : "none",
-        borderBottom: borderBottom ? `1px solid ${colors.gray}` : "none",
+        borderTop: borderTop ? `1px solid ${colors.borderColor}` : "none",
+        borderBottom: borderBottom ? `1px solid ${colors.borderColor}` : "none",
       }}
     >
       {children}

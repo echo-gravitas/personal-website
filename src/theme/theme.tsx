@@ -3,8 +3,8 @@ import type { ThemeOptions } from "@mui/material/styles";
 export const colors = {
   white: "#ffffff",
   black: "#000000",
-  gray: "#B6BCC6",
-  secondaryText: "#95A5BF",
+  highlight: "#36727D",
+  borderColor: "#80808066",
 };
 
 declare module "@mui/material/Typography/Typography" {
@@ -21,7 +21,7 @@ declare module "@mui/material/Button/Button" {
   }
 }
 
-export const baseTheme: ThemeOptions = {
+export const baseTheme = (mode: "light" | "dark"): ThemeOptions => ({
   breakpoints: {
     values: {
       xs: 0,
@@ -33,8 +33,16 @@ export const baseTheme: ThemeOptions = {
   },
   spacing: 10,
   palette: {
+    mode,
     primary: {
-      main: colors.black,
+      main: mode === "dark" ? colors.white : colors.black,
+    },
+    background: {
+      default: mode === "dark" ? colors.black : colors.white,
+    },
+    text: {
+      primary: mode === "dark" ? colors.white : colors.black,
+      secondary: mode === "dark" ? colors.white : colors.black,
     },
   },
   typography: {
@@ -46,12 +54,12 @@ export const baseTheme: ThemeOptions = {
     h1: {
       fontSize: "clamp(50px, 5.5vw, 104px)",
       fontWeight: 700,
-      color: colors.black,
+      color: mode === "dark" ? colors.white : colors.black,
     },
     h2: {
       fontSize: "clamp(25px, 4.5vw, 72px)",
       fontWeight: 700,
-      color: colors.black,
+      color: mode === "dark" ? colors.white : colors.black,
     },
     body1: {
       fontSize: 24,
@@ -59,7 +67,7 @@ export const baseTheme: ThemeOptions = {
     },
     body2: {
       fontSize: 20,
-      color: colors.secondaryText,
+      color: mode === "dark" ? colors.highlight : colors.highlight,
     },
   },
   components: {
@@ -84,7 +92,7 @@ export const baseTheme: ThemeOptions = {
             fontSize: 24,
             fontWeight: 700,
             "& span": {
-              color: colors.gray,
+              color: colors.highlight,
             },
           },
         },
@@ -107,10 +115,10 @@ export const baseTheme: ThemeOptions = {
       styleOverrides: {
         h1: {
           "& span": {
-            color: colors.gray,
+            color: colors.highlight,
           },
         },
       },
     },
   },
-};
+});
