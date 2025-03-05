@@ -9,8 +9,10 @@ export interface Profile {
 
 export interface SectionProps {
   children: React.ReactNode;
-  paddingTop?: number;
-  paddingBottom?: number;
+  padding?: {
+    top?: number;
+    bottom?: number;
+  };
   borderBottom?: boolean;
 }
 

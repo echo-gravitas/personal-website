@@ -10,7 +10,7 @@ const WorkExperienceItem: React.FC<Career> = ({
   to,
 }) => {
   return (
-    <Section paddingTop={2} paddingBottom={2} borderBottom>
+    <Section padding={{ top: 2, bottom: 2 }} borderBottom>
       <Grid container justifyContent={"space-between"} columns={12} spacing={1}>
         <Grid size={{ sm: 12 }}>
           <Typography>

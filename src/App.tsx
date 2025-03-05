@@ -11,46 +11,35 @@ import Section from "./components/Section";
 import { baseTheme } from "./theme/theme";
 import type { Profiles, Career } from "./types/types";
 import ProfileLink from "./components/ProfileLink";
+import { useFetch } from "./hooks/useFetch";
 
 const App: React.FC = () => {
   const theme = createTheme(baseTheme);
   const APIendpoint = "https://api.seventrees.io/Ss6YapO6ICzXyJoF2F_sB";
-  const [profiles, setProfiles] = useState<Profiles>({
-    online_profiles: [],
-  });
-  const [career, setCareer] = useState<Career[]>([]);
 
-  useEffect(() => {
-    fetch(`${APIendpoint}/career`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        const career = data.career;
-        const allPositions = [
-          ...career.current_positions,
-          ...career.previous_positions,
-        ];
-        allPositions.sort((a, b) => b.from.localeCompare(a.from));
-        setCareer(allPositions);
-      })
-      .catch((error) => console.error("An error occurred:", error));
-  }, []);
+  const transformCareerData = (data: any): Career[] => {
+    if (!data.career) return [];
+    const allPositions = [
+      ...data.career.current_positions,
+      ...data.career.previous_positions,
+    ];
+    return allPositions.sort((a, b) => b.from.localeCompare(a.from));
+  };
 
-  useEffect(() => {
-    fetch(`${APIendpoint}/online_profiles`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => setProfiles(data))
-      .catch((error) => console.error("An error occurred:", error));
-  }, []);
+  const { data: career } = useFetch<Career[]>(
+    `${APIendpoint}/career`,
+    transformCareerData,
+  );
+
+  const { data: profiles } = useFetch<Profiles>(
+    `${APIendpoint}/online_profiles`,
+  );
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth={"lg"}>
-        <Section paddingTop={2} paddingBottom={2}>
+        <Section padding={{ top: 2, bottom: 2 }}>
           <Grid
             container
             spacing={2}
@@ -69,7 +58,7 @@ const App: React.FC = () => {
             </Grid>
           </Grid>
         </Section>
-        <Section paddingBottom={5} paddingTop={5}>
+        <Section padding={{ top: 5, bottom: 5 }}>
           <Grid container spacing={2}>
             <Grid>
               <Typography variant={"h1"}>
@@ -79,20 +68,20 @@ const App: React.FC = () => {
             </Grid>
           </Grid>
         </Section>
-        <Section paddingBottom={5}>
+        <Section padding={{ bottom: 5 }}>
           <Grid container spacing={2}>
             <Grid>
               <Typography>
-                Hi, I'm Ralph&mdash;a passionate UI/UX product designer, design
+                Hi, I'm Ralph&mdash;a passionate product designer UI/UX, design
                 ethicist, software developer, cypherpunk, and ham radio operator
                 based in Lucerne, Switzerland.
               </Typography>
             </Grid>
           </Grid>
         </Section>
-        <Section paddingBottom={10}>
+        <Section padding={{ bottom: 10 }}>
           <Grid container spacing={5}>
-            {profiles.online_profiles.map((profile) => (
+            {profiles?.online_profiles.map((profile) => (
               <ProfileLink
                 label={profile.label}
                 url={profile.url}
@@ -101,13 +90,13 @@ const App: React.FC = () => {
             ))}
           </Grid>
         </Section>
-        <Section paddingBottom={10}>
+        <Section padding={{ bottom: 10 }}>
           <Grid container columns={{ sm: 12 }} spacing={2}>
             <Grid size={{ sm: 6 }}>
               <Typography variant={"h2"}>Work experience</Typography>
             </Grid>
             <Grid size={{ sm: 6 }}>
-              {career.map((career) => (
+              {career?.map((career) => (
                 <WorkExperienceItem
                   position={career.position}
                   employer={career.employer}
