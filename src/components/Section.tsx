@@ -2,16 +2,18 @@ import Box from "@mui/material/Box";
 import type { SectionProps } from "../types/types";
 import { colors } from "../theme/theme";
 
-const Section: React.FC<SectionProps> = ({
+export const Section: React.FC<SectionProps> = ({
   children,
   padding = { top: 0, bottom: 0 },
   borderBottom = false,
+  borderTop = false,
 }) => {
   return (
     <Box
       sx={{
         paddingTop: padding.top,
         paddingBottom: padding.bottom,
+        borderTop: borderTop ? `1px solid ${colors.gray}` : "none",
         borderBottom: borderBottom ? `1px solid ${colors.gray}` : "none",
       }}
     >
@@ -19,5 +21,3 @@ const Section: React.FC<SectionProps> = ({
     </Box>
   );
 };
-
-export default Section;

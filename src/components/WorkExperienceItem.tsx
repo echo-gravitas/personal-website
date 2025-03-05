@@ -1,9 +1,9 @@
 import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
-import Section from "./Section";
+import { Section } from "./Section";
 import type { Career } from "../types/types";
 
-const WorkExperienceItem: React.FC<Career> = ({
+export const WorkExperienceItem: React.FC<Career> = ({
   position,
   employer,
   from,
@@ -29,5 +29,3 @@ const WorkExperienceItem: React.FC<Career> = ({
     </Section>
   );
 };
-
-export default WorkExperienceItem;

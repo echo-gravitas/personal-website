@@ -3,7 +3,7 @@ import ArrowOutwardOutlinedIcon from "@mui/icons-material/ArrowOutwardOutlined";
 import Grid from "@mui/material/Grid2";
 import type { Profile } from "../types/types";
 
-const ProfileLink: React.FC<Profile> = ({ label, url }) => {
+export const ProfileLink: React.FC<Profile> = ({ label, url }) => {
   return (
     <Grid>
       <Button
@@ -17,5 +17,3 @@ const ProfileLink: React.FC<Profile> = ({ label, url }) => {
     </Grid>
   );
 };
-
-export default ProfileLink;

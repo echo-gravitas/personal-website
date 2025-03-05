@@ -14,6 +14,7 @@ export interface SectionProps {
     bottom?: number;
   };
   borderBottom?: boolean;
+  borderTop?: boolean;
 }
 
 export interface Career {
@@ -21,4 +22,11 @@ export interface Career {
   from: string;
   employer: string;
   position: string;
+}
+
+export interface CareerAPIResponse {
+  career: {
+    current_positions: Career[];
+    previous_positions: Career[];
+  };
 }

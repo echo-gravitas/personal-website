@@ -10,6 +10,8 @@ export const colors = {
 declare module "@mui/material/Typography/Typography" {
   interface TypographyPropsVariantOverrides {
     logo: true;
+    lead: true;
+    footer: true;
   }
 }
 
@@ -47,7 +49,7 @@ export const baseTheme: ThemeOptions = {
       color: colors.black,
     },
     h2: {
-      fontSize: "clamp(25px, 2.75vw, 52px)",
+      fontSize: "clamp(25px, 4.5vw, 72px)",
       fontWeight: 700,
       color: colors.black,
     },
@@ -84,6 +86,21 @@ export const baseTheme: ThemeOptions = {
             "& span": {
               color: colors.gray,
             },
+          },
+        },
+        {
+          props: { variant: "lead" },
+          style: {
+            letterSpacing: "-0.05em",
+            fontSize: 24,
+            fontWeight: 600,
+          },
+        },
+        {
+          props: { variant: "footer" },
+          style: {
+            letterSpacing: "-0.05em",
+            fontSize: 16,
           },
         },
       ],
