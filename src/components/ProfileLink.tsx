@@ -3,6 +3,8 @@ import ArrowOutwardOutlinedIcon from "@mui/icons-material/ArrowOutwardOutlined";
 import Grid from "@mui/material/Grid2";
 import type { Profile } from "../types/types";
 
+// NOTE: Content while loading
+
 export const ProfileLink: React.FC<Profile> = ({ label, url }) => {
   return (
     <Grid>

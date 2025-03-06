@@ -11,17 +11,17 @@ export const WorkExperienceItem: React.FC<Career> = ({
 }) => {
   return (
     <Section padding={{ top: 2, bottom: 2 }} borderBottom>
-      <Grid container justifyContent={"space-between"} columns={12} spacing={1}>
+      <Grid container columns={12} justifyContent={"space-between"} spacing={1}>
         <Grid size={{ sm: 12 }}>
           <Typography>
             <strong>{position}</strong>
           </Typography>
         </Grid>
-        <Grid>
+        <Grid size={{ xs: 6 }}>
           <Typography variant={"body2"}>{employer}</Typography>
         </Grid>
-        <Grid>
-          <Typography variant="body2">
+        <Grid size={{ xs: 6 }}>
+          <Typography textAlign={"right"} variant="body2">
             {from}&ndash;{to === "Present" ? "Present" : to}
           </Typography>
         </Grid>
