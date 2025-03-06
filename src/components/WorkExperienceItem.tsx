@@ -3,6 +3,8 @@ import Typography from "@mui/material/Typography";
 import { Section } from "./Section";
 import type { Career } from "../types/types";
 
+// NOTE: Content while loading
+
 export const WorkExperienceItem: React.FC<Career> = ({
   position,
   employer,
