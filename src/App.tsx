@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import {
   Link,
@@ -6,9 +7,9 @@ import {
   IconButton,
   Container,
 } from "@mui/material";
-import { useState, useEffect } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import { WorkExperienceItem } from "./components/WorkExperienceItem";
+import { WorkExperienceItemSkeleton } from "./components/WorkExperienceItemSkeleton";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import { Section } from "./components/Section";
@@ -19,6 +20,7 @@ import { useFetch } from "./hooks/useFetch";
 import { transformCareerData } from "./transformers/transformCareerData";
 import packageJSON from "../package.json";
 import NeovimIcon from "./assets/nvim-icon.svg";
+import { ProfileLinkSkeleton } from "./components/ProfileLinkSkeleton";
 
 const App: React.FC = () => {
   const preferDarkMode = window.matchMedia(
@@ -101,13 +103,15 @@ const App: React.FC = () => {
         </Section>
         <Section padding={{ bottom: 10 }}>
           <Grid container spacing={5}>
-            {profiles?.online_profiles.map((profile) => (
-              <ProfileLink
-                label={profile.label}
-                url={profile.url}
-                key={profile.url}
-              />
-            ))}
+            {!profiles
+              ? Array.from({ length: 4 }).map(() => <ProfileLinkSkeleton />)
+              : profiles.online_profiles.map((profile) => (
+                  <ProfileLink
+                    label={profile.label}
+                    url={profile.url}
+                    key={profile.url}
+                  />
+                ))}
           </Grid>
         </Section>
         <Section padding={{ bottom: 10 }}>
@@ -118,15 +122,19 @@ const App: React.FC = () => {
               </Typography>
             </Grid>
             <Grid size={{ sm: 12, md: 6 }}>
-              {career?.map((career) => (
-                <WorkExperienceItem
-                  position={career.position}
-                  employer={career.employer}
-                  from={career.from}
-                  to={career.to}
-                  key={career.employer}
-                />
-              ))}
+              {!career
+                ? Array.from({ length: 5 }).map(() => (
+                    <WorkExperienceItemSkeleton />
+                  ))
+                : career.map((career) => (
+                    <WorkExperienceItem
+                      position={career.position}
+                      employer={career.employer}
+                      from={career.from}
+                      to={career.to}
+                      key={career.employer}
+                    />
+                  ))}
             </Grid>
           </Grid>
         </Section>
