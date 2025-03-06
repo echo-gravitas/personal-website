@@ -3,8 +3,9 @@ import type { ThemeOptions } from "@mui/material/styles";
 export const colors = {
   white: "#ffffff",
   black: "#000000",
-  highlight: "#36727D",
+  highlight: "#D93C92",
   borderColor: "#80808066",
+  secondatyText: "#808080",
 };
 
 declare module "@mui/material/Typography/Typography" {
@@ -48,16 +49,17 @@ export const baseTheme = (mode: "light" | "dark"): ThemeOptions => ({
   typography: {
     fontFamily: 'Inter, "Helvetica Neue", Helvetica, Arial, sans-serif',
     allVariants: {
-      letterSpacing: "-0.05em",
       lineHeight: "120%",
     },
     h1: {
       fontSize: "clamp(50px, 5.5vw, 104px)",
       fontWeight: 700,
+      letterSpacing: "-0.05em",
       color: mode === "dark" ? colors.white : colors.black,
     },
     h2: {
       fontSize: "clamp(25px, 4.5vw, 72px)",
+      letterSpacing: "-0.05em",
       fontWeight: 700,
       color: mode === "dark" ? colors.white : colors.black,
     },
@@ -67,7 +69,7 @@ export const baseTheme = (mode: "light" | "dark"): ThemeOptions => ({
     },
     body2: {
       fontSize: 20,
-      color: mode === "dark" ? colors.highlight : colors.highlight,
+      color: mode === "dark" ? colors.secondatyText : colors.secondatyText,
     },
   },
   components: {
@@ -99,7 +101,6 @@ export const baseTheme = (mode: "light" | "dark"): ThemeOptions => ({
         {
           props: { variant: "lead" },
           style: {
-            letterSpacing: "-0.05em",
             fontSize: 24,
             fontWeight: 600,
           },
@@ -107,7 +108,6 @@ export const baseTheme = (mode: "light" | "dark"): ThemeOptions => ({
         {
           props: { variant: "footer" },
           style: {
-            letterSpacing: "-0.05em",
             fontSize: 16,
           },
         },

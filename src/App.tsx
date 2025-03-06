@@ -45,6 +45,9 @@ const App: React.FC = () => {
     `${APIendpoint}/online_profiles`,
   );
 
+  // TODO: Profile & social content while loading
+  // TODO: create propper font-sizes for h1, h2 and p
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -108,13 +111,13 @@ const App: React.FC = () => {
           </Grid>
         </Section>
         <Section padding={{ bottom: 10 }}>
-          <Grid container columns={{ sm: 12 }} spacing={5}>
-            <Grid size={{ sm: 6 }}>
+          <Grid container columns={{ xs: 12 }} spacing={5}>
+            <Grid size={{ sm: 12, md: 6 }}>
               <Typography variant={"h2"}>
                 A Path Through Design &amp; Technology
               </Typography>
             </Grid>
-            <Grid size={{ sm: 6 }}>
+            <Grid size={{ sm: 12, md: 6 }}>
               {career?.map((career) => (
                 <WorkExperienceItem
                   position={career.position}
@@ -128,13 +131,13 @@ const App: React.FC = () => {
           </Grid>
         </Section>
         <Section padding={{ bottom: 10 }}>
-          <Grid container columns={{ sm: 12 }} spacing={5}>
-            <Grid size={{ sm: 6 }}>
+          <Grid container columns={{ xs: 12 }} spacing={5}>
+            <Grid size={{ sm: 12, md: 6 }}>
               <Typography variant={"h2"}>
                 Human-Centered Design: A Manifesto
               </Typography>
             </Grid>
-            <Grid size={{ sm: 6 }}>
+            <Grid size={{ sm: 12, md: 6 }}>
               <Section padding={{ bottom: 5 }}>
                 <Typography component={"p"} variant={"lead"}>
                   Based on modern software architecture, I strive to break down
@@ -146,24 +149,24 @@ const App: React.FC = () => {
                 </Typography>
               </Section>
               <Typography>
-                Good design is innovative and makes a product useful. Good
-                design is aesthetic and makes a product understandable. Good
-                design is honest, unobtrusive, and long-lasting. Good design
-                is thorough down to the last detail, and environmentally
-                friendly. Good design is inclusive, accessible and involves as
-                little design as possible.
+                Good design is innovative and makes a product useful. Good
+                design is aesthetic and makes a product understandable. Good
+                design is honest, unobtrusive, and long-lasting. Good design is
+                thorough down to the last detail, and environmentally friendly.
+                Good design is inclusive, accessible and involves as little
+                design as possible.
               </Typography>
             </Grid>
           </Grid>
         </Section>
         <Section padding={{ bottom: 10 }}>
-          <Grid container columns={{ sm: 12 }} spacing={5}>
-            <Grid size={{ sm: 6 }}>
+          <Grid container columns={{ xs: 12 }} spacing={5}>
+            <Grid size={{ sm: 12, md: 6 }}>
               <Typography variant={"h2"}>
                 Ethical Design: A Responsibility, Not a Choice
               </Typography>
             </Grid>
-            <Grid size={{ sm: 6 }}>
+            <Grid size={{ sm: 12, md: 6 }}>
               <Section padding={{ bottom: 5 }}>
                 <Typography component={"p"} variant={"lead"}>
                   As a designer, I am constantly challenged to strike a balance
@@ -174,12 +177,12 @@ const App: React.FC = () => {
                 </Typography>
               </Section>
               <Typography>
-                Design ethics involves avoiding the use of dark patterns and not
-                hiding relevant information. Ethical design opposes persuasive
-                design and prioritizes usability and accessibility in digital
-                products. It values respect, privacy, transparency, and focus.
-                Ultimately, ethical design is centered around the needs of human
-                users and supports sustainable practices.
+                Design ethics involves avoiding the use of dark patterns and not
+                hiding relevant information. Ethical design opposes persuasive
+                design and prioritizes usability and accessibility in digital
+                products. It values respect, privacy, transparency, and focus.
+                Ultimately, ethical design is centered around the needs of human
+                users and supports sustainable practices.
               </Typography>
             </Grid>
           </Grid>
