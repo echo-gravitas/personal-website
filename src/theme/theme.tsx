@@ -52,15 +52,15 @@ export const baseTheme = (mode: "light" | "dark"): ThemeOptions => ({
       lineHeight: "120%",
     },
     h1: {
-      fontSize: "clamp(50px, 5.5vw, 104px)",
+      fontSize: "clamp(64px, 5.5vw, 104px)",
       fontWeight: 700,
       letterSpacing: "-0.05em",
       color: mode === "dark" ? colors.white : colors.black,
     },
     h2: {
-      fontSize: "clamp(25px, 4.5vw, 72px)",
+      fontSize: "clamp(56px, 4.5vw, 72px)",
       letterSpacing: "-0.05em",
-      fontWeight: 700,
+      fontWeight: 600,
       color: mode === "dark" ? colors.white : colors.black,
     },
     body1: {
