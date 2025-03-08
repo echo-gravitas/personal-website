@@ -1,9 +1,31 @@
 import type { ThemeOptions } from "@mui/material/styles";
 
+const catppuccinLatteColors = [
+  "#dc8a78", // Rosewater
+  "#dd7878", // Flamingo
+  "#ea76cb", // Pink
+  "#8839ef", // Mauve
+  "#d20f39", // Red
+  "#e64553", // Maroon
+  "#fe640b", // Peach
+  "#df8e1d", // Yellow
+  "#40a02b", // Green
+  "#179299", // Teal
+  "#04a5e5", // Sky
+  "#209fb5", // Sapphire
+  "#1e66f5", // Blue
+  "#7287fd", // Lavender
+];
+
+const randomHighlight =
+  catppuccinLatteColors[
+    Math.floor(Math.random() * catppuccinLatteColors.length)
+  ];
+
 export const colors = {
   white: "#ffffff",
   black: "#000000",
-  highlight: "#D93C92",
+  highlight: randomHighlight,
   borderColor: "#80808066",
   secondatyText: "#808080",
 };
@@ -81,6 +103,10 @@ export const baseTheme = (mode: "light" | "dark"): ThemeOptions => ({
             textTransform: "none",
             fontSize: 20,
             padding: 0,
+            "&:hover": {
+              color: randomHighlight,
+              transition: "color 200ms",
+            },
           },
         },
       ],
