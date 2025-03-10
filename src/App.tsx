@@ -107,12 +107,12 @@ const App: React.FC = () => {
             {!profiles
               ? Array.from({ length: 4 }).map(() => <ProfileLinkSkeleton />)
               : profiles.online_profiles.map((profile) => (
-                <ProfileLink
-                  label={profile.label}
-                  url={profile.url}
-                  key={profile.url}
-                />
-              ))}
+                  <ProfileLink
+                    label={profile.label}
+                    url={profile.url}
+                    key={profile.url}
+                  />
+                ))}
           </Grid>
         </Section>
         <Section padding={{ bottom: 10 }}>
@@ -125,17 +125,17 @@ const App: React.FC = () => {
             <Grid size={{ sm: 12, md: 6 }}>
               {!career
                 ? Array.from({ length: 5 }).map(() => (
-                  <WorkExperienceItemSkeleton />
-                ))
+                    <WorkExperienceItemSkeleton />
+                  ))
                 : career.map((career) => (
-                  <WorkExperienceItem
-                    position={career.position}
-                    employer={career.employer}
-                    from={career.from}
-                    to={career.to}
-                    key={career.employer}
-                  />
-                ))}
+                    <WorkExperienceItem
+                      position={career.position}
+                      employer={career.employer}
+                      from={career.from}
+                      to={career.to}
+                      key={career.employer}
+                    />
+                  ))}
             </Grid>
           </Grid>
         </Section>
