@@ -1,7 +1,7 @@
 {
   "name": "personal-website",
   "description": "My very new peronal website",
-  "version": "3.4.1",
+  "version": "3.4.2",
   "private": true,
   "author": {
     "name": "Ralph Bolliger",
@@ -31,10 +31,17 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": ["react-app", "react-app/jest"]
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
-    "production": [">0.2%", "not dead", "not op_mini all"],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",

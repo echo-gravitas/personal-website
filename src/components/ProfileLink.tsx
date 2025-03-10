@@ -9,6 +9,7 @@ export const ProfileLink: React.FC<Profile> = ({ label, url }) => {
   return (
     <Grid>
       <Button
+        disableRipple
         variant={"social"}
         endIcon={<ArrowOutwardOutlinedIcon />}
         href={url}
