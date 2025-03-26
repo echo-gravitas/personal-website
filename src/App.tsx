@@ -1,21 +1,21 @@
-import { useState, useEffect } from "react";
-import { useFetch } from "./hooks/useFetch";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { baseTheme } from "./theme/theme";
 import CssBaseline from "@mui/material/CssBaseline";
+import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
+import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+import NeovimIcon from "./assets/nvim-icon.svg";
+import packageJSON from "../package.json";
 import type { Profiles, Career } from "./types/types";
-import { WorkExperienceItem } from "./components/WorkExperienceItem";
-import { WorkExperienceItemSkeleton } from "./components/WorkExperienceItemSkeleton";
-import { ProfileLinkSkeleton } from "./components/ProfileLinkSkeleton";
-import { ProfileLink } from "./components/ProfileLink";
-import { Section } from "./components/Section";
 import { Design } from "./components/Design";
 import { Ethics } from "./components/Ethics";
+import { ProfileLink } from "./components/ProfileLink";
+import { ProfileLinkSkeleton } from "./components/ProfileLinkSkeleton";
+import { Section } from "./components/Section";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { WorkExperienceItem } from "./components/WorkExperienceItem";
+import { WorkExperienceItemSkeleton } from "./components/WorkExperienceItemSkeleton";
+import { baseTheme } from "./theme/theme";
 import { transformCareerData } from "./transformers/transformCareerData";
-import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import packageJSON from "../package.json";
-import NeovimIcon from "./assets/nvim-icon.svg";
+import { useFetch } from "./hooks/useFetch";
+import { useState, useEffect } from "react";
 import {
   Link,
   Typography,
