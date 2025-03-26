@@ -1,20 +1,20 @@
 import type { ThemeOptions } from "@mui/material/styles";
 
 const catppuccinLatteColors = [
-  "#dc8a78", // Rosewater
-  "#dd7878", // Flamingo
-  "#ea76cb", // Pink
-  "#8839ef", // Mauve
-  "#d20f39", // Red
-  "#e64553", // Maroon
-  "#fe640b", // Peach
-  "#df8e1d", // Yellow
-  "#40a02b", // Green
-  "#179299", // Teal
-  "#04a5e5", // Sky
-  "#209fb5", // Sapphire
-  "#1e66f5", // Blue
-  "#7287fd", // Lavender
+  "#dc8a78",
+  "#dd7878",
+  "#ea76cb",
+  "#8839ef",
+  "#d20f39",
+  "#e64553",
+  "#fe640b",
+  "#df8e1d",
+  "#40a02b",
+  "#179299",
+  "#04a5e5",
+  "#209fb5",
+  "#1e66f5",
+  "#7287fd",
 ];
 
 const randomHighlight =
@@ -74,13 +74,13 @@ export const baseTheme = (mode: "light" | "dark"): ThemeOptions => ({
       lineHeight: "120%",
     },
     h1: {
-      fontSize: "clamp(64px, 5.5vw, 104px)",
+      fontSize: "clamp(48px, 5.5vw, 96px)",
       fontWeight: 700,
       letterSpacing: "-0.05em",
       color: mode === "dark" ? colors.white : colors.black,
     },
     h2: {
-      fontSize: "clamp(56px, 4.5vw, 72px)",
+      fontSize: "clamp(32px, 4.5vw, 64px)",
       letterSpacing: "-0.05em",
       fontWeight: 600,
       color: mode === "dark" ? colors.white : colors.black,
