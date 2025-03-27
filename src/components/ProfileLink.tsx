@@ -1,6 +1,6 @@
 import Button from "@mui/material/Button";
 import ArrowOutwardOutlinedIcon from "@mui/icons-material/ArrowOutwardOutlined";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 import type { Profile } from "../types/types";
 
 // NOTE: Content while loading

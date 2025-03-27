@@ -16,13 +16,7 @@ import { baseTheme } from "./theme/theme";
 import { transformCareerData } from "./transformers/transformCareerData";
 import { useFetch } from "./hooks/useFetch";
 import { useState, useEffect } from "react";
-import {
-  Link,
-  Typography,
-  Grid2 as Grid,
-  IconButton,
-  Container,
-} from "@mui/material";
+import { Link, Typography, Grid, IconButton, Container } from "@mui/material";
 
 // TODO: Create app icon
 

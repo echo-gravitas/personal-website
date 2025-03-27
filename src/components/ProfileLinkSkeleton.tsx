@@ -1,4 +1,4 @@
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 import { Skeleton } from "@mui/material";
 
 export const ProfileLinkSkeleton: React.FC = () => {
