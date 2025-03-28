@@ -1,7 +1,7 @@
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { Section } from "./Section";
-import type { Career } from "../types/types";
+import type { Career } from "../types";
 
 export const WorkExperienceItem: React.FC<Career> = ({
   position,

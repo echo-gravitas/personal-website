@@ -1,22 +1,22 @@
-import type { ReportHandler } from "web-vitals";
 import { logEvent } from "./analytics";
+type WebVitalsCallback = (metric: { name: string; value: number }) => void;
 
-const reportWebVitals = (onPerfEntry?: ReportHandler) => {
+const reportWebVitals = (onPerfEntry?: WebVitalsCallback) => {
   if (onPerfEntry && onPerfEntry instanceof Function) {
-    import("web-vitals").then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-      getCLS((metric) =>
+    import("web-vitals").then(({ onCLS, onFID, onFCP, onLCP, onTTFB }) => {
+      onCLS((metric) =>
         logEvent("Web Vitals", metric.name, metric.value.toString()),
       );
-      getFID((metric) =>
+      onFID((metric) =>
         logEvent("Web Vitals", metric.name, metric.value.toString()),
       );
-      getFCP((metric) =>
+      onFCP((metric) =>
         logEvent("Web Vitals", metric.name, metric.value.toString()),
       );
-      getLCP((metric) =>
+      onLCP((metric) =>
         logEvent("Web Vitals", metric.name, metric.value.toString()),
       );
-      getTTFB((metric) =>
+      onTTFB((metric) =>
         logEvent("Web Vitals", metric.name, metric.value.toString()),
       );
     });
