@@ -1,54 +1,40 @@
-# React + TypeScript + Vite
+# 👋 Hi, I'm Ralph – UX Designer, Systems Thinker & Digital Tinkerer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my little corner of the internet.\
+This website isn’t just a portfolio — it’s a personal interface to the world.
 
-Currently, two official plugins are available:
+## 🧠 Who I Am
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+I'm a UX designer driven by clarity, systems thinking, and the belief that digital products should feel less like tools and more like second nature.
 
-## Expanding the ESLint configuration
+My focus:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Designing UX for complex digital ecosystems
+- Bridging design quality and technical feasibility
+- Prototyping, testing, iterating — without the buzzword nonsense
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🌐 Why This Website?
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+In a sea of cookie-cutter templates, algorithmically-filtered feeds, and "UX = UI" misconceptions, I wanted a space that’s fully mine. No dark patterns. No noise. Just me — in HTML, CSS, and some honest TS.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+This site has three purposes:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+1. **Self-clarity** – Good UX starts with knowing who you are. This is me, trying to practice what I preach.
+1. **Sandbox** – Design is never done. This is my live testbed for ideas, patterns, and provocations.
+1. **Conversation starter** – If you’ve read this far, you're probably someone I want to talk to. Reach out.
+
+## 💡 What You'll Find Here
+
+- Thoughts on design, tech, ethics, and the messy overlap between them
+- Selected projects that show how I think and work (maybe later)
+- Occasional rants, sketches, and UX experiments (maybe later)
+
+## 🤔 Still Curious?
+
+Drop me a message or follow a link.\
+I don't always reply immediately, but I do reply thoughtfully.
+
+## ✨ On Beauty and Design
+
+*"True beauty arises when every part is in its right place —\
+leaving nothing to add, subtract, or improve."*
