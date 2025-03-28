@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import type { SectionProps } from "../types/types";
+import type { SectionProps } from "../types";
 import { colors } from "../theme/theme";
 
 export const Section: React.FC<SectionProps> = ({
