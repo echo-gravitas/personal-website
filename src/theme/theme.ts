@@ -30,7 +30,7 @@ export const colors = {
   secondatyText: "#808080",
 };
 
-declare module "@mui/material/Typography/Typography" {
+declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     logo: true;
     lead: true;
@@ -38,7 +38,7 @@ declare module "@mui/material/Typography/Typography" {
   }
 }
 
-declare module "@mui/material/Button/Button" {
+declare module "@mui/material/Button" {
   interface ButtonPropsVariantOverrides {
     social: true;
   }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import type { CareerAPIResponse } from "../types/types";
+import type { CareerAPIResponse } from "../types";
 
-export const useFetch = <T,>(
+export const useFetch = <T>(
   url: string,
   transformCareerData?: (data: CareerAPIResponse) => T,
 ) => {

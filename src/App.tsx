@@ -3,7 +3,7 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import NeovimIcon from "./assets/nvim-icon.svg";
 import packageJSON from "../package.json";
-import type { Profiles, Career } from "./types/types";
+import type { Profiles, Career } from "./types";
 import { Design } from "./components/Design";
 import { Ethics } from "./components/Ethics";
 import { ProfileLink } from "./components/ProfileLink";
@@ -26,8 +26,8 @@ const App: React.FC = () => {
   ).matches;
   const [darkMode, setDarkMode] = useState(preferDarkMode);
   const theme = createTheme(baseTheme(darkMode ? "dark" : "light"));
-  const APIendpoint = process.env.REACT_APP_API_ENDPOINT;
-  const userID = process.env.REACT_APP_USER_ID;
+  const APIendpoint = import.meta.env.VITE_API_ENDPOINT;
+  const userID = import.meta.env.VITE_USER_ID;
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
