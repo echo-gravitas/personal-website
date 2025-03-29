@@ -82,7 +82,7 @@ export const baseTheme = (mode: "light" | "dark"): ThemeOptions => ({
     h2: {
       fontSize: "clamp(32px, 4.5vw, 64px)",
       letterSpacing: "-0.05em",
-      fontWeight: 600,
+      fontWeight: 700,
       color: mode === "dark" ? colors.white : colors.black,
     },
     body1: {
