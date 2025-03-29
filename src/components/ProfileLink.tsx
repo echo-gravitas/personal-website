@@ -1,6 +1,5 @@
 import ArrowOutwardOutlinedIcon from "@mui/icons-material/ArrowOutwardOutlined";
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
+import { Button, Grid } from "@mui/material";
 import type { Profile } from "../types";
 
 export const ProfileLink: React.FC<Profile> = ({ label, url }) => {
