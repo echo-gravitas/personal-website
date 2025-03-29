@@ -1,24 +1,23 @@
-import CssBaseline from "@mui/material/CssBaseline";
+import packageJSON from "../package.json";
+import NeovimIcon from "./assets/nvim-icon.svg";
+import { useCallback, useEffect, useState } from "react";
+import { useFetch } from "./hooks/useFetch";
+import { baseTheme } from "./theme/theme";
+import { transformCareerData } from "./transformers/transformCareerData";
+import type { Career, Profiles } from "./types";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-import NeovimIcon from "./assets/nvim-icon.svg";
-import packageJSON from "../package.json";
-import type { Profiles, Career } from "./types";
+import { Container, Grid, IconButton, Link, Typography } from "@mui/material";
+import { CssBaseline } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Design } from "./components/Design";
 import { Ethics } from "./components/Ethics";
 import { ProfileLink } from "./components/ProfileLink";
 import { ProfileLinkSkeleton } from "./components/ProfileLinkSkeleton";
+import { RandomQuote } from "./components/RandomQuote";
 import { Section } from "./components/Section";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { WorkExperienceItem } from "./components/WorkExperienceItem";
 import { WorkExperienceItemSkeleton } from "./components/WorkExperienceItemSkeleton";
-import { baseTheme } from "./theme/theme";
-import { transformCareerData } from "./transformers/transformCareerData";
-import { useFetch } from "./hooks/useFetch";
-import { useState, useEffect } from "react";
-import { Link, Typography, Grid, IconButton, Container } from "@mui/material";
-
-// TODO: Create app icon
 
 const App: React.FC = () => {
   const preferDarkMode = window.matchMedia(
@@ -29,11 +28,27 @@ const App: React.FC = () => {
   const APIendpoint = import.meta.env.VITE_API_ENDPOINT;
   const userID = import.meta.env.VITE_USER_ID;
 
+  const toggleDarkMode = useCallback(() => {
+    setDarkMode((prevMode) => !prevMode);
+  }, []);
+
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handleChange = (e: MediaQueryListEvent) => setDarkMode(e.matches);
     mediaQuery.addEventListener("change", handleChange);
-    return () => mediaQuery.removeEventListener("change", handleChange);
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key.toLowerCase() === "t") {
+        toggleDarkMode();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
 
   const { data: career } = useFetch<Career[]>(
@@ -75,16 +90,7 @@ const App: React.FC = () => {
             </Grid>
           </Grid>
         </Section>
-        <Section padding={{ top: 5, bottom: 5 }}>
-          <Grid container spacing={2}>
-            <Grid>
-              <Typography variant={"h1"}>
-                I’m a passionate product designer dedicated to creating{" "}
-                <span>sustainable user experiences with purpose.</span>
-              </Typography>
-            </Grid>
-          </Grid>
-        </Section>
+        <RandomQuote />
         <Section padding={{ bottom: 5 }}>
           <Grid container spacing={2}>
             <Grid>
