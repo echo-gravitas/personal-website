@@ -49,7 +49,7 @@ const App: React.FC = () => {
       mediaQuery.removeEventListener("change", handleChange);
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [toggleDarkMode]);
 
   const { data: career } = useFetch<Career[]>(
     `${APIendpoint}${userID}/career`,

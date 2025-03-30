@@ -25,7 +25,7 @@ const quotes = [
   </>,
   <>
     Design begins where aesthetics end:{" "}
-    <span>at the moment something works&mdash;&nbsp;effortlessly.</span>
+    <span>at the moment something works&mdash;effortlessly.</span>
   </>,
   <>
     The challenge isn’t creating the design.{" "}
