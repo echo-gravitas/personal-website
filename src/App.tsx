@@ -96,8 +96,8 @@ const App: React.FC = () => {
             <Grid>
               <Typography>
                 Hi, I'm Ralph&mdash;a passionate product designer UI/UX, design
-                ethicist, software developer, cypherpunk, and ham radio operator
-                based in Lucerne, Switzerland.
+                ethicist, software developer, cypherpunk, and ham radio
+                enthusiast based in Lucerne, Switzerland.
               </Typography>
             </Grid>
           </Grid>
@@ -105,7 +105,8 @@ const App: React.FC = () => {
         <Section padding={{ bottom: 10 }}>
           <Grid container spacing={5}>
             {!profiles
-              ? Array.from({ length: 4 }).map(() => <ProfileLinkSkeleton />)
+              ? // biome-ignore lint/correctness/useJsxKeyInIterable: <explanation>
+                Array.from({ length: 4 }).map(() => <ProfileLinkSkeleton />)
               : profiles.online_profiles.map((profile) => (
                   <ProfileLink
                     label={profile.label}
@@ -125,6 +126,7 @@ const App: React.FC = () => {
             <Grid size={{ sm: 12, md: 6 }}>
               {!career
                 ? Array.from({ length: 5 }).map(() => (
+                    // biome-ignore lint/correctness/useJsxKeyInIterable: <explanation>
                     <WorkExperienceItemSkeleton />
                   ))
                 : career.map((career) => (
