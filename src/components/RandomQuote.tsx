@@ -20,10 +20,6 @@ const quotes = [
     <span>Design is knowing which ones to keep.</span>
   </>,
   <>
-    Creativity is allowing yourself to make mistakes.{" "}
-    <span>Design is knowing which ones to keep.</span>
-  </>,
-  <>
     Design begins where aesthetics end:{" "}
     <span>at the moment something works&mdash;effortlessly.</span>
   </>,
