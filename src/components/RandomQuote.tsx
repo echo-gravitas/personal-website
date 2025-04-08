@@ -1,6 +1,6 @@
-import { Typography, Grid } from "@mui/material";
-import { Section } from "./Section";
+import { Grid, Typography } from "@mui/material";
 import { type ReactNode, useEffect, useState } from "react";
+import { Section } from "./Section";
 
 const quotes = [
   <>

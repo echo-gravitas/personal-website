@@ -105,8 +105,7 @@ const App: React.FC = () => {
         <Section padding={{ bottom: 10 }}>
           <Grid container spacing={5}>
             {!profiles
-              ? // biome-ignore lint/correctness/useJsxKeyInIterable: <explanation>
-                Array.from({ length: 4 }).map(() => <ProfileLinkSkeleton />)
+              ? Array.from({ length: 4 }).map(() => <ProfileLinkSkeleton />)
               : profiles.online_profiles.map((profile) => (
                   <ProfileLink
                     label={profile.label}
@@ -126,7 +125,6 @@ const App: React.FC = () => {
             <Grid size={{ sm: 12, md: 6 }}>
               {!career
                 ? Array.from({ length: 5 }).map(() => (
-                    // biome-ignore lint/correctness/useJsxKeyInIterable: <explanation>
                     <WorkExperienceItemSkeleton />
                   ))
                 : career.map((career) => (
