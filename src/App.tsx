@@ -105,7 +105,7 @@ const App: React.FC = () => {
         <Section padding={{ bottom: 10 }}>
           <Grid container spacing={5}>
             {!profiles
-              ? Array.from({ length: 4 }).map(() => <ProfileLinkSkeleton />)
+              ? Array.from({ length: 5 }).map(() => <ProfileLinkSkeleton />)
               : profiles.online_profiles.map((profile) => (
                   <ProfileLink
                     label={profile.label}
