@@ -91,7 +91,7 @@ const App: React.FC = () => {
           </Grid>
         </Section>
         <RandomQuote />
-        <Section padding={{ bottom: 5 }}>
+        <Section padding={{ bottom: 4 }}>
           <Grid container spacing={2}>
             <Grid>
               <Typography>
