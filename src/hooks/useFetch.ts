@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import type { CareerAPIResponse } from "../types";
+import { useState, useEffect } from 'react';
+import type { CareerAPIResponse } from '../types';
 
 export const useFetch = <T>(
   url: string,
@@ -14,11 +14,11 @@ export const useFetch = <T>(
       try {
         setLoading(true);
         const response = await fetch(url);
-        if (!response.ok) throw new Error("Error while loading data");
+        if (!response.ok) throw new Error('Error while loading data');
         const result = await response.json();
         setData(transformCareerData ? transformCareerData(result) : result);
       } catch (err) {
-        setError(err instanceof Error ? err.message : "Unknown error");
+        setError(err instanceof Error ? err.message : 'Unknown error');
       } finally {
         setLoading(false);
       }

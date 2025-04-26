@@ -1,6 +1,6 @@
-import { Box } from "@mui/material";
-import type { SectionProps } from "../types";
-import { colors } from "../theme/theme";
+import { Box } from '@mui/material';
+import type { SectionProps } from '../types';
+import { colors } from '../theme/theme';
 
 export const Section: React.FC<SectionProps> = ({
   children,
@@ -13,8 +13,8 @@ export const Section: React.FC<SectionProps> = ({
       sx={{
         paddingTop: padding.top,
         paddingBottom: padding.bottom,
-        borderTop: borderTop ? `1px solid ${colors.borderColor}` : "none",
-        borderBottom: borderBottom ? `1px solid ${colors.borderColor}` : "none",
+        borderTop: borderTop ? `1px solid ${colors.borderColor}` : 'none',
+        borderBottom: borderBottom ? `1px solid ${colors.borderColor}` : 'none',
       }}
     >
       {children}

@@ -1,4 +1,4 @@
-import type { CareerAPIResponse, Career } from "../types";
+import type { CareerAPIResponse, Career } from '../types';
 
 export const transformCareerData = (data: CareerAPIResponse): Career[] => {
   if (!data.career) return [];
