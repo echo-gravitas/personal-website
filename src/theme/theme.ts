@@ -1,20 +1,20 @@
-import type { ThemeOptions } from "@mui/material/styles";
+import type { ThemeOptions } from '@mui/material/styles';
 
 const catppuccinLatteColors = [
-  "#dc8a78",
-  "#dd7878",
-  "#ea76cb",
-  "#8839ef",
-  "#d20f39",
-  "#e64553",
-  "#fe640b",
-  "#df8e1d",
-  "#40a02b",
-  "#179299",
-  "#04a5e5",
-  "#209fb5",
-  "#1e66f5",
-  "#7287fd",
+  '#dc8a78',
+  '#dd7878',
+  '#ea76cb',
+  '#8839ef',
+  '#d20f39',
+  '#e64553',
+  '#fe640b',
+  '#df8e1d',
+  '#40a02b',
+  '#179299',
+  '#04a5e5',
+  '#209fb5',
+  '#1e66f5',
+  '#7287fd',
 ];
 
 const randomHighlight =
@@ -23,14 +23,14 @@ const randomHighlight =
   ];
 
 export const colors = {
-  white: "#ffffff",
-  black: "#000000",
+  white: '#ffffff',
+  black: '#000000',
   highlight: randomHighlight,
-  borderColor: "#80808066",
-  secondatyText: "#808080",
+  borderColor: '#80808066',
+  secondatyText: '#808080',
 };
 
-declare module "@mui/material/Typography" {
+declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     logo: true;
     lead: true;
@@ -38,13 +38,13 @@ declare module "@mui/material/Typography" {
   }
 }
 
-declare module "@mui/material/Button" {
+declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
     social: true;
   }
 }
 
-export const baseTheme = (mode: "light" | "dark"): ThemeOptions => ({
+export const baseTheme = (mode: 'light' | 'dark'): ThemeOptions => ({
   breakpoints: {
     values: {
       xs: 0,
@@ -58,32 +58,32 @@ export const baseTheme = (mode: "light" | "dark"): ThemeOptions => ({
   palette: {
     mode,
     primary: {
-      main: mode === "dark" ? colors.white : colors.black,
+      main: mode === 'dark' ? colors.white : colors.black,
     },
     background: {
-      default: mode === "dark" ? colors.black : colors.white,
+      default: mode === 'dark' ? colors.black : colors.white,
     },
     text: {
-      primary: mode === "dark" ? colors.white : colors.black,
-      secondary: mode === "dark" ? colors.white : colors.black,
+      primary: mode === 'dark' ? colors.white : colors.black,
+      secondary: mode === 'dark' ? colors.white : colors.black,
     },
   },
   typography: {
     fontFamily: 'Inter, "Helvetica Neue", Helvetica, Arial, sans-serif',
     allVariants: {
-      lineHeight: "120%",
+      lineHeight: '120%',
     },
     h1: {
-      fontSize: "clamp(48px, 5.5vw, 96px)",
+      fontSize: 'clamp(48px, 5.5vw, 96px)',
       fontWeight: 700,
-      letterSpacing: "-0.05em",
-      color: mode === "dark" ? colors.white : colors.black,
+      letterSpacing: '-0.05em',
+      color: mode === 'dark' ? colors.white : colors.black,
     },
     h2: {
-      fontSize: "clamp(32px, 4.5vw, 64px)",
-      letterSpacing: "-0.05em",
+      fontSize: 'clamp(32px, 4.5vw, 64px)',
+      letterSpacing: '-0.05em',
       fontWeight: 700,
-      color: mode === "dark" ? colors.white : colors.black,
+      color: mode === 'dark' ? colors.white : colors.black,
     },
     body1: {
       fontSize: 24,
@@ -91,21 +91,21 @@ export const baseTheme = (mode: "light" | "dark"): ThemeOptions => ({
     },
     body2: {
       fontSize: 20,
-      color: mode === "dark" ? colors.secondatyText : colors.secondatyText,
+      color: mode === 'dark' ? colors.secondatyText : colors.secondatyText,
     },
   },
   components: {
     MuiButton: {
       variants: [
         {
-          props: { variant: "social" },
+          props: { variant: 'social' },
           style: {
-            textTransform: "none",
-            fontSize: 20,
-            padding: 0,
-            "&:hover": {
+            'textTransform': 'none',
+            'fontSize': 20,
+            'padding': 0,
+            '&:hover': {
               color: randomHighlight,
-              transition: "color 200ms",
+              transition: 'color 200ms',
             },
           },
         },
@@ -114,25 +114,25 @@ export const baseTheme = (mode: "light" | "dark"): ThemeOptions => ({
     MuiTypography: {
       variants: [
         {
-          props: { variant: "logo" },
+          props: { variant: 'logo' },
           style: {
-            letterSpacing: "-0.05em",
-            fontSize: 24,
-            fontWeight: 700,
-            "& span": {
+            'letterSpacing': '-0.05em',
+            'fontSize': 24,
+            'fontWeight': 700,
+            '& span': {
               color: colors.highlight,
             },
           },
         },
         {
-          props: { variant: "lead" },
+          props: { variant: 'lead' },
           style: {
             fontSize: 24,
             fontWeight: 600,
           },
         },
         {
-          props: { variant: "footer" },
+          props: { variant: 'footer' },
           style: {
             fontSize: 16,
           },
@@ -140,7 +140,7 @@ export const baseTheme = (mode: "light" | "dark"): ThemeOptions => ({
       ],
       styleOverrides: {
         h1: {
-          "& span": {
+          '& span': {
             color: colors.highlight,
           },
         },

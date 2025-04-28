@@ -1,12 +1,12 @@
-import Grid from "@mui/material/Grid";
-import { Skeleton } from "@mui/material";
+import Grid from '@mui/material/Grid';
+import { Skeleton } from '@mui/material';
 
 export const ProfileLinkSkeleton: React.FC = () => {
   return (
     <Grid>
       <Skeleton
-        variant={"rectangular"}
-        animation={"wave"}
+        variant={'rectangular'}
+        animation={'wave'}
         height={28.8}
         width={200}
       />

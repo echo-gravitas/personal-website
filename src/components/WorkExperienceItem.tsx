@@ -1,6 +1,6 @@
-import { Grid, Typography } from "@mui/material";
-import { Section } from "./Section";
-import type { Career } from "../types";
+import { Grid, Typography } from '@mui/material';
+import { Section } from './Section';
+import type { Career } from '../types';
 
 export const WorkExperienceItem: React.FC<Career> = ({
   position,
@@ -17,11 +17,11 @@ export const WorkExperienceItem: React.FC<Career> = ({
           </Typography>
         </Grid>
         <Grid size={{ xs: 6 }}>
-          <Typography variant={"body2"}>{employer}</Typography>
+          <Typography variant={'body2'}>{employer}</Typography>
         </Grid>
         <Grid size={{ xs: 6 }}>
-          <Typography textAlign={"right"} variant="body2">
-            {from}&ndash;{to === "Present" ? "Present" : to}
+          <Typography textAlign={'right'} variant='body2'>
+            {from}&ndash;{to === 'Present' ? 'Present' : to}
           </Typography>
         </Grid>
       </Grid>

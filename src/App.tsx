@@ -1,30 +1,30 @@
-import packageJSON from "../package.json";
-import NeovimIcon from "./assets/nvim-icon.svg";
-import { useCallback, useEffect, useState } from "react";
-import { useFetch } from "./hooks/useFetch";
-import { baseTheme } from "./theme/theme";
-import { transformCareerData } from "./transformers/transformCareerData";
-import type { Career, Profiles } from "./types";
-import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-import { Container, Grid, IconButton, Link, Typography } from "@mui/material";
-import { CssBaseline } from "@mui/material";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { Design } from "./components/Design";
-import { Ethics } from "./components/Ethics";
-import { ProfileLink } from "./components/ProfileLink";
-import { ProfileLinkSkeleton } from "./components/ProfileLinkSkeleton";
-import { RandomQuote } from "./components/RandomQuote";
-import { Section } from "./components/Section";
-import { WorkExperienceItem } from "./components/WorkExperienceItem";
-import { WorkExperienceItemSkeleton } from "./components/WorkExperienceItemSkeleton";
+import packageJSON from '../package.json';
+import NeovimIcon from './assets/nvim-icon.svg';
+import { useCallback, useEffect, useState } from 'react';
+import { useFetch } from './hooks/useFetch';
+import { baseTheme } from './theme/theme';
+import { transformCareerData } from './transformers/transformCareerData';
+import type { Career, Profiles } from './types';
+import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
+import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
+import { Container, Grid, IconButton, Link, Typography } from '@mui/material';
+import { CssBaseline } from '@mui/material';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Design } from './components/Design';
+import { Ethics } from './components/Ethics';
+import { ProfileLink } from './components/ProfileLink';
+import { ProfileLinkSkeleton } from './components/ProfileLinkSkeleton';
+import { RandomQuote } from './components/RandomQuote';
+import { Section } from './components/Section';
+import { WorkExperienceItem } from './components/WorkExperienceItem';
+import { WorkExperienceItemSkeleton } from './components/WorkExperienceItemSkeleton';
 
 const App: React.FC = () => {
   const preferDarkMode = window.matchMedia(
-    "(prefers-color-scheme: dark)",
+    '(prefers-color-scheme: dark)',
   ).matches;
   const [darkMode, setDarkMode] = useState(preferDarkMode);
-  const theme = createTheme(baseTheme(darkMode ? "dark" : "light"));
+  const theme = createTheme(baseTheme(darkMode ? 'dark' : 'light'));
   const APIendpoint = import.meta.env.VITE_API_ENDPOINT;
   const userID = import.meta.env.VITE_USER_ID;
 
@@ -33,21 +33,21 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const handleChange = (e: MediaQueryListEvent) => setDarkMode(e.matches);
-    mediaQuery.addEventListener("change", handleChange);
+    mediaQuery.addEventListener('change', handleChange);
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key.toLowerCase() === "t") {
+      if (e.key.toLowerCase() === 't') {
         toggleDarkMode();
       }
     };
 
-    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      mediaQuery.removeEventListener("change", handleChange);
-      window.removeEventListener("keydown", handleKeyDown);
+      mediaQuery.removeEventListener('change', handleChange);
+      window.removeEventListener('keydown', handleKeyDown);
     };
   }, [toggleDarkMode]);
 
@@ -63,23 +63,23 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container maxWidth={"lg"}>
+      <Container maxWidth={'lg'}>
         <Section padding={{ top: 2, bottom: 2 }}>
           <Grid
             container
             spacing={2}
-            alignItems={"center"}
-            justifyContent={"space-between"}
+            alignItems={'center'}
+            justifyContent={'space-between'}
           >
             <Grid>
-              <Typography variant={"logo"}>
+              <Typography variant={'logo'}>
                 <span>ralph</span>bolliger.
               </Typography>
             </Grid>
             <Grid>
               <IconButton
                 onClick={() => setDarkMode(!darkMode)}
-                color={"primary"}
+                color={'primary'}
               >
                 {darkMode ? (
                   <LightModeOutlinedIcon />
@@ -118,7 +118,7 @@ const App: React.FC = () => {
         <Section padding={{ bottom: 10 }}>
           <Grid container columns={{ xs: 12 }} spacing={5}>
             <Grid size={{ sm: 12, md: 6 }}>
-              <Typography variant={"h2"}>
+              <Typography variant={'h2'}>
                 A Path Through Design &amp; Technology
               </Typography>
             </Grid>
@@ -142,23 +142,23 @@ const App: React.FC = () => {
         <Design />
         <Ethics />
         <Section padding={{ bottom: 2, top: 2 }} borderTop>
-          <Grid container spacing={2} justifyContent={"space-between"}>
+          <Grid container spacing={2} justifyContent={'space-between'}>
             <Grid>
-              <Typography variant={"footer"}>
+              <Typography variant={'footer'}>
                 &copy; {new Date().getFullYear()} by Ralph Bolliger
               </Typography>
             </Grid>
             <Grid>
-              <Typography variant={"footer"}>
-                v{packageJSON.version} &mdash; Proudly coded in{" "}
-                <Link href="https://neovim.io/" target={"_blank"}>
+              <Typography variant={'footer'}>
+                v{packageJSON.version} &mdash; Proudly coded in{' '}
+                <Link href='https://neovim.io/' target={'_blank'}>
                   <img
                     src={NeovimIcon}
-                    alt={"Neovim"}
-                    title={"Neovim"}
+                    alt={'Neovim'}
+                    title={'Neovim'}
                     width={17}
                     height={20}
-                    style={{ verticalAlign: "text-bottom" }}
+                    style={{ verticalAlign: 'text-bottom' }}
                   />
                 </Link>
               </Typography>
