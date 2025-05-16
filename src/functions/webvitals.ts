@@ -3,11 +3,8 @@ type WebVitalsCallback = (metric: { name: string; value: number }) => void;
 
 const reportWebVitals = (onPerfEntry?: WebVitalsCallback) => {
   if (onPerfEntry && onPerfEntry instanceof Function) {
-    import('web-vitals').then(({ onCLS, onFID, onFCP, onLCP, onTTFB }) => {
+    import('web-vitals').then(({ onCLS, onFCP, onLCP, onTTFB }) => {
       onCLS((metric) =>
-        logEvent('Web Vitals', metric.name, metric.value.toString()),
-      );
-      onFID((metric) =>
         logEvent('Web Vitals', metric.name, metric.value.toString()),
       );
       onFCP((metric) =>
