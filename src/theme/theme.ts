@@ -69,7 +69,8 @@ export const baseTheme = (mode: 'light' | 'dark'): ThemeOptions => ({
     },
   },
   typography: {
-    fontFamily: 'Inter, "Helvetica Neue", Helvetica, Arial, sans-serif',
+    fontFamily:
+      '"Space Grotesk", Inter, "Helvetica Neue", Helvetica, Arial, sans-serif',
     allVariants: {
       lineHeight: '120%',
     },
