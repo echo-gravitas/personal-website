@@ -1,0 +1,76 @@
+<div
+  class='font-mono text-3xl text-gray-500'
+  data-flip-text='C06B 79F0 E860 EF30 0A67
+891F 58A3 18DE 5EEF 1FEC'
+>
+  <a
+    href='https://keys.openpgp.org/search?q=C06B79F0E860EF300A67891F58A318DE5EEF1FEC'
+    target='_blank'
+    title='Download PGP key for encrypted messaging'
+    data-flip-link
+  >
+    <span data-flip-output
+      >C06B 79F0 E860 EF30 0A67<br />891F 58A3 18DE 5EEF 1FEC</span
+    >
+  </a>
+</div>
+
+<script is:inline>
+  const FLIP_CHARSET = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const FLIP_DELAY_MS = 25;
+  const FLIP_DURATION_MS = 1000;
+
+  const containers = document.querySelectorAll('[data-flip-text]');
+  containers.forEach((container) => {
+    const output = container.querySelector('[data-flip-output]');
+    if (!output) return;
+
+    const targetText = container.dataset.flipText || '';
+    output.textContent = '';
+
+    const nodes = [];
+    Array.from(targetText).forEach((char) => {
+      if (char === '\n') {
+        output.appendChild(document.createElement('br'));
+        return;
+      }
+
+      const span = document.createElement('span');
+      span.textContent = char === ' ' ? ' ' : FLIP_CHARSET[0];
+      output.appendChild(span);
+      nodes.push({ span, target: char });
+    });
+
+    const startTime = performance.now();
+    const tick = (now) => {
+      let pending = false;
+
+      nodes.forEach((node, index) => {
+        if (node.target === ' ') {
+          node.span.textContent = ' ';
+          return;
+        }
+
+        const startAt = startTime + index * FLIP_DELAY_MS;
+        if (now < startAt) {
+          pending = true;
+          return;
+        }
+
+        const progress = (now - startAt) / FLIP_DURATION_MS;
+        if (progress >= 1) {
+          node.span.textContent = node.target;
+          return;
+        }
+
+        node.span.textContent =
+          FLIP_CHARSET[Math.floor(Math.random() * FLIP_CHARSET.length)];
+        pending = true;
+      });
+
+      if (pending) requestAnimationFrame(tick);
+    };
+
+    requestAnimationFrame(tick);
+  });
+</script>

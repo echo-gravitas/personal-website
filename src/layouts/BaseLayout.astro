@@ -1,14 +1,24 @@
 ---
 import '../styles/global.css';
+
+const { title } = Astro.props;
+const pageTitle = title
+  ? `${title} | Ralph Bolliger — Senior Experience Designer`
+  : 'Ralph Bolliger — Senior Experience Designer';
 ---
 
 <!doctype html>
 <html lang='en'>
   <head>
     <meta charset='utf-8' />
+    <link rel='icon' href='/img/favicon.ico' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <meta name='generator' content={Astro.generator} />
-    <title>Astro</title>
+    <meta
+      name='description'
+      content='A passionate product designer dedicated to creating sustainable user experiences with purpose.'
+    />
+    <title>{pageTitle}</title>
   </head>
   <body class='bg-black'>
     <slot />
