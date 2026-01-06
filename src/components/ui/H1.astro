@@ -1,5 +1,10 @@
+---
+const { class: className = '' } = Astro.props;
+---
+
 <h1
-  class='text-white leading-none tracking-tighter text-[clamp(4rem,10vw,10vw)]'
+  class=`text-white font-bold md:font-normal leading-none tracking-tighter text-[15vw] md:text-[16vw] lg:text-[10vw] xl:text-[11vw] ${className}`
+  .trim()
 >
   <slot />
 </h1>
