@@ -1,6 +1,5 @@
 ---
 import Section from '../Section.astro';
-import H3 from '../ui/H3.astro';
 import statements from '../../data/purpose.json';
 
 const statement =
@@ -10,10 +9,10 @@ const statement =
 
 <Section id='purpose'>
   <div
-    class='flex justify-center items-center h-full bg-[url(/img/clock.svg)] bg-center bg-no-repeat sm:bg-size-[10%] md:bg-size-[90%] lg:bg-size-[33%]'
+    class='flex justify-center items-center h-full bg-[url(/img/network.svg)] bg-center bg-no-repeat bg-cover'
   >
-    <H3
-      class='sm:w-1/1 md:w-9/10 lg:w-1/3 text-white text-center'
+    <p
+      class='text-white text-center leading-none tracking-tighter font-light w-[90%] md:w-[75%] text-[8vw] md:text-[6vw] lg:text-[6vw]'
       set:html={statement}
     />
   </div>
