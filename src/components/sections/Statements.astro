@@ -2,8 +2,7 @@
 import Section from '../Section.astro';
 import statements from '../../data/purpose.json';
 
-const statement =
-  statements[Math.floor(Math.random() * statements.length)] ??
+const statementFallback =
   "I'm a passionate product designer dedicated to creating sustainable user experiences with purpose.";
 ---
 
@@ -12,8 +11,20 @@ const statement =
     class='flex justify-center items-center h-full bg-[url(/img/network.svg)] bg-center bg-no-repeat bg-cover'
   >
     <p
+      id='statement'
       class='text-white text-center leading-none tracking-tighter font-light w-[90%] md:w-[75%] text-[8vw] md:text-[6vw] lg:text-[6vw]'
-      set:html={statement}
+      set:html={statementFallback}
     />
   </div>
 </Section>
+
+<script is:inline define:vars={{ statements, statementFallback }}>
+  const fallback = statementFallback;
+  const el = document.getElementById('statement');
+
+  if (el && Array.isArray(statements) && statements.length > 0) {
+    const statement =
+      statements[Math.floor(Math.random() * statements.length)] ?? fallback;
+    el.innerHTML = statement;
+  }
+</script>
