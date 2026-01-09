@@ -1,0 +1,26 @@
+<div data-cursor-widget class='font-mono'>
+  <div>
+    <span class='text-gray-500'>[X].</span><span data-cursor-x>0000</span>
+  </div>
+  <div>
+    <span class='text-gray-500'>[Y].</span><span data-cursor-y>0000</span>
+  </div>
+
+  <script is:inline>
+    if (!window.__cursorCoordsListener) {
+      window.__cursorCoordsListener = (event) => {
+        const widget = document.querySelector('[data-cursor-widget]');
+        if (!widget) return;
+
+        const xEl = widget.querySelector('[data-cursor-x]');
+        const yEl = widget.querySelector('[data-cursor-y]');
+        if (!xEl || !yEl) return;
+
+        xEl.textContent = `${event.clientX.toFixed(0)}`;
+        yEl.textContent = `${event.clientY.toFixed(0)}`;
+      };
+
+      window.addEventListener('mousemove', window.__cursorCoordsListener);
+    }
+  </script>
+</div>
