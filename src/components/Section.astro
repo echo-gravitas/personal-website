@@ -1,15 +1,17 @@
 ---
-const { id } = Astro.props;
+const { id, showBorder = true } = Astro.props;
 ---
 
 <section class='h-svh p-4 relative' id={id}>
-  <div
-    class='-z-1 absolute top-0 bottom-0 left-4 right-4 border-l border-r border-solid border-gray-800'
-  >
-  </div>
-  <div
-    class='-z-1 absolute top-4 bottom-4 left-0 right-0 border-t border-b border-solid border-gray-800'
-  >
-  </div>
+  {
+    showBorder && (
+      <div class='-z-1 absolute top-0 bottom-0 left-4 right-4 border-l border-r border-solid border-gray-800' />
+    )
+  }
+  {
+    showBorder && (
+      <div class='-z-1 absolute top-4 bottom-4 left-0 right-0 border-t border-b border-solid border-gray-800' />
+    )
+  }
   <slot />
 </section>
