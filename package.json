@@ -1,7 +1,7 @@
 {
   "name": "personal-website",
   "description": "My very new peronal website",
-  "version": "4.1.4",
+  "version": "4.2.0",
   "private": true,
   "author": {
     "name": "Ralph Bolliger",
@@ -24,6 +24,7 @@
   "dependencies": {
     "@lucide/astro": "^0.562.0",
     "@tailwindcss/vite": "^4.1.18",
+    "gsap": "^3.14.2",
     "tailwindcss": "^4.1.18"
   }
 }
