@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@darkstar/prettier": "1.0.1",
-    "astro": "^5.16.6",
+    "astro": "^5.17.1",
     "sass": "^1.97.1"
   },
   "dependencies": {
