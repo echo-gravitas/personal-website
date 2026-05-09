@@ -16,6 +16,10 @@
   --spacing-base-double: 2.5rem;
   --spacing-base-quadruple: 5rem;
 
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
   --text-small: 0.875rem;
   --text-small--line-height: normal;
 
@@ -68,13 +72,12 @@
 
 body {
   font-family: var(--font-default);
-  min-height: 100vh;
   background-color: var(--theme-page);
   color: var(--theme-font);
   padding: var(--spacing-base);
   transition:
-    background-color 240ms ease,
-    color 240ms ease;
+    background-color 200ms ease,
+    color 200ms ease;
 }
 
 .logo-mark {

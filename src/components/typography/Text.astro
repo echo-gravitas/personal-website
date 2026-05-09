@@ -2,7 +2,7 @@
 type TextVariant = 'small' | 'normal' | 'large' | 'lead';
 type TextSpaceAfter = 'none' | 'small' | 'normal' | 'large';
 type TextTone = 'default' | 'muted' | 'accent';
-type TextWeight = 'normal' | 'bold';
+type TextWeight = 'light' | 'normal' | 'bold';
 
 type Props = {
   as?: string;
@@ -38,6 +38,7 @@ const tones: Record<TextTone, string> = {
 };
 
 const weights: Record<TextWeight, string> = {
+  light: 'font-light',
   normal: 'font-normal',
   bold: 'font-bold',
 };
