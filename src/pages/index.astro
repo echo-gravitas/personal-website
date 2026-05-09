@@ -44,6 +44,20 @@ const pathItems = [
       'Exploring psychology, philosophy, software, radio technology, and security advocacy.',
   },
 ];
+const focusItems = [
+  {
+    title: 'Complex interfaces',
+    text: 'Product and service interfaces where users need clarity, not decoration.',
+  },
+  {
+    title: 'Responsible Digital Products',
+    text: 'Design decisions involving privacy, transparency, autonomy, or sensitive workflows.',
+  },
+  {
+    title: 'Systems & Communication',
+    text: 'Projects around resilient communication, technical infrastructure, or independent digital tools.',
+  },
+];
 ---
 
 <BaseLayout title='Ralph Bolliger — Senior Experience Designer'>
@@ -104,6 +118,47 @@ const pathItems = [
         >Design begins where aesthetics end: at the moment something
         works&mdash;effortlessly.</LargeText
       >
+    </div>
+  </Section>
+  <Section>
+    <div slot='left'>
+      <NormalText class='text-normal' spaceAfter='small' weight='bold'
+        >Focus</NormalText
+      >
+    </div>
+    <div slot='right'>
+      <LargeText class='mb-base-double'
+        >I work best on projects where design, technology, and responsibility
+        meet. Especially when systems are complex, interfaces need to become
+        clearer, or trust depends on how information is structured and
+        presented.</LargeText
+      >
+
+      <Columns columns={focusItems} />
+    </div>
+  </Section>
+  <Section>
+    <div slot='left'>
+      <NormalText class='text-normal' spaceAfter='small' weight='bold'
+        >Identity</NormalText
+      >
+    </div>
+    <div slot='right'>
+      <LargeText class='mb-base-double'
+        >I do not publish direct contect channels here. If you need to verify my
+        digital identity or establish a trusted way to reach me, use my public
+        OpenGPG key.</LargeText
+      >
+      <NormalText>
+        <a
+          href='https://keys.openpgp.org/search?q=ralph.bolliger%40pm.me'
+          class='text-accent underline'
+          rel='noreferrer'
+          target='_blank'
+        >
+          FC84 CC79 8DD1 C935 6857 6F3B EE36 9AC6 9EF1 7BD8
+        </a>
+      </NormalText>
     </div>
   </Section>
 </BaseLayout>
