@@ -1,14 +1,13 @@
-const themes = ['dark', 'light'] as const;
-type Theme = (typeof themes)[number];
+import { applyTheme, defaultTheme, isTheme, themes, type Theme } from './themes';
 
 const getTheme = (): Theme => {
   const theme = document.documentElement.dataset.theme;
 
-  return theme === 'light' || theme === 'dark' ? theme : 'dark';
+  return isTheme(theme) ? theme : defaultTheme;
 };
 
 const setTheme = (theme: Theme) => {
-  document.documentElement.dataset.theme = theme;
+  applyTheme(theme);
 
   try {
     localStorage.setItem('theme', theme);
