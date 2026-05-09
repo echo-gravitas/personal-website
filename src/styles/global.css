@@ -34,21 +34,12 @@
 }
 
 @layer base {
-  :root,
-  html[data-theme='dark'] {
+  :root {
     --theme-page: #060606;
     --theme-font: #f8f8f5;
     --theme-muted: #a1a1a1;
     --theme-accent: #f8f8f5;
     --theme-border: #232323;
-  }
-
-  html[data-theme='light'] {
-    --theme-page: #f8f8f5;
-    --theme-font: #060606;
-    --theme-muted: #737373;
-    --theme-accent: #060606;
-    --theme-border: #d9d9d9;
   }
 
   html {
