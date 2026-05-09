@@ -1,0 +1,33 @@
+---
+import packageJson from '../../package.json';
+import SmallText from './typography/SmallText.astro';
+
+const version = packageJson.version;
+const getMonthYear = (date: Date) => {
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+
+  return `${month}.${year}`;
+};
+---
+
+<footer class='mt-base-quadruple flex justify-between border-t pt-base'>
+  <SmallText tone='muted'>
+    &copy; <span data-current-month-year>{getMonthYear(new Date())}</span>
+    &mdash;
+    {version}
+  </SmallText>
+  <SmallText tone='muted'>Ralph Bolliger</SmallText>
+</footer>
+
+<script>
+  const currentMonthYear = document.querySelector('[data-current-month-year]');
+
+  if (currentMonthYear) {
+    const now = new Date();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const year = now.getFullYear();
+
+    currentMonthYear.textContent = `${month}.${year}`;
+  }
+</script>
