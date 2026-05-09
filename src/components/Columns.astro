@@ -1,0 +1,32 @@
+---
+import NormalText from './typography/NormalText.astro';
+
+type Column = {
+  text: string;
+  title: string;
+};
+
+type Props = {
+  columns: Column[];
+};
+
+const { columns } = Astro.props;
+---
+
+<div class='grid gap-base lg:grid-cols-3'>
+  {
+    columns.map((column) => (
+      <article>
+        <NormalText
+          as='h3'
+          class='border-b pb-base-half'
+          spaceAfter='small'
+          weight='bold'
+        >
+          {column.title}
+        </NormalText>
+        <NormalText tone='muted'>{column.text}</NormalText>
+      </article>
+    ))
+  }
+</div>

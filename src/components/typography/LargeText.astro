@@ -1,9 +1,9 @@
 ---
 import Text from './Text.astro';
 
-const { variant, ...props } = Astro.props;
+const { variant, weight = 'light', ...props } = Astro.props;
 ---
 
-<Text {...props} variant='large'>
+<Text {...props} variant='large' weight={weight}>
   <slot />
 </Text>

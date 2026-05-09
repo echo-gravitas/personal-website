@@ -1,0 +1,25 @@
+---
+import NormalText from './typography/NormalText.astro';
+
+type SplitListItem = {
+  label: string;
+  value: string;
+};
+
+type Props = {
+  items: SplitListItem[];
+};
+
+const { items } = Astro.props;
+---
+
+<div>
+  {
+    items.map((item) => (
+      <div class='grid gap-base border-t py-base md:grid-cols-[1fr_1.618fr]'>
+        <NormalText weight='bold'>{item.label}</NormalText>
+        <NormalText tone='muted'>{item.value}</NormalText>
+      </div>
+    ))
+  }
+</div>

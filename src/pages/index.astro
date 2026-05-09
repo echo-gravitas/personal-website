@@ -1,12 +1,53 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Columns from '../components/Columns.astro';
 import Section from '../components/Section.astro';
+import SplitList from '../components/SplitList.astro';
+import LargeText from '../components/typography/LargeText.astro';
 import LeadText from '../components/typography/LeadText.astro';
 import NormalText from '../components/typography/NormalText.astro';
+
+const howColumns = [
+  {
+    title: 'Question defaults',
+    text: 'I look for hidden assumptions in product decisions, systems, and interactions before turning them into interface patterns.',
+  },
+  {
+    title: 'Shape systems',
+    text: 'I design reusable structures that keep products coherent while leaving room for teams to adapt and learn.',
+  },
+  {
+    title: 'Respect people',
+    text: 'I focus on choices, context, and consequences so digital experiences support people instead of steering them silently.',
+  },
+];
+
+const pathItems = [
+  {
+    label: 'Digital communication',
+    value:
+      'Early work across campaigns, content systems, and digital touchpoints.',
+  },
+  {
+    label: 'Project leadership',
+    value:
+      'Planning, coordination, and delivery of interdisciplinary digital work.',
+  },
+  {
+    label: 'Product design',
+    value:
+      'Designing interfaces, flows, and systems for resilient user experiences.',
+  },
+  {
+    label: 'Independent research',
+    value:
+      'Exploring psychology, philosophy, software, radio technology, and security advocacy.',
+  },
+];
 ---
 
 <BaseLayout title='Ralph Bolliger — Senior Experience Designer'>
-  <Section>
+  <Section margin='base'>
     <div slot='left'>
       <NormalText class='text-normal' spaceAfter='small' weight='bold'
         >Why</NormalText
@@ -26,6 +67,43 @@ import NormalText from '../components/typography/NormalText.astro';
         passionate about creating meaningful and impactful experiences for
         users.
       </LeadText>
+    </div>
+  </Section>
+  <Section border='none'>
+    <div slot='left'>
+      <NormalText class='text-normal' spaceAfter='small' weight='bold'
+        >How</NormalText
+      >
+    </div>
+    <div slot='right'>
+      <Columns columns={howColumns} />
+      <LargeText class='mt-base-double'>
+        Going dark is no longer an option.
+      </LargeText>
+    </div>
+  </Section>
+  <Section>
+    <div slot='left'>
+      <NormalText class='text-normal' spaceAfter='small' weight='bold'
+        >Practice</NormalText
+      >
+    </div>
+    <div slot='right'>
+      <LargeText
+        >My work began in digital communication, moved trough project
+        leadership, and evolved into product and experience design. Outside
+        client work, I explore behavioral psychology, philosophy, software,
+        radio technology, and security advocavy. Not as separate interests, but
+        as different ways of understanding how people and systems interact.</LargeText
+      >
+      <NormalText weight='bold' class='mt-base-double mb-base-double'
+        >Path</NormalText
+      >
+      <SplitList items={pathItems} />
+      <LargeText class='mt-base'
+        >Design begins where aesthetics end: at the moment something
+        works&mdash;effortlessly.</LargeText
+      >
     </div>
   </Section>
 </BaseLayout>
