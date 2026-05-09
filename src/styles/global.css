@@ -11,6 +11,11 @@
   --color-accent: var(--theme-accent);
   --color-border: var(--theme-border);
 
+  --spacing-base-half: 0.625rem;
+  --spacing-base: 1.25rem;
+  --spacing-base-double: 2.5rem;
+  --spacing-base-quadruple: 5rem;
+
   --text-small: 0.875rem;
   --text-small--line-height: normal;
 
@@ -66,6 +71,7 @@ body {
   min-height: 100vh;
   background-color: var(--theme-page);
   color: var(--theme-font);
+  padding: var(--spacing-base);
   transition:
     background-color 240ms ease,
     color 240ms ease;

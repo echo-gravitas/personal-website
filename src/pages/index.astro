@@ -1,11 +1,31 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import GoldenSection from '../components/GoldenSection.astro';
+import LeadText from '../components/typography/LeadText.astro';
+import NormalText from '../components/typography/NormalText.astro';
 ---
 
 <BaseLayout title='Ralph Bolliger — Senior Experience Designer'>
   <GoldenSection>
-    <div slot='left'>left</div>
-    <div slot='right'>right</div>
+    <div slot='left'>
+      <NormalText class='text-normal' spaceAfter='small' weight='bold'
+        >Why</NormalText
+      >
+    </div>
+    <div slot='right'>
+      <LeadText spaceAfter='large'>
+        I believe that digital technologies should expand human freedon, not
+        deminish it. Because our identities choices, and relationships are
+        increasingly mediated by digital systems, I design resilient systems by
+        questioning defaults. Skeptical by default. Responsible by design.
+      </LeadText>
+      <LeadText>
+        I am a senior product designer with over a decade of experience in
+        crafting digital products and services. I have a strong background in
+        user-centered design, interaction design, and visual design, and I am
+        passionate about creating meaningful and impactful experiences for
+        users.
+      </LeadText>
+    </div>
   </GoldenSection>
 </BaseLayout>

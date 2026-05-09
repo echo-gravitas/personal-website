@@ -1,0 +1,63 @@
+---
+type TextVariant = 'small' | 'normal' | 'large' | 'lead';
+type TextSpaceAfter = 'none' | 'small' | 'normal' | 'large';
+type TextTone = 'default' | 'muted' | 'accent';
+type TextWeight = 'normal' | 'bold';
+
+type Props = {
+  as?: string;
+  class?: string;
+  spaceAfter?: TextSpaceAfter;
+  tone?: TextTone;
+  variant?: TextVariant;
+  weight?: TextWeight;
+};
+
+const {
+  as = 'p',
+  class: className,
+  spaceAfter = 'none',
+  tone = 'default',
+  variant = 'normal',
+  weight = 'normal',
+} = Astro.props;
+
+const Tag = as;
+
+const variants: Record<TextVariant, string> = {
+  small: 'text-small',
+  normal: 'text-normal',
+  large: 'text-large',
+  lead: 'text-lead',
+};
+
+const tones: Record<TextTone, string> = {
+  default: 'text-font',
+  muted: 'text-muted',
+  accent: 'text-accent',
+};
+
+const weights: Record<TextWeight, string> = {
+  normal: 'font-normal',
+  bold: 'font-bold',
+};
+
+const spacesAfter: Record<TextSpaceAfter, string | undefined> = {
+  none: undefined,
+  small: 'mb-base-half',
+  normal: 'mb-base',
+  large: 'mb-base-double',
+};
+---
+
+<Tag
+  class:list={[
+    variants[variant],
+    tones[tone],
+    weights[weight],
+    spacesAfter[spaceAfter],
+    className,
+  ]}
+>
+  <slot />
+</Tag>

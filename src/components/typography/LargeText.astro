@@ -1,0 +1,9 @@
+---
+import Text from './Text.astro';
+
+const { variant, ...props } = Astro.props;
+---
+
+<Text {...props} variant='large'>
+  <slot />
+</Text>

@@ -25,19 +25,19 @@ const pageTitle = title
 
       try {
         const storedTheme = localStorage.getItem('theme');
-        theme = storedTheme === 'light' || storedTheme === 'dark'
-          ? storedTheme
-          : theme;
-      } catch {
-      }
+        theme =
+          storedTheme === 'light' || storedTheme === 'dark'
+            ? storedTheme
+            : theme;
+      } catch {}
 
       document.documentElement.dataset.theme = theme;
     </script>
     <title>{pageTitle}</title>
   </head>
   <body>
-    <Header />
     <MainContainer>
+      <Header />
       <slot />
     </MainContainer>
     <script src='../scripts/main.js'></script>
