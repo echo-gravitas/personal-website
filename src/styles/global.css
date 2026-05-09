@@ -1,8 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 @import 'tailwindcss';
 
-@theme base {
+@theme {
   --font-default: 'Space Grotesk', sans-serif;
+
+  --text-small: 0.875rem;
+  --text-small--line-height: normal;
+
+  --text-normal: 1rem;
+  --text-normal--line-height: normal;
+
+  --text-large: 1.25rem;
+  --text-large--line-height: normal;
+
+  --text-lead: 1.5rem;
+  --text-lead--line-height: normal;
 }
 
 body {
