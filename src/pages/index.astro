@@ -1,10 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import GoldenSection from '../components/GoldenSection.astro';
 ---
 
 <BaseLayout title='Ralph Bolliger — Senior Experience Designer'>
-  <p class='text-small'>Welcome to my personal website!</p>
-  <p class='text-normal'>Welcome to my personal website!</p>
-  <p class='text-large'>Welcome to my personal website!</p>
-  <p class='text-lead'>Welcome to my personal website!</p>
+  <GoldenSection>
+    <div slot='left'>left</div>
+    <div slot='right'>right</div>
+  </GoldenSection>
 </BaseLayout>

@@ -1,0 +1,21 @@
+---
+import { Palette } from '@lucide/astro';
+---
+
+<header class='mx-auto flex w-full max-w-5xl items-center justify-between py-5'>
+  <a
+    href='/'
+    aria-label='Ralph Bolliger'
+    class='inline-flex size-10 items-center justify-center rounded-full bg-amber-700'
+  >
+    <img src='/img/logo.svg' alt='' class='size-full p-3' />
+  </a>
+
+  <button
+    type='button'
+    aria-label='Change color palette'
+    class='inline-flex size-10 items-center justify-center rounded-full'
+  >
+    <Palette aria-hidden='true' size={20} />
+  </button>
+</header>

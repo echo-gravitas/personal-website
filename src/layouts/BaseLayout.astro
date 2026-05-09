@@ -1,4 +1,6 @@
 ---
+import Header from '../components/Header.astro';
+import MainContainer from '../components/MainContainer.astro';
 import '../styles/global.css';
 
 const { title } = Astro.props;
@@ -21,9 +23,10 @@ const pageTitle = title
     <title>{pageTitle}</title>
   </head>
   <body>
-    <main>
+    <Header />
+    <MainContainer>
       <slot />
-    </main>
+    </MainContainer>
     <script src='../scripts/main.js'></script>
   </body>
 </html>
