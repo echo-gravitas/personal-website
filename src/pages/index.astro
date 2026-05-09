@@ -6,6 +6,8 @@ import SplitList from '../components/SplitList.astro';
 import LargeText from '../components/typography/LargeText.astro';
 import LeadText from '../components/typography/LeadText.astro';
 import NormalText from '../components/typography/NormalText.astro';
+import { Image } from 'astro:assets';
+import portrait from '../images/portrait.jpg';
 
 const howColumns = [
   {
@@ -133,6 +135,12 @@ const focusItems = [
       <NormalText spaceAfter='small' weight='bold'>Identity</NormalText>
     </div>
     <div slot='right'>
+      <Image
+        alt='Portrait of Ralph Bolliger'
+        title='Portrait of Ralph Bolliger'
+        src={portrait}
+        class='mb-base-double rounded-2xl'
+      />
       <LargeText class='mb-base-double'
         >I do not publish direct contact channels here. If you need to verify my
         digital identity or establish a trusted way to reach me, use my public
@@ -142,7 +150,7 @@ const focusItems = [
         <a
           title='Click to get OpenPGP key'
           href='/pgp'
-          class='font-mono text-accent'
+          class='font-mono text-accent underline underline-offset-4'
           rel='noreferrer'
           target='_blank'
         >
