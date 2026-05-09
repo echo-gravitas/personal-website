@@ -6,15 +6,16 @@ import { Palette } from '@lucide/astro';
   <a
     href='/'
     aria-label='Ralph Bolliger'
-    class='inline-flex size-10 items-center justify-center rounded-full bg-amber-700'
+    class='inline-flex size-10 items-center justify-center rounded-full bg-accent'
   >
-    <img src='/img/logo.svg' alt='' class='size-full p-3' />
+    <span class='logo-mark size-full p-3' aria-hidden='true'></span>
   </a>
 
   <button
     type='button'
-    aria-label='Change color palette'
-    class='inline-flex size-10 items-center justify-center rounded-full'
+    aria-label='Change mood'
+    data-theme-toggle
+    class='inline-flex size-10 cursor-pointer items-center justify-center rounded-full'
   >
     <Palette aria-hidden='true' size={20} />
   </button>

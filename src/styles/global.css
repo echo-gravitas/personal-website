@@ -5,6 +5,12 @@
 @theme static {
   --font-default: 'Space Grotesk', sans-serif;
 
+  --color-page: var(--theme-page);
+  --color-font: var(--theme-font);
+  --color-muted: var(--theme-muted);
+  --color-accent: var(--theme-accent);
+  --color-border: var(--theme-border);
+
   --text-small: 0.875rem;
   --text-small--line-height: normal;
 
@@ -18,6 +24,56 @@
   --text-lead--line-height: normal;
 }
 
+@layer base {
+  :root,
+  html[data-theme='dark'] {
+    --theme-page: #060606;
+    --theme-font: #f8f8f5;
+    --theme-muted: #a1a1a1;
+    --theme-accent: #f8f8f5;
+    --theme-border: #232323;
+  }
+
+  html[data-theme='light'] {
+    --theme-page: #f8f8f5;
+    --theme-font: #060606;
+    --theme-muted: #737373;
+    --theme-accent: #060606;
+    --theme-border: #d9d9d9;
+  }
+
+  html {
+    background-color: var(--theme-page);
+    color: var(--theme-font);
+    transition:
+      background-color 240ms ease,
+      color 240ms ease;
+  }
+
+  * {
+    border-color: var(--theme-border);
+    transition:
+      background-color 240ms ease,
+      border-color 240ms ease,
+      color 240ms ease,
+      fill 240ms ease,
+      stroke 240ms ease;
+  }
+}
+
 body {
   font-family: var(--font-default);
+  min-height: 100vh;
+  background-color: var(--theme-page);
+  color: var(--theme-font);
+  transition:
+    background-color 240ms ease,
+    color 240ms ease;
+}
+
+.logo-mark {
+  display: block;
+  background-color: var(--theme-page);
+  mask: url('/img/logo.svg') center / calc(100% - 1.5rem) auto no-repeat;
+  transition: background-color 240ms ease;
 }

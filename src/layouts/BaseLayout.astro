@@ -20,6 +20,19 @@ const pageTitle = title
       content='I design resilient systems by questioning defaults. Skeptical by default. Responsible by design.'
     />
     <meta name='credo' content='Going dark is no longer an option.' />
+    <script is:inline>
+      let theme = 'dark';
+
+      try {
+        const storedTheme = localStorage.getItem('theme');
+        theme = storedTheme === 'light' || storedTheme === 'dark'
+          ? storedTheme
+          : theme;
+      } catch {
+      }
+
+      document.documentElement.dataset.theme = theme;
+    </script>
     <title>{pageTitle}</title>
   </head>
   <body>
