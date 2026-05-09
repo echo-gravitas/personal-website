@@ -55,18 +55,18 @@
     background-color: var(--theme-page);
     color: var(--theme-font);
     transition:
-      background-color 240ms ease,
-      color 240ms ease;
+      background-color 200ms ease,
+      color 200ms ease;
   }
 
   * {
     border-color: var(--theme-border);
     transition:
-      background-color 240ms ease,
-      border-color 240ms ease,
-      color 240ms ease,
-      fill 240ms ease,
-      stroke 240ms ease;
+      background-color 200ms ease,
+      border-color 200ms ease,
+      color 200ms ease,
+      fill 200ms ease,
+      stroke 200ms ease;
   }
 }
 
@@ -84,5 +84,5 @@ body {
   display: block;
   background-color: var(--theme-page);
   mask: url('/img/logo.svg') center / calc(100% - 1.5rem) auto no-repeat;
-  transition: background-color 240ms ease;
+  transition: background-color 200ms ease;
 }
