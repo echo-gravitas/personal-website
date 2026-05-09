@@ -13,7 +13,7 @@ const getMonthYear = (date: Date) => {
 
 <footer class='mt-base-quadruple flex justify-between border-t pt-base'>
   <SmallText tone='muted'>
-    <span data-current-month-year>&copy; {getMonthYear(new Date())}</span>
+    &copy; <span data-current-month-year>{getMonthYear(new Date())}</span>
     &mdash;
     {version}
   </SmallText>
