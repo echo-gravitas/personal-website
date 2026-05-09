@@ -1,26 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono&display=swap');
+@import 'tailwindcss';
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import "tailwindcss";
+@theme static {
+  --font-default: 'Space Grotesk', sans-serif;
+  --font-mono: 'Space Mono', monospace;
 
-@theme {
-  --font-sans: "Inter";
-  --font-mono: "Space Mono";
+  --color-page: var(--theme-page);
+  --color-font: var(--theme-font);
+  --color-muted: var(--theme-muted);
+  --color-accent: var(--theme-accent);
+  --color-border: var(--theme-border);
+
+  --spacing-base-half: 0.625rem;
+  --spacing-base: 1.25rem;
+  --spacing-base-double: 2.5rem;
+  --spacing-base-quadruple: 5rem;
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  --text-small: 0.875rem;
+  --text-small--line-height: normal;
+
+  --text-normal: 1rem;
+  --text-normal--line-height: normal;
+
+  --text-large: 1.25rem;
+  --text-large--line-height: normal;
+
+  --text-lead: 1.5rem;
+  --text-lead--line-height: normal;
 }
 
 @layer base {
-  html { scroll-behavior: smooth; }
-  body { @apply font-sans; }
+  :root,
+  html[data-theme='dark'] {
+    --theme-page: #060606;
+    --theme-font: #f8f8f5;
+    --theme-muted: #a1a1a1;
+    --theme-accent: #f8f8f5;
+    --theme-border: #232323;
+  }
+
+  html[data-theme='light'] {
+    --theme-page: #f8f8f5;
+    --theme-font: #060606;
+    --theme-muted: #737373;
+    --theme-accent: #060606;
+    --theme-border: #d9d9d9;
+  }
+
+  html {
+    background-color: var(--theme-page);
+    color: var(--theme-font);
+    transition:
+      background-color 200ms ease,
+      color 200ms ease;
+  }
+
+  * {
+    border-color: var(--theme-border);
+    transition:
+      background-color 200ms ease,
+      border-color 200ms ease,
+      color 200ms ease,
+      fill 200ms ease,
+      stroke 200ms ease;
+  }
 }
 
-.mono {
-  font-family: var(--font-mono);
+body {
+  font-family: var(--font-default);
+  background-color: var(--theme-page);
+  color: var(--theme-font);
+  padding: var(--spacing-base);
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
 }
 
-::selection {
-  background-color: magenta;
-  color: black;
-}
-
-svg {
-  display: inline-block;
+.logo-mark {
+  display: block;
+  background-color: var(--theme-page);
+  mask: url('/img/logo.svg') center / calc(100% - 1.5rem) auto no-repeat;
+  transition: background-color 200ms ease;
 }

@@ -1,12 +1,154 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Home from '../components/sections/Home.astro';
-import Statements from '../components/sections/Statements.astro';
-import Purpose from '../components/sections/Purpose.astro';
+import Columns from '../components/Columns.astro';
+import Section from '../components/Section.astro';
+import SplitList from '../components/SplitList.astro';
+import LargeText from '../components/typography/LargeText.astro';
+import LeadText from '../components/typography/LeadText.astro';
+import NormalText from '../components/typography/NormalText.astro';
+
+const howColumns = [
+  {
+    title: 'Experience Design',
+    text: 'I design digital products that are clear, humane, and trustworthy, helping people understand, decide, and act with confidence.',
+  },
+  {
+    title: 'Security & Resilience',
+    text: 'I examine systems critically to reveal weaknesses, reduce hidden risks, and strengthen privacy, trust, and autonomy.',
+  },
+  {
+    title: 'Independent Communication',
+    text: 'I explore open and resilient communication systems that keep people connected beyond centralized platforms and fragile infrastructure.',
+  },
+];
+
+const pathItems = [
+  {
+    label: 'Digital Communication',
+    value:
+      'Online marketing taught me how digital systems shape attention, behavior, and trust.',
+  },
+  {
+    label: 'Project Leadership',
+    value:
+      'Leading projects taught me how strategy, people, technology, and delivery collide in real organizations.',
+  },
+  {
+    label: 'Product & Experience Design',
+    value:
+      'Today, I design interfaces, workflows, and digital products that make complexity understandable and usable.',
+  },
+  {
+    label: 'Independent Systems & Community',
+    value:
+      'Through amateur radio, security advocacy, and community leadership, I explore communication, resilience, and digital self-determination beyond commercial platforms.',
+  },
+];
+const focusItems = [
+  {
+    title: 'Complex Interfaces',
+    text: 'Product and service interfaces where users need clarity, not decoration.',
+  },
+  {
+    title: 'Responsible Digital Products',
+    text: 'Design decisions involving privacy, transparency, autonomy, or sensitive workflows.',
+  },
+  {
+    title: 'Systems & Communication',
+    text: 'Projects around resilient communication, technical infrastructure, or independent digital tools.',
+  },
+];
 ---
 
 <BaseLayout title='Ralph Bolliger — Senior Experience Designer'>
-  <Home />
-  <Statements />
-  <Purpose />
+  <Section margin='base'>
+    <div slot='left'>
+      <NormalText spaceAfter='small' weight='bold'>Why</NormalText>
+    </div>
+    <div slot='right'>
+      <LeadText spaceAfter='large'>
+        I believe that digital technologies should expand human freedom, not
+        diminish it. Because our identities, choices, and relationships are
+        increasingly mediated by digital systems, control over our data and
+        digital existence is essential for autonomy, dignity, and equitable
+        participation in society.
+      </LeadText>
+      <LeadText>
+        I design digital products and advocate for systems that uphold
+        transparency, privacy, and user agency, enabling people to shape, not be
+        shaped by, the digital world.</LeadText
+      >
+    </div>
+  </Section>
+  <Section border='none'>
+    <div slot='left'>
+      <NormalText spaceAfter='small' weight='bold'>How</NormalText>
+    </div>
+    <div slot='right'>
+      <Columns columns={howColumns} />
+      <LargeText class='mt-base-double'>
+        Going dark is no longer an option.
+      </LargeText>
+    </div>
+  </Section>
+  <Section>
+    <div slot='left'>
+      <NormalText spaceAfter='small' weight='bold'>Practice</NormalText>
+    </div>
+    <div slot='right'>
+      <LargeText
+        >My work began in digital communication, moved through project
+        leadership, and evolved into product and experience design. Outside
+        client work, I explore behavioral psychology, philosophy, software,
+        radio technology, and security advocacy. I approach these not as
+        separate interests, but as different ways of understanding how people
+        and systems interact.</LargeText
+      >
+      <NormalText weight='bold' class='mt-base-double mb-base-double'
+        >Path</NormalText
+      >
+      <SplitList items={pathItems} />
+      <LargeText class='mt-base'
+        >Design begins where aesthetics end: at the moment something
+        works&mdash;effortlessly.</LargeText
+      >
+    </div>
+  </Section>
+  <Section>
+    <div slot='left'>
+      <NormalText spaceAfter='small' weight='bold'>Focus</NormalText>
+    </div>
+    <div slot='right'>
+      <LargeText class='mb-base-double'
+        >I work best on projects where design, technology, and responsibility
+        meet. Especially when systems are complex, interfaces need to become
+        clearer, or trust depends on how information is structured and
+        presented.</LargeText
+      >
+      <Columns columns={focusItems} />
+    </div>
+  </Section>
+  <Section>
+    <div slot='left'>
+      <NormalText spaceAfter='small' weight='bold'>Identity</NormalText>
+    </div>
+    <div slot='right'>
+      <LargeText class='mb-base-double'
+        >I do not publish direct contact channels here. If you need to verify my
+        digital identity or establish a trusted way to reach me, use my public
+        OpenPGP key.</LargeText
+      >
+      <NormalText>
+        <a
+          title='Click to get OpenPGP key'
+          href='/pgp'
+          class='font-mono text-accent'
+          rel='noreferrer'
+          target='_blank'
+        >
+          FC84 CC79 8DD1 C935 6857<br />6F3B EE36 9AC6 9EF1 7BD8
+        </a>
+      </NormalText>
+    </div>
+  </Section>
 </BaseLayout>

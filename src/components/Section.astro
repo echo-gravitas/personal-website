@@ -1,17 +1,56 @@
 ---
-const { id, showBorder = true } = Astro.props;
+type SectionBorder = 'none' | 'top';
+type SectionSpacing = 'none' | 'half' | 'base' | 'double' | 'quadruple';
+
+type Props = {
+  border?: SectionBorder;
+  class?: string;
+  margin?: SectionSpacing;
+  padding?: SectionSpacing;
+};
+
+const {
+  border = 'top',
+  class: className,
+  margin = 'quadruple',
+  padding = 'base',
+} = Astro.props;
+
+const borders: Record<SectionBorder, string | undefined> = {
+  none: undefined,
+  top: 'border-t',
+};
+
+const margins: Record<SectionSpacing, string | undefined> = {
+  none: undefined,
+  half: 'mb-base-half',
+  base: 'mb-base',
+  double: 'mb-base-double',
+  quadruple: 'mb-base-quadruple',
+};
+
+const paddings: Record<SectionSpacing, string | undefined> = {
+  none: undefined,
+  half: 'pt-base-half',
+  base: 'pt-base',
+  double: 'pt-base-double',
+  quadruple: 'pt-base-quadruple',
+};
 ---
 
-<section class='h-svh p-4 relative' id={id}>
-  {
-    showBorder && (
-      <div class='-z-1 absolute top-0 bottom-0 left-4 right-4 border-l border-r border-solid border-gray-800' />
-    )
-  }
-  {
-    showBorder && (
-      <div class='-z-1 absolute top-4 bottom-4 left-0 right-0 border-t border-b border-solid border-gray-800' />
-    )
-  }
-  <slot />
+<section
+  class:list={[
+    margins[margin],
+    borders[border],
+    paddings[padding],
+    'lg:grid lg:grid-cols-[1fr_3fr] lg:gap-base-double',
+    className,
+  ]}
+>
+  <div>
+    <slot name='left' />
+  </div>
+  <div>
+    <slot name='right' />
+  </div>
 </section>
