@@ -13,12 +13,12 @@ export const themeTokens = {
     accent: '#060606',
     border: '#d9d9d9',
   },
-  blue: {
-    page: '#124259',
-    font: '#dcd4cb',
-    muted: '#949494',
-    accent: '#dcd4cb',
-    border: '#5D7781',
+  blueishgray: {
+    page: '#33384A',
+    font: '#7EC2E6',
+    muted: '#4E6A82',
+    accent: '#7EC2E6',
+    border: '#3C4151',
   },
   brown: {
     page: '#2B2827',
@@ -27,12 +27,26 @@ export const themeTokens = {
     accent: '#d9b478',
     border: '#5B4E3D',
   },
-  velvet: {
-    page: '#2a1f3e',
-    font: '#e2bfa4',
-    muted: '#6D5A62',
-    accent: '#e2bfa4',
-    border: '#332945',
+  bluegold: {
+    page: '#363E4E',
+    font: '#e1b25c',
+    muted: '#746753',
+    accent: '#e1b25c',
+    border: '#3F4555',
+  },
+  anthracit: {
+    page: '#2B2B2C',
+    font: '#fffef9',
+    muted: '#797877',
+    accent: '#fffef9',
+    border: '#343435',
+  },
+  creamy: {
+    page: '#D7DCD5',
+    font: '#242527',
+    muted: '#9A9E9A',
+    accent: '#242527',
+    border: '#D9DDD7',
   },
 } as const;
 
