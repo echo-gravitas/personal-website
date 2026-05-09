@@ -1,7 +1,7 @@
 {
   "name": "personal-website",
   "description": "My very new peronal website",
-  "version": "5.0.0-beta.1",
+  "version": "5.0.0",
   "private": true,
   "author": {
     "name": "Ralph Bolliger",

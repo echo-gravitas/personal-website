@@ -9,44 +9,44 @@ import NormalText from '../components/typography/NormalText.astro';
 
 const howColumns = [
   {
-    title: 'Question defaults',
-    text: 'I look for hidden assumptions in product decisions, systems, and interactions before turning them into interface patterns.',
+    title: 'Experience Design',
+    text: 'I design digital products that are clear, humane, and trustworthy, helping people understand, decide, and act with confidence.',
   },
   {
-    title: 'Shape systems',
-    text: 'I design reusable structures that keep products coherent while leaving room for teams to adapt and learn.',
+    title: 'Security & Resilience',
+    text: 'I examine systems critically to reveal weaknesses, reduce hidden risks, and strengthen privacy, trust, and autonomy.',
   },
   {
-    title: 'Respect people',
-    text: 'I focus on choices, context, and consequences so digital experiences support people instead of steering them silently.',
+    title: 'Independent Communication',
+    text: 'I explore open and resilient communication systems that keep people connected beyond centralized platforms and fragile infrastructure.',
   },
 ];
 
 const pathItems = [
   {
-    label: 'Digital communication',
+    label: 'Digital Communication',
     value:
-      'Early work across campaigns, content systems, and digital touchpoints.',
+      'Online marketing taught me how digital systems shape attention, behavior, and trust.',
   },
   {
-    label: 'Project leadership',
+    label: 'Project Leadership',
     value:
-      'Planning, coordination, and delivery of interdisciplinary digital work.',
+      'Leading projects taught me how strategy, people, technology, and delivery collide in real organizations.',
   },
   {
-    label: 'Product design',
+    label: 'Product & Experience Design',
     value:
-      'Designing interfaces, flows, and systems for resilient user experiences.',
+      'Today, I design interfaces, workflows, and digital products that make complexity understandable and usable.',
   },
   {
-    label: 'Independent research',
+    label: 'Independent Systems & Community',
     value:
-      'Exploring psychology, philosophy, software, radio technology, and security advocacy.',
+      'Through amateur radio, security advocacy, and community leadership, I explore communication, resilience, and digital self-determination beyond commercial platforms.',
   },
 ];
 const focusItems = [
   {
-    title: 'Complex interfaces',
+    title: 'Complex Interfaces',
     text: 'Product and service interfaces where users need clarity, not decoration.',
   },
   {
@@ -67,18 +67,17 @@ const focusItems = [
     </div>
     <div slot='right'>
       <LeadText spaceAfter='large'>
-        I believe that digital technologies should expand human freedon, not
-        deminish it. Because our identities choices, and relationships are
-        increasingly mediated by digital systems, I design resilient systems by
-        questioning defaults. Skeptical by default. Responsible by design.
+        I believe that digital technologies should expand human freedom, not
+        diminish it. Because our identities, choices, and relationships are
+        increasingly mediated by digital systems, control over our data and
+        digital existence is essential for autonomy, dignity, and equitable
+        participation in society.
       </LeadText>
       <LeadText>
-        I am a senior product designer with over a decade of experience in
-        crafting digital products and services. I have a strong background in
-        user-centered design, interaction design, and visual design, and I am
-        passionate about creating meaningful and impactful experiences for
-        users.
-      </LeadText>
+        I design digital products and advocate for systems that uphold
+        transparency, privacy, and user agency, enabling people to shape, not be
+        shaped by, the digital world.</LeadText
+      >
     </div>
   </Section>
   <Section border='none'>
@@ -98,11 +97,12 @@ const focusItems = [
     </div>
     <div slot='right'>
       <LargeText
-        >My work began in digital communication, moved trough project
+        >My work began in digital communication, moved through project
         leadership, and evolved into product and experience design. Outside
         client work, I explore behavioral psychology, philosophy, software,
-        radio technology, and security advocavy. Not as separate interests, but
-        as different ways of understanding how people and systems interact.</LargeText
+        radio technology, and security advocacy. I approach these not as
+        separate interests, but as different ways of understanding how people
+        and systems interact.</LargeText
       >
       <NormalText weight='bold' class='mt-base-double mb-base-double'
         >Path</NormalText
@@ -125,7 +125,6 @@ const focusItems = [
         clearer, or trust depends on how information is structured and
         presented.</LargeText
       >
-
       <Columns columns={focusItems} />
     </div>
   </Section>
@@ -135,13 +134,13 @@ const focusItems = [
     </div>
     <div slot='right'>
       <LargeText class='mb-base-double'
-        >I do not publish direct contect channels here. If you need to verify my
+        >I do not publish direct contact channels here. If you need to verify my
         digital identity or establish a trusted way to reach me, use my public
-        OpenGPG key.</LargeText
+        OpenPGP key.</LargeText
       >
       <NormalText>
         <a
-          title='Click to get OpenGPG key'
+          title='Click to get OpenPGP key'
           href='/pgp'
           class='font-mono text-accent'
           rel='noreferrer'
