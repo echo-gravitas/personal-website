@@ -2,6 +2,7 @@
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import MainContainer from '../components/MainContainer.astro';
+import { defaultTheme, themeTokens } from '../scripts/themes';
 import '../styles/global.css';
 
 const { title } = Astro.props;
@@ -21,18 +22,21 @@ const pageTitle = title
       content='I design resilient systems by questioning defaults. Skeptical by default. Responsible by design.'
     />
     <meta name='credo' content='Going dark is no longer an option.' />
-    <script is:inline>
-      let theme = 'dark';
+    <script define:vars={{ defaultTheme, themeTokens }}>
+      let theme = defaultTheme;
 
       try {
         const storedTheme = localStorage.getItem('theme');
-        theme =
-          storedTheme === 'light' || storedTheme === 'dark'
-            ? storedTheme
-            : theme;
+        theme = Object.prototype.hasOwnProperty.call(themeTokens, storedTheme)
+          ? storedTheme
+          : theme;
       } catch {}
 
       document.documentElement.dataset.theme = theme;
+
+      Object.entries(themeTokens[theme]).forEach(([property, value]) => {
+        document.documentElement.style.setProperty(property, value);
+      });
     </script>
     <title>{pageTitle}</title>
   </head>
