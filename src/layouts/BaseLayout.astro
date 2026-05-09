@@ -1,4 +1,5 @@
 ---
+import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import MainContainer from '../components/MainContainer.astro';
 import '../styles/global.css';
@@ -39,6 +40,7 @@ const pageTitle = title
     <MainContainer>
       <Header />
       <slot />
+      <Footer />
     </MainContainer>
     <script src='../scripts/main.js'></script>
   </body>
