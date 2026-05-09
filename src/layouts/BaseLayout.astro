@@ -20,20 +20,10 @@ const pageTitle = title
     <meta name='credo' content='Going dark is no longer an option.' />
     <title>{pageTitle}</title>
   </head>
-  <body class='bg-black'>
-    <slot />
+  <body>
+    <main>
+      <slot />
+    </main>
     <script src='../scripts/main.js'></script>
-    <script is:inline>
-      const scrollToHash = () => {
-        const id = window.location.hash.slice(1);
-        if (!id) return;
-        const target = document.getElementById(id);
-        if (!target) return;
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      };
-
-      window.addEventListener('hashchange', scrollToHash);
-      window.addEventListener('load', scrollToHash);
-    </script>
   </body>
 </html>

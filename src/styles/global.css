@@ -1,26 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import 'tailwindcss';
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import "tailwindcss";
-
-@theme {
-  --font-sans: "Inter";
-  --font-mono: "Space Mono";
+@theme base {
+  --font-default: 'Space Grotesk', sans-serif;
 }
 
-@layer base {
-  html { scroll-behavior: smooth; }
-  body { @apply font-sans; }
-}
-
-.mono {
-  font-family: var(--font-mono);
-}
-
-::selection {
-  background-color: magenta;
-  color: black;
-}
-
-svg {
-  display: inline-block;
+body {
+  font-family: var(--font-default);
 }
