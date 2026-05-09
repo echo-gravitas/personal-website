@@ -34,8 +34,8 @@ const pageTitle = title
 
       document.documentElement.dataset.theme = theme;
 
-      Object.entries(themeTokens[theme]).forEach(([property, value]) => {
-        document.documentElement.style.setProperty(property, value);
+      Object.entries(themeTokens[theme]).forEach(([token, value]) => {
+        document.documentElement.style.setProperty(`--theme-${token}`, value);
       });
     </script>
     <title>{pageTitle}</title>
