@@ -65,7 +65,7 @@ const revealText = () => {
           autoAlpha: 1,
           y: 0,
           duration: 0.75,
-          ease: 'power3.out',
+          ease: 'power4.out',
           stagger: 0.08,
           clearProps: 'opacity,transform,visibility',
         });
