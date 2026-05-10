@@ -73,7 +73,7 @@ const revealText = () => {
     });
   };
 
-  createRevealBatch(contentElements, 'top 85%');
+  createRevealBatch(contentElements, 'top 90%');
   createRevealBatch(footerElements, 'top 100%');
 
   window.addEventListener('load', () => ScrollTrigger.refresh(), {

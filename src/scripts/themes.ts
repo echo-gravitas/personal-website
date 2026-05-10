@@ -46,7 +46,7 @@ export const themeTokens = {
     font: '#242527',
     muted: '#9A9E9A',
     accent: '#242527',
-    border: '#D9DDD7',
+    border: '#cccccc',
   },
 } as const;
 
