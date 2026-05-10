@@ -1,6 +1,12 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { applyTheme, defaultTheme, isTheme, themes, type Theme } from './themes';
+import {
+  applyTheme,
+  defaultTheme,
+  isTheme,
+  themes,
+  type Theme,
+} from './themes';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,8 +21,7 @@ const setTheme = (theme: Theme) => {
 
   try {
     localStorage.setItem('theme', theme);
-  } catch {
-  }
+  } catch {}
 };
 
 document.querySelector('[data-theme-toggle]')?.addEventListener('click', () => {
@@ -29,6 +34,12 @@ document.querySelector('[data-theme-toggle]')?.addEventListener('click', () => {
 
 const revealText = () => {
   const textElements = gsap.utils.toArray<HTMLElement>('[data-reveal]');
+  const contentElements = textElements.filter(
+    (element) => !element.closest('footer'),
+  );
+  const footerElements = textElements.filter((element) =>
+    element.closest('footer'),
+  );
 
   if (textElements.length === 0) {
     return;
@@ -41,19 +52,32 @@ const revealText = () => {
 
   gsap.set(textElements, { autoAlpha: 0, y: 18 });
 
-  ScrollTrigger.batch(textElements, {
-    start: 'top 88%',
+  const createRevealBatch = (elements: HTMLElement[], start: string) => {
+    if (elements.length === 0) {
+      return;
+    }
+
+    ScrollTrigger.batch(elements, {
+      start,
+      once: true,
+      onEnter: (batch) => {
+        gsap.to(batch, {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.75,
+          ease: 'power3.out',
+          stagger: 0.08,
+          clearProps: 'opacity,transform,visibility',
+        });
+      },
+    });
+  };
+
+  createRevealBatch(contentElements, 'top 85%');
+  createRevealBatch(footerElements, 'top 100%');
+
+  window.addEventListener('load', () => ScrollTrigger.refresh(), {
     once: true,
-    onEnter: (batch) => {
-      gsap.to(batch, {
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.75,
-        ease: 'power3.out',
-        stagger: 0.08,
-        clearProps: 'opacity,transform,visibility',
-      });
-    },
   });
 };
 
