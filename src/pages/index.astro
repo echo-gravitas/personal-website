@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Columns from '../components/Columns.astro';
 import Section from '../components/Section.astro';
@@ -6,21 +7,20 @@ import SplitList from '../components/SplitList.astro';
 import LargeText from '../components/typography/LargeText.astro';
 import LeadText from '../components/typography/LeadText.astro';
 import NormalText from '../components/typography/NormalText.astro';
-import { Image } from 'astro:assets';
 import portrait from '../images/portrait.jpg';
 
 const howColumns = [
   {
     title: 'Experience Design',
-    text: 'I design digital products that are clear, humane, and trustworthy, helping people understand, decide, and act with confidence.',
+    text: 'I design digital products that feel clear, useful and human—from early concepts to polished interfaces.',
   },
   {
     title: 'Security & Resilience',
-    text: 'I examine systems critically to reveal weaknesses, reduce hidden risks, and strengthen privacy, trust, and autonomy.',
+    text: 'I explore systems, protocols and human behavior to better understand how technology can fail—and how to make it safer.',
   },
   {
     title: 'Independent Communication',
-    text: 'I explore open and resilient communication systems that keep people connected beyond centralized platforms and fragile infrastructure.',
+    text: 'I build and experiment with radio and communication systems where software, electronics and infrastructure meet.',
   },
 ];
 
@@ -28,36 +28,36 @@ const pathItems = [
   {
     label: 'Digital Communication',
     value:
-      'Online marketing taught me how digital systems shape attention, behavior, and trust.',
+      'Working in digital communication taught me how strongly technology influences attention, behavior, and trust.',
   },
   {
     label: 'Project Leadership',
     value:
-      'Leading projects taught me how strategy, people, technology, and delivery collide in real organizations.',
+      'Leading projects taught me how strategy, technology, people, and operational reality collide inside organizations.',
   },
   {
     label: 'Product & Experience Design',
     value:
-      'Today, I design interfaces, workflows, and digital products that make complexity understandable and usable.',
+      'Today, I design interfaces, workflows, and digital products that make complex systems easier to understand and use.',
   },
   {
     label: 'Independent Systems & Community',
     value:
-      'Through amateur radio, security advocacy, and community leadership, I explore communication, resilience, and digital self-determination beyond commercial platforms.',
+      'Through amateur radio, security advocacy, software projects, and community work, I explore resilient communication and digital self-determination beyond centralized platforms.',
   },
 ];
 const focusItems = [
   {
     title: 'Complex Interfaces',
-    text: 'Product and service interfaces where users need clarity, not decoration.',
+    text: 'Products and systems where users need orientation, clarity, and confidence instead of unnecessary friction.',
   },
   {
     title: 'Responsible Digital Products',
-    text: 'Design decisions involving privacy, transparency, autonomy, or sensitive workflows.',
+    text: 'Design decisions involving privacy, transparency, resilience, autonomy, or sensitive workflows.',
   },
   {
     title: 'Systems & Communication',
-    text: 'Projects around resilient communication, technical infrastructure, or independent digital tools.',
+    text: 'Projects involving resilient infrastructure, communication technology, independent systems, or technically demanding environments.',
   },
 ];
 ---
@@ -69,17 +69,21 @@ const focusItems = [
     </div>
     <div slot='right'>
       <LeadText weight='normal' spaceAfter='large'>
-        I believe that digital technologies should expand human freedom, not
-        diminish it. Because our identities, choices, and relationships are
-        increasingly mediated by digital systems, control over our data and
-        digital existence is essential for autonomy, dignity, and equitable
-        participation in society.
+        I believe digital technologies should expand human freedom instead of
+        quietly limiting it. Because our communication, decisions, and
+        relationships increasingly depend on digital systems, clarity and
+        control over technology have become essential.
+      </LeadText>
+      <LeadText weight='normal' spaceAfter='large'>
+        I design products and explore systems that strengthen transparency,
+        privacy, resilience, and user agency, helping people shape technology
+        instead of simply adapting to it.
       </LeadText>
       <LeadText weight='normal'>
-        I design digital products and advocate for systems that uphold
-        transparency, privacy, and user agency, enabling people to shape, not be
-        shaped by, the digital world.</LeadText
-      >
+        Whether through interface design, software development, security
+        research, or independent communication systems, the goal remains the
+        same: Making complex systems more understandable and more humane.
+      </LeadText>
     </div>
   </Section>
   <Section border='none'>
@@ -98,13 +102,19 @@ const focusItems = [
       <NormalText spaceAfter='small' weight='bold'>Practice</NormalText>
     </div>
     <div slot='right'>
-      <LargeText
-        >My work began in digital communication, moved through project
-        leadership, and evolved into product and experience design. Outside
-        client work, I explore behavioral psychology, philosophy, software,
-        radio technology, and security advocacy. I approach these not as
-        separate interests, but as different ways of understanding how people
-        and systems interact.</LargeText
+      <LargeText spaceAfter='large'
+        >My work began in digital communication, evolved through project
+        leadership, and gradually moved deeper into product and experience
+        design.</LargeText
+      >
+      <LargeText spaceAfter='large'
+        >Outside client work, I explore behavioral psychology, philosophy,
+        software development, radio communication, ethical hacking, and security
+        research.</LargeText
+      >
+      <LargeText spaceAfter='large'
+        >I approach these not as isolated interests, but as connected
+        perspectives on how humans interact with technology and infrastructure.</LargeText
       >
       <NormalText weight='bold' class='mt-base-double mb-base-double'
         >Path</NormalText
@@ -123,9 +133,9 @@ const focusItems = [
     <div slot='right'>
       <LargeText class='mb-base-double'
         >I work best on projects where design, technology, and responsibility
-        meet. Especially when systems are complex, interfaces need to become
-        clearer, or trust depends on how information is structured and
-        presented.</LargeText
+        intersect. Especially where systems are complex, interfaces need
+        clarity, or trust depends on how information is structured and
+        communicated.</LargeText
       >
       <Columns columns={focusItems} />
     </div>
@@ -143,9 +153,10 @@ const focusItems = [
         class='mb-base-double rounded-2xl shadow-2xl'
       />
       <LargeText class='mb-base-double'
-        >I do not publish direct contact channels here. If you need to verify my
-        digital identity or establish a trusted way to reach me, use my public
-        OpenPGP key.</LargeText
+        >I do not publish direct contact channels publicly. If you need to
+        verify my digital identity or establish a trusted communication channel,
+        you can use my public OpenPGP key. Technology increasingly depends on
+        trust. I believe identity should too.</LargeText
       >
       <NormalText>
         <a
