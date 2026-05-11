@@ -71,6 +71,26 @@ body {
     color 200ms ease;
 }
 
+::selection {
+  background-color: var(--theme-accent);
+  color: var(--theme-page);
+}
+
+p span {
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  background-color: var(--theme-accent);
+  color: var(--theme-page);
+  padding-inline: 0.25rem;
+  /* border-radius: 3px; */
+}
+
+footer span {
+  background-color: transparent;
+  color: inherit;
+  padding-inline: 0;
+}
+
 .logo-mark {
   display: block;
   background-color: var(--theme-page);
