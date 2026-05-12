@@ -45,9 +45,16 @@
   html {
     background-color: var(--theme-page);
     color: var(--theme-font);
+    scroll-behavior: smooth;
     transition:
       background-color 200ms ease,
       color 200ms ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   * {

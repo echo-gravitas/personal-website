@@ -5,6 +5,7 @@ type SectionSpacing = 'none' | 'half' | 'base' | 'double' | 'quadruple';
 type Props = {
   border?: SectionBorder;
   class?: string;
+  id?: string;
   margin?: SectionSpacing;
   padding?: SectionSpacing;
 };
@@ -12,6 +13,7 @@ type Props = {
 const {
   border = 'top',
   class: className,
+  id,
   margin = 'quadruple',
   padding = 'base',
 } = Astro.props;
@@ -39,10 +41,12 @@ const paddings: Record<SectionSpacing, string | undefined> = {
 ---
 
 <section
+  id={id}
   class:list={[
     margins[margin],
     borders[border],
     paddings[padding],
+    'scroll-mt-base',
     'lg:grid lg:grid-cols-[1fr_3fr] lg:gap-base-double',
     className,
   ]}
