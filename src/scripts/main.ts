@@ -49,6 +49,30 @@ document.addEventListener('keydown', (event) => {
   setNextTheme();
 });
 
+const scrollToHashTarget = () => {
+  const hash = window.location.hash.slice(1);
+
+  if (!hash) {
+    return;
+  }
+
+  const target = document.getElementById(decodeURIComponent(hash));
+
+  if (!target) {
+    return;
+  }
+
+  const behavior = window.matchMedia('(prefers-reduced-motion: reduce)')
+    .matches
+    ? 'auto'
+    : 'smooth';
+
+  target.scrollIntoView({ block: 'start', behavior });
+};
+
+window.addEventListener('load', scrollToHashTarget, { once: true });
+window.addEventListener('hashchange', scrollToHashTarget);
+
 const revealText = () => {
   const textElements = gsap.utils.toArray<HTMLElement>('[data-reveal]');
   const contentElements = textElements.filter(
@@ -62,7 +86,10 @@ const revealText = () => {
     return;
   }
 
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (
+    window.location.hash ||
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  ) {
     gsap.set(textElements, { autoAlpha: 1, y: 0 });
     return;
   }
