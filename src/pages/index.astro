@@ -60,6 +60,20 @@ const focusItems = [
     text: 'Projects involving resilient infrastructure, communication technology, independent systems, or technically demanding environments.',
   },
 ];
+const rulesOnAI = [
+  {
+    title: 'Human capability must remain possible',
+    text: 'AI should support human thinking, creativity, and decision making; not replace the ability to operate without automation.',
+  },
+  {
+    title: 'Efficiency alone is not resilience',
+    text: 'Systems optimized only for speed, scale, and cost often become fragile and dependent on infrastructure few people still understand.',
+  },
+  {
+    title: 'Technology changes responsibility',
+    text: 'Every technology reshapes how humans communicate, decide, work, and depend on each other. Those consequences should be considered before optimization becomes irreversible.',
+  },
+];
 ---
 
 <BaseLayout title='Ralph Bolliger — Senior Experience Designer'>
@@ -134,6 +148,33 @@ const focusItems = [
   </Section>
   <Section>
     <div slot='left'>
+      <NormalText spaceAfter='small' weight='bold'
+        >AI & Human Capability</NormalText
+      >
+    </div>
+    <div slot='right'>
+      <LargeText class='mb-base-double'
+        >I use AI where it meaningfully improves workflows, communication, or
+        accessibility. But I remain skeptical of replacing human understanding
+        with permanent automation. Efficiency alone is not resilience.</LargeText
+      >
+      <LargeText class='mb-base-double'
+        >A society that outsources too much thinking, decision making, and
+        expertise to opaque systems risks losing the human capability required
+        when those systems fail, become inaccessible, or economically
+        unsustainable.</LargeText
+      >
+      <NormalText weight='bold' class='mt-base-double mb-base-double'
+        >My principles for AI</NormalText
+      >
+      <Columns columns={rulesOnAI} />
+      <LargeText class='mt-base-double'
+        >Technology should strengthen human competence, not make it optional.</LargeText
+      >
+    </div>
+  </Section>
+  <Section>
+    <div slot='left'>
       <NormalText spaceAfter='small' weight='bold'>Identity</NormalText>
     </div>
     <div slot='right'>
@@ -146,8 +187,7 @@ const focusItems = [
       <LargeText class='mb-base-double'
         >I do not publish direct contact channels publicly. If you need to
         verify my digital identity or establish a trusted communication channel,
-        you can use my public OpenPGP key. Technology increasingly depends on
-        trust. I believe identity should too.</LargeText
+        you can use my public OpenPGP key.</LargeText
       >
       <NormalText>
         <a
@@ -160,6 +200,10 @@ const focusItems = [
           FC84 CC79 8DD1 C935 6857<br />6F3B EE36 9AC6 9EF1 7BD8
         </a>
       </NormalText>
+      <LargeText class='mt-base-double'
+        >Technology increasingly depends on trust. I believe identity should
+          too.</LargeText
+      >
     </div>
   </Section>
 </BaseLayout>

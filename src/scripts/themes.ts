@@ -27,12 +27,12 @@ export const themeTokens = {
     accent: '#d9b478',
     border: '#5B4E3D',
   },
-  bluegold: {
-    page: '#363E4E',
-    font: '#e1b25c',
-    muted: '#746753',
-    accent: '#e1b25c',
-    border: '#3F4555',
+  blackred: {
+    page: '#1E1F23',
+    font: '#EC2445',
+    muted: '#69212F',
+    accent: '#EC2445',
+    border: '#28292C',
   },
   anthracit: {
     page: '#2B2B2C',
