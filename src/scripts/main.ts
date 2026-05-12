@@ -24,12 +24,29 @@ const setTheme = (theme: Theme) => {
   } catch {}
 };
 
-document.querySelector('[data-theme-toggle]')?.addEventListener('click', () => {
+const setNextTheme = () => {
   const currentTheme = getTheme();
   const currentIndex = themes.indexOf(currentTheme);
   const nextTheme = themes[(currentIndex + 1) % themes.length];
 
   setTheme(nextTheme);
+};
+
+const isEditableElement = (element: EventTarget | null) =>
+  element instanceof HTMLElement &&
+  (element.isContentEditable ||
+    ['INPUT', 'TEXTAREA', 'SELECT'].includes(element.tagName));
+
+document.querySelector('[data-theme-toggle]')?.addEventListener('click', () => {
+  setNextTheme();
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key.toLowerCase() !== 't' || isEditableElement(event.target)) {
+    return;
+  }
+
+  setNextTheme();
 });
 
 const revealText = () => {
