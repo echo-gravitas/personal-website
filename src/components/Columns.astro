@@ -17,15 +17,12 @@ const { columns } = Astro.props;
   {
     columns.map((column) => (
       <article>
-        <NormalText
-          as='h3'
-          class='border-b pb-base-half'
-          spaceAfter='small'
-          weight='bold'
-        >
+        <NormalText as='h3' class='border-b pb-base' weight='bold'>
           {column.title}
         </NormalText>
-        <NormalText tone='muted'>{column.text}</NormalText>
+        <NormalText class='pt-base' tone='muted'>
+          {column.text}
+        </NormalText>
       </article>
     ))
   }
