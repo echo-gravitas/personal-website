@@ -8,7 +8,7 @@ import '../styles/global.css';
 const { title } = Astro.props;
 const pageTitle = title
   ? `${title}`
-  : 'Ralph Bolliger — Senior Product Designer';
+  : 'Designing technology for humans - Ralph Bolliger';
 ---
 
 <!doctype html>
@@ -19,17 +19,25 @@ const pageTitle = title
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <meta
       name='description'
-      content='I design resilient systems by questioning defaults. Skeptical by default. Responsible by design.'
+      content='Designing technology for humans through experience design, software development, communication systems, and security research.'
     />
     <meta name='credo' content='Going dark is no longer an option.' />
     <script define:vars={{ defaultTheme, themeTokens }}>
-      let theme = defaultTheme;
+      const themes = Object.keys(themeTokens);
+      let theme = themes[Math.floor(Math.random() * themes.length)] ?? defaultTheme;
 
       try {
         const storedTheme = localStorage.getItem('theme');
-        theme = Object.prototype.hasOwnProperty.call(themeTokens, storedTheme)
-          ? storedTheme
-          : theme;
+        const hasStoredTheme = Object.prototype.hasOwnProperty.call(
+          themeTokens,
+          storedTheme,
+        );
+
+        if (hasStoredTheme) {
+          theme = storedTheme;
+        } else {
+          localStorage.setItem('theme', theme);
+        }
       } catch {}
 
       document.documentElement.dataset.theme = theme;
