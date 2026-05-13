@@ -22,9 +22,21 @@ const pageTitle = title
       content='Designing technology for humans through experience design, software development, communication systems, and security research.'
     />
     <meta name='credo' content='Going dark is no longer an option.' />
+    <script async src='https://www.googletagmanager.com/gtag/js?id=G-E259F43NWW'
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-E259F43NWW');
+    </script>
     <script define:vars={{ defaultTheme, themeTokens }}>
       const themes = Object.keys(themeTokens);
-      let theme = themes[Math.floor(Math.random() * themes.length)] ?? defaultTheme;
+      let theme =
+        themes[Math.floor(Math.random() * themes.length)] ?? defaultTheme;
 
       try {
         const storedTheme = localStorage.getItem('theme');
