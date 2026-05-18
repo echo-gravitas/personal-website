@@ -23,3 +23,5 @@ pnpm-debug.log*
 # IDE setting folders
 .idea/
 .vscode
+.agents
+.codex
