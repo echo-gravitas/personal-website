@@ -72,7 +72,8 @@ body {
   font-family: var(--font-default);
   background-color: var(--theme-page);
   color: var(--theme-font);
-  padding: var(--spacing-base);
+  padding-left: var(--spacing-base);
+  padding-right: var(--spacing-base);
   transition:
     background-color 200ms ease,
     color 200ms ease;
