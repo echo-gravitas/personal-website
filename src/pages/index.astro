@@ -12,205 +12,201 @@ import portrait from '../images/portrait.jpg';
 const howColumns = [
   {
     title: 'UX & Product Design',
-    text: 'I make complex software feel effortless. No clutter, no confusing menus. Just digital products built around how people actually think, from the first sketch to the final pixel.',
+    text: 'Ich mache komplexe Software verständlich und bedienbar. Aus unklaren Prozessen entstehen digitale Produkte, die Menschen sicher durch ihre Aufgaben führen.',
   },
   {
-    title: 'Cyber Security & Resilience',
-    text: 'To build a secure system, you have to know how to break it. I look for the hidden breaking points in software, protocols, and human habits to fix tech vulnerabilities before they become real-world problems.',
+    title: 'Cyber Security & Resilienz',
+    text: 'Ich denke Systeme aus Sicht von Angreifern, Nutzern und Organisationen, um Risiken früh sichtbar zu machen. Sicherheit darf nicht dem Zufall überlassen werden.',
   },
   {
-    title: 'Radio & Communication Tech',
-    text: 'I tinker with frequencies, electronics, and off-grid communication. Building independent radio networks is my way of understanding how digital infrastructure works when you strip away the safety net of the mainstream internet.',
+    title: 'Elektronik & Kommunikation',
+    text: 'Ich beschäftige mich mit Kommunikation jenseits etablierter Plattformen und beantworte die Frage, wie Verbindungen funktionieren, wenn gewohnte Netze nicht verfügbar sind.',
   },
 ];
 
 const pathItems = [
   {
-    label: 'Digital Communication',
+    label: 'Digitale Kommunikation',
     value:
-      'My roots are in digital communication, where I realized early on just how powerfully technology shapes human attention, behavior, and—most importantly—trust.',
+      'Meine Wurzeln liegen in der digitalen Kommunikation. Dort habe ich gelernt, wie stark Technologie Aufmerksamkeit, Verhalten und Vertrauen beeinflusst.',
   },
   {
-    label: 'Project Leadership',
+    label: 'Projektmanagement',
     value:
-      'Managing complex projects showed me what happens when noble strategies meet real-world chaos. I learned how to bridge the gap between technical constraints, messy organizational realities, and actual human needs.',
+      'Im Projektmanagement habe ich erlebt, was passiert, wenn gute Strategien auf tatsächliche Abhängigkeiten treffen. Seitdem verbinde ich technische Machbarkeit, klare Führung und menschliche Bedürfnisse.',
   },
   {
     label: 'Product & Experience Design',
     value:
-      "Today, my focus is on making complex systems digestible. I design interfaces, workflows, and digital products that don't overwhelm users, turning confusing software into tools that feel natural to use.",
+      'Heute gestalte ich Interfaces, Workflows und digitale Produkte, die Orientierung schaffen. Mein Ziel sind Systeme, die ihre Komplexität tragen, ohne sie an die Nutzerinnen und Nutzer weiterzureichen.',
   },
   {
-    label: 'Independent Systems & Community',
+    label: 'Unabhängige und sichere Kommunikation',
     value:
-      "In my free time, I build independent software, experiment with ham radio, and advocate for security. It's my way of exploring how we can stay connected, resilient, and self-reliant, completely independent of big tech and centralized platforms.",
+      'Neben Kundenprojekten baue ich unabhängige Software, experimentiere mit Elektronik und Funktechnik, und engagiere mich für digitale Sicherheit. Mich interessiert, wie Menschen und Organisationen vernetzt, selbstbestimmt und widerstandsfähig bleiben.',
   },
 ];
 const focusItems = [
   {
-    title: 'Complex Interfaces',
-    text: "Heavy-duty products and systems where users can't afford to guess. I step in when people need absolute clarity, navigation, and confidence to get the job done, instead of fighting clunky UX.",
+    title: 'Komplexe Interfaces',
+    text: 'Ich arbeite an Produkten, bei denen Fehlinterpretationen teuer werden können. Dort braucht es klare Strukturen, nachvollziehbare Informationen und Interfaces, die auch unter Belastung funktionieren.',
   },
   {
-    title: 'Responsible Digital Products',
-    text: 'Tech that actually respects the user. This means embedding privacy, digital autonomy, and transparency directly into the design—especially when handling sensitive workflows where ethical decisions matter just as much as the code.',
+    title: 'Digitale Produkte',
+    text: 'Gute digitale Produkte respektieren Menschen. Deshalb gehören Privatsphäre, Transparenz und Autonomie für mich nicht ins Kleingedruckte, sondern in die Produktentscheidungen selbst.',
   },
   {
-    title: 'Systems & Communication',
-    text: 'Projects under the hood. I love working on resilient infrastructure, off-grid communication tech, independent networks, and environments where the underlying technology is genuinely demanding.',
+    title: 'Systeme & Kommunikation',
+    text: 'Mich reizen Projekte, bei denen unter der Oberfläche viel passiert: resiliente Infrastruktur, unabhängige Netzwerke, sichere Kommunikation und technische Umgebungen mit echten Anforderungen.',
   },
 ];
 const rulesOnAI = [
   {
-    title: 'Keep human skills alive',
-    text: 'AI should be a bicycle for the mind, not a self-driving car. It should augment our thinking and creativity, never replace our fundamental ability to operate and solve problems without a machine.',
+    title: '1. Menschliche Fähigkeiten müssen erhalten bleiben',
+    text: 'Künstliche Intelligenz kann menschliches Denken beschleunigen, aber sie darf es nicht ersetzen. Entscheidend bleibt, dass Menschen verstehen, beurteilen und handeln können. Auch ohne KI.',
   },
   {
-    title: 'Efficiency is not resilience',
-    text: "When you optimize a system solely for speed, scale, and cost, you build something incredibly fragile. We shouldn't create a world that depends entirely on infrastructure that only a handful of people still understand.",
+    title: '2. Resilienz geht vor Effizienz und Wettbewerbsvorteil',
+    text: 'Ein System, das nur auf Geschwindigkeit, Skalierung und Kosten optimiert ist, wird schnell verwundbar. Robust wird Technologie erst, wenn sie auch Ausfälle, Umwege und menschliche Grenzen einkalkuliert.',
   },
   {
-    title: 'Tech reshapes responsibility',
-    text: 'Tools are never neutral. Every new technology rewires how we communicate, work, and depend on one another. We need to weigh these human consequences before we push automation to a point of no return.',
+    title: '3. Die Verantwortung trägt immer der Mensch',
+    text: 'Werkzeuge sind nie nur Werkzeuge. Sie verändern Entscheidungen, Abhängigkeiten und Verantwortung. Deshalb müssen wir Technologie nicht nur entwickeln, sondern auch ihre Folgen gestalten.',
   },
 ];
 ---
 
-<BaseLayout title='Designing technology for humans - Ralph Bolliger'>
-  <Section id='why' margin='base'>
+<BaseLayout title='Ralph Bolliger · UX Design für komplexe digitale Systeme'>
+  <Section id='warum' margin='base'>
     <div slot='left'>
       <NormalText spaceAfter='small' weight='bold' tone='accent'>
-        <a href='#why' class='underline-offset-4 hover:underline'>Why</a>
+        <a href='#warum' class='underline-offset-4 hover:underline'>Warum</a>
       </NormalText>
     </div>
     <div slot='right'>
       <LeadText weight='normal' spaceAfter='large'>
-        Technology should back us up, not dictate how we live. I build digital
-        systems that don't restrict human freedom, but actually unlock it,
-        giving people real autonomy in a hyper-connected world.
+        Ich gestalte digitale Produkte für Menschen, die mit komplexen Systemen
+        arbeiten. Mein Fokus liegt auf Klarheit, Sicherheit, Vertrauen und
+        Handlungsfähigkeit. Technologie soll unterstützen, nicht blockieren.
       </LeadText>
       <LeadText weight='normal'>
-        Systems get more complex every day, and we can't change that. But we can
-        stop that complexity from turning into chaos. To me, true resilience
-        goes way beyond mere efficiency. It's about keeping organizations
-        capable of acting even when things go sideways.</LeadText
+        Komplexität verschwindet nicht durch gutes Design. Gutes Design
+        entscheidet, ob sie beherrschbar bleibt. Ich helfe Organisationen dabei,
+        digitale Systeme so zu bauen, dass sie verständlich, belastbar, sicher
+        und nachhaltig nutzbar sind.</LeadText
       >
     </div>
   </Section>
-  <Section id='how' border='none'>
+  <Section id='wie' border='none'>
     <div slot='left'>
       <NormalText spaceAfter='small' weight='bold' tone='accent'>
-        <a href='#how' class='underline-offset-4 hover:underline'>How</a>
+        <a href='#wie' class='underline-offset-4 hover:underline'>Wie</a>
       </NormalText>
     </div>
     <div slot='right'>
       <Columns columns={howColumns} />
       <LargeText class='mt-base-double'>
-        Privacy isn't about hiding; it's about staying in control.
+        Technologie schafft Kontrolle, ohne Menschen zu kontrollieren.
       </LargeText>
     </div>
   </Section>
-  <Section id='practice'>
+  <Section id='laufbahn'>
     <div slot='left'>
       <NormalText spaceAfter='small' weight='bold' tone='accent'>
-        <a href='#practice' class='underline-offset-4 hover:underline'
-          >Practice</a
+        <a href='#laufbahn' class='underline-offset-4 hover:underline'
+          >Laufbahn</a
         >
       </NormalText>
     </div>
     <div slot='right'>
       <LargeText spaceAfter='large'
-        >My career started in digital communication, shifted into project
-        leadership, and eventually led me deep into product and experience
-        design. When I'm not working with clients, I'm usually down a rabbit
-        hole. Whether that's ethical hacking, philosophy, behavioral psychology,
-        or tinkering with amateur radio.</LargeText
+        >Mein Weg führt von digitaler Kommunikation über Projektleitung bis tief
+        ins Product und Experience Design. Diese Kombination prägt meine Arbeit:
+        Ich denke nicht nur in Benutzeroberflächen, sondern in Systemen,
+        Abhängigkeiten und Entscheidungen.</LargeText
       >
       <LargeText spaceAfter='large'
-        >To me, these aren't random, isolated hobbies; they are different lenses
-        for looking at the exact same thing: how humans interact with technology
-        and infrastructure.</LargeText
+        >Abseits von Kundenprojekten beschäftige ich mich mit Sicherheit,
+        Verhaltenspsychologie, Philosophie, Ethik, Software und Elektrotechnik.
+        Nicht als Selbstzweck, sondern weil all diese Themen dieselbe Frage
+        berühren:</LargeText
       >
-      <NormalText weight='bold' class='mt-base-double mb-base-double'
-        >Path</NormalText
+      <LargeText spaceAfter='large'>
+        Wie bleibt Technologie menschlich, verständlich, verlässlich und sicher?</LargeText
       >
       <SplitList items={pathItems} />
-      <LargeText class='mt-base'
-        >Complexity is a given. Confusion shouldn't be.</LargeText
-      >
     </div>
   </Section>
-  <Section id='focus'>
+  <Section id='fokus'>
     <div slot='left'>
       <NormalText spaceAfter='small' weight='bold' tone='accent'>
-        <a href='#focus' class='underline-offset-4 hover:underline'>Focus</a>
+        <a href='#fokus' class='underline-offset-4 hover:underline'>Fokus</a>
       </NormalText>
     </div>
     <div slot='right'>
       <LargeText class='mb-base-double'
-        >I'm at my best when a project sits at the crossroads of design, deep
-        tech, and real-world responsibility. I get excited about complicated
-        systems that need to be made simple, and situations where winning a
-        user's trust depends entirely on how information is handled and
-        communicated.</LargeText
+        >Besonders stark bin ich in Projekten, in denen Design mehr leisten muss
+        als gut auszusehen. Dort, wo Informationen kritisch sind, Prozesse
+        komplex werden und Vertrauen davon abhängt, ob Menschen ein System
+        wirklich verstehen.</LargeText
       >
       <Columns columns={focusItems} />
     </div>
   </Section>
-  <Section id='ai'>
+  <Section id='ki'>
     <div slot='left'>
       <NormalText spaceAfter='small' weight='bold' tone='accent'>
-        <a href='#ai' class='underline-offset-4 hover:underline'
-          >AI & Human Capability</a
+        <a href='#ki' class='underline-offset-4 hover:underline'
+          >KI & menschliche Fähigkeiten</a
         >
       </NormalText>
     </div>
     <div slot='right'>
       <LargeText class='mb-base-double'
-        >I use AI when it genuinely helps to smooth out workflows, spark ideas,
-        or improve accessibility. But I am deeply skeptical of handing over
-        human understanding to permanent automation. Efficiency is not the same
-        as resilience.</LargeText
+        >Ich nutze KI pragmatisch: Wenn sie Arbeit beschleunigt, Perspektiven
+        öffnet oder Barrieren senkt. Gleichzeitig ziehe ich eine klare Grenze,
+        wenn Automatisierung Verständnis ersetzt. Effizienz ist wertvoll, aber
+        sie ist kein Ersatz für menschliche Kompetenz.</LargeText
       >
       <LargeText class='mb-base-double'
-        >If a society outsources too much of its thinking and core expertise to
-        black-box systems, we risk losing our cognitive muscle memory. We need
-        to keep the skills required to look under the hood and fix things
-        ourselves when those systems inevitably fail, go offline, or become too
-        expensive to maintain.</LargeText
+        >Gerade bei sensiblen Lösungen müssen Menschen nachvollziehen können,
+        was ein System tut, wo seine Grenzen liegen und wer Verantwortung trägt.
+        Technologie soll Fähigkeiten erweitern, nicht Organisationen von
+        undurchsichtigen Systemen abhängig machen.</LargeText
       >
       <NormalText weight='bold' class='mt-base-double mb-base-double'
-        >My principles for AI</NormalText
+        >Meine Prinzipien</NormalText
       >
       <Columns columns={rulesOnAI} />
       <LargeText class='mt-base-double'
-        >Technology should sharpen human competence, not make it obsolete.</LargeText
+        >Neue Werkzeuge machen Menschen besser, nicht austauschbar.</LargeText
       >
     </div>
   </Section>
-  <Section id='identity'>
+  <Section id='identität'>
     <div slot='left'>
       <NormalText spaceAfter='small' weight='bold' tone='accent'>
-        <a href='#identity' class='underline-offset-4 hover:underline'
-          >Identity</a
+        <a href='#identität' class='underline-offset-4 hover:underline'
+          >Identität</a
         >
       </NormalText>
     </div>
     <div slot='right'>
       <Image
-        alt='Portrait of myself'
+        alt='Porträt von Ralph Bolliger'
         src={portrait}
         data-reveal
         class='mb-base-double rounded-2xl shadow-2xl'
       />
       <LargeText class='mb-base-double'
-        >I don't publish direct contact info out in the open. If you need to
-        verify who I am or want to set up a secure, encrypted line of
-        communication, you can use my public OpenPGP key:</LargeText
+        >Ich veröffentliche keine direkten Kontaktdaten im Netz. Wenn du meine
+        Identität prüfen oder einen sicheren und verschlüsselten
+        Kommunikations-Kanal öffnen möchtest, bietet dir mein öffentlicher
+        OpenPGP-Schlüssel eine Möglichkeit, mir eine E-Mail zukommen zu lassen:</LargeText
       >
       <NormalText>
         <a
-          title='Click to get OpenPGP key'
+          title='OpenPGP-Schlüssel öffnen'
           href='/pgp'
           class='font-mono text-accent underline underline-offset-4'
           rel='noreferrer'
@@ -220,8 +216,9 @@ const rulesOnAI = [
         </a>
       </NormalText>
       <LargeText class='mt-base-double'
-        >As digital systems demand more of our trust, knowing exactly who you
-        are dealing with is a necessity, not an afterthought.</LargeText
+        >Wer mit sensiblen Systemen und Infomationen arbeitet, sollte Identität
+        nicht als Nebensache behandeln. Vertrauen beginnt damit, dass klar ist,
+        mit wem man spricht.</LargeText
       >
     </div>
   </Section>

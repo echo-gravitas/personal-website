@@ -8,20 +8,45 @@ import '../styles/global.css';
 const { title } = Astro.props;
 const pageTitle = title
   ? `${title}`
-  : 'Designing technology for humans - Ralph Bolliger';
+  : 'Ralph Bolliger · UX Design für komplexe digitale Systeme';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  'mainEntity': {
+    '@type': 'Person',
+    'name': 'Ralph Bolliger',
+    'url': 'https://seventrees.io/',
+    'jobTitle': 'UX Designer, Product Designer und Security Researcher',
+    'description':
+      'Ralph Bolliger gestaltet UX, Produktdesign und digitale Resilienz für komplexe digitale Systeme.',
+    'knowsAbout': [
+      'UX Design',
+      'Product Design',
+      'Cyber Security',
+      'Digital Resilience',
+      'Communication Systems',
+      'Human-Centered Technology',
+    ],
+  },
+};
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang='de'>
   <head>
     <meta charset='utf-8' />
     <link rel='icon' href='/img/favicon.svg' />
+    <link rel='canonical' href='https://seventrees.io/' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <meta
       name='description'
-      content='Designing technology for humans through experience design, software development, communication systems, and security research.'
+      content='Ralph Bolliger gestaltet UX, Produktdesign und digitale Resilienz für komplexe Systeme. Klar, sicher und nutzerzentriert.'
     />
-    <meta name='credo' content='Going dark is no longer an option.' />
+    <script
+      type='application/ld+json'
+      set:html={JSON.stringify(structuredData)}
+    />
     <script async src='https://www.googletagmanager.com/gtag/js?id=G-E259F43NWW'
     ></script>
     <script is:inline>
