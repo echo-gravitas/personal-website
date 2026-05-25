@@ -3,17 +3,17 @@ const pgpKeyUrl = 'https://keys.openpgp.org/search?q=ralph.bolliger%40pm.me';
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang='de'>
   <head>
     <meta charset='utf-8' />
     <meta http-equiv='refresh' content={`0;url=${pgpKeyUrl}`} />
     <meta name='robots' content='noindex' />
-    <title>PGP Key</title>
+    <title>PGP-Schlüssel</title>
     <script is:inline define:vars={{ pgpKeyUrl }}>
       window.location.replace(pgpKeyUrl);
     </script>
   </head>
   <body>
-    <a href={pgpKeyUrl} rel='noreferrer'>Open PGP key</a>
+    <a href={pgpKeyUrl} rel='noreferrer'>OpenPGP-Schlüssel öffnen</a>
   </body>
 </html>
