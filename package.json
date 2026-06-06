@@ -1,7 +1,7 @@
 {
   "name": "personal-website",
   "description": "My very new peronal website",
-  "version": "5.7.0",
+  "version": "5.8.0",
   "author": {
     "name": "Ralph Bolliger",
     "email": "ralph.bolliger@pm.me",
@@ -16,6 +16,7 @@
     "astro": "astro"
   },
   "devDependencies": {
+    "@astrojs/mdx": "^6.0.2",
     "@darkstar/prettier": "1.0.1",
     "astro": "^6.3.6",
     "sass": "^1.99.0"

@@ -1,0 +1,133 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Section from '../../../components/Section.astro';
+import LeadText from '../../../components/typography/LeadText.astro';
+import NormalText from '../../../components/typography/NormalText.astro';
+import { observationTopicLabels } from '../../../scripts/observations';
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('beobachtungen')).filter(
+    (entry) => import.meta.env.DEV || !entry.data.draft,
+  );
+
+  return posts.map((post) => ({
+    params: {
+      slug: post.id,
+      topic: post.data.topic,
+    },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat('de-CH', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  }).format(date);
+
+const postUrl = `/beobachtungen/${post.data.topic}/${post.id}`;
+const absolutePostUrl = `https://seventrees.io${postUrl}`;
+const imageUrl = post.data.image
+  ? new URL(post.data.image, 'https://seventrees.io').toString()
+  : undefined;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  'headline': post.data.title,
+  'description': post.data.description,
+  'abstract': post.data.summary,
+  'datePublished': post.data.pubDate.toISOString(),
+  'dateModified': (post.data.updatedDate ?? post.data.pubDate).toISOString(),
+  'keywords': post.data.tags,
+  'articleSection': observationTopicLabels[post.data.topic],
+  'image': imageUrl,
+  'author': {
+    '@type': 'Person',
+    'name': 'Ralph Bolliger',
+    'url': 'https://seventrees.io/',
+  },
+  'citation': post.data.sources?.map((source) => source.url),
+  'mainEntityOfPage': absolutePostUrl,
+};
+---
+
+<BaseLayout
+  title={`${post.data.title} · Ralph Bolliger`}
+  description={post.data.description}
+  canonicalPath={postUrl}
+  imageAlt={post.data.imageAlt}
+  imagePath={post.data.image}
+  keywords={post.data.tags}
+  ogType='article'
+  structuredData={structuredData}
+>
+  <Section id='artikel' margin='base'>
+    <div slot='left'>
+      <NormalText spaceAfter='small' weight='bold' tone='accent'>
+        <a href='/beobachtungen' class='underline-offset-4 hover:underline'>
+          Beobachtungen
+        </a>
+      </NormalText>
+    </div>
+    <article slot='right'>
+      <div class='mb-base-double'>
+        <div class='mb-base flex flex-wrap gap-base-half font-mono text-small text-muted'>
+          <span>{formatDate(post.data.pubDate)}</span>
+          <span>{observationTopicLabels[post.data.topic]}</span>
+          {post.data.draft && <span>draft</span>}
+        </div>
+        <LeadText as='h1' weight='bold' spaceAfter='normal'>
+          {post.data.title}
+        </LeadText>
+        <NormalText tone='muted' class='mb-base'>
+          {post.data.description}
+        </NormalText>
+        {
+          post.data.summary && (
+            <NormalText class='mb-base' weight='bold'>
+              {post.data.summary}
+            </NormalText>
+          )
+        }
+        <div class='flex flex-wrap gap-base-half'>
+          {post.data.tags.map((tag) => (
+            <span class='font-mono text-small text-accent'>#{tag}</span>
+          ))}
+        </div>
+      </div>
+
+      <div class='observation-content'>
+        <Content />
+      </div>
+
+      {
+        post.data.sources && post.data.sources.length > 0 && (
+          <div class='mt-base-double border-t pt-base'>
+            <NormalText as='h2' class='mb-base' weight='bold'>
+              Quellen
+            </NormalText>
+            <ul class='grid gap-base-half'>
+              {post.data.sources.map((source) => (
+                <li>
+                  <a
+                    href={source.url}
+                    class='text-accent underline underline-offset-4'
+                    rel='noreferrer'
+                    target='_blank'
+                  >
+                    {source.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+    </article>
+  </Section>
+</BaseLayout>

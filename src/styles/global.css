@@ -144,3 +144,58 @@ footer span {
   mask: url('/img/logo.svg') center / calc(100% - 1.5rem) auto no-repeat;
   transition: background-color 200ms ease;
 }
+
+.observation-content {
+  font-size: var(--text-large);
+  font-weight: var(--font-weight-light);
+  line-height: normal;
+}
+
+.observation-content > * + * {
+  margin-top: var(--spacing-base);
+}
+
+.observation-content h2,
+.observation-content h3 {
+  color: var(--theme-font);
+  font-weight: var(--font-weight-bold);
+  padding-top: var(--spacing-base);
+}
+
+.observation-content h2 {
+  font-size: var(--text-lead);
+}
+
+.observation-content h3 {
+  font-size: var(--text-large);
+}
+
+.observation-content a {
+  color: var(--theme-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+.observation-content ul,
+.observation-content ol {
+  padding-left: var(--spacing-base);
+}
+
+.observation-content ul {
+  list-style: disc;
+}
+
+.observation-content ol {
+  list-style: decimal;
+}
+
+.observation-content code {
+  font-family: var(--font-mono);
+  font-size: var(--text-normal);
+}
+
+.observation-content pre {
+  overflow-x: auto;
+  border: 1px solid var(--theme-border);
+  padding: var(--spacing-base);
+}
