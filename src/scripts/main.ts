@@ -62,8 +62,7 @@ const scrollToHashTarget = () => {
     return;
   }
 
-  const behavior = window.matchMedia('(prefers-reduced-motion: reduce)')
-    .matches
+  const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     ? 'auto'
     : 'smooth';
 
@@ -74,7 +73,19 @@ window.addEventListener('load', scrollToHashTarget, { once: true });
 window.addEventListener('hashchange', scrollToHashTarget);
 
 const revealText = () => {
-  const textElements = gsap.utils.toArray<HTMLElement>('[data-reveal]');
+  const revealSelectors = [
+    '[data-reveal]',
+    '[data-observation-reveal]',
+    '[data-observation-meta] > *',
+    '[data-observation-tags] > *',
+    '.observation-content > *',
+    '.observation-content li',
+    '[data-observation-sources] > *',
+    '[data-observation-sources] li',
+  ].join(',');
+  const textElements = gsap.utils
+    .toArray<HTMLElement>(revealSelectors)
+    .filter((element, index, elements) => elements.indexOf(element) === index);
   const contentElements = textElements.filter(
     (element) => !element.closest('footer'),
   );

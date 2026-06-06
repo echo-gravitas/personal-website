@@ -66,7 +66,7 @@ const structuredData = {
         posts.length > 0 ? (
           <div class='grid gap-base-double'>
             {posts.map((post) => (
-              <article class='border-t pt-base'>
+              <article class='border-t pt-base' data-observation-reveal>
                 <NormalText as='h2' class='mb-base-half' weight='bold'>
                   <a href={getPostUrl(post)} class='hover:underline'>
                     {post.data.title}
@@ -75,12 +75,18 @@ const structuredData = {
                 <NormalText tone='muted' class='mb-base'>
                   {post.data.summary ?? post.data.description}
                 </NormalText>
-                <div class='flex flex-wrap gap-base-half font-mono text-small text-muted'>
+                <div
+                  class='flex flex-wrap gap-base-half font-mono text-small text-muted'
+                  data-observation-meta
+                >
                   <span>{formatDate(post.data.pubDate)}</span>
                   <span>{observationTopicLabels[post.data.topic]}</span>
                   {post.data.draft && <span>draft</span>}
                 </div>
-                <div class='mt-base-half flex flex-wrap gap-base-half'>
+                <div
+                  class='mt-base-half flex flex-wrap gap-base-half'
+                  data-observation-tags
+                >
                   {post.data.tags.map((tag) => (
                     <span class='font-mono text-small text-accent'>#{tag}</span>
                   ))}
