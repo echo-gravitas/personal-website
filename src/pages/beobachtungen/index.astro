@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Section from '../../components/Section.astro';
 import LeadText from '../../components/typography/LeadText.astro';
 import NormalText from '../../components/typography/NormalText.astro';
+import LargeText from '../../components/typography/LargeText.astro';
 import { observationTopicLabels } from '../../scripts/observations';
 
 const isPublished = (entry: { data: { draft: boolean } }) =>
@@ -46,7 +47,13 @@ const structuredData = {
   title='Beobachtungen · Ralph Bolliger'
   description={pageDescription}
   canonicalPath='/beobachtungen'
-  keywords={['Cyber Security', 'Security Research', 'Privacy', 'KI', 'Datenschutz']}
+  keywords={[
+    'Cyber Security',
+    'Security Research',
+    'Privacy',
+    'KI',
+    'Datenschutz',
+  ]}
   structuredData={structuredData}
 >
   <Section id='beobachtungen' margin='base'>
@@ -67,11 +74,11 @@ const structuredData = {
           <div class='grid gap-base-double'>
             {posts.map((post) => (
               <article class='border-t pt-base' data-observation-reveal>
-                <NormalText as='h2' class='mb-base-half' weight='bold'>
+                <LargeText as='h2' class='mb-base-half' weight='bold'>
                   <a href={getPostUrl(post)} class='hover:underline'>
                     {post.data.title}
                   </a>
-                </NormalText>
+                </LargeText>
                 <NormalText tone='muted' class='mb-base'>
                   {post.data.summary ?? post.data.description}
                 </NormalText>
