@@ -16,7 +16,12 @@ type Props = {
   title?: string;
 };
 
-const siteUrl = 'https://seventrees.io';
+const siteUrl = Astro.site;
+
+if (!siteUrl) {
+  throw new Error('Astro site config is required for canonical and social URLs.');
+}
+
 const defaultTitle = 'Ralph Bolliger · UX Design für komplexe digitale Systeme';
 const defaultDescription =
   'Ralph Bolliger gestaltet UX, Produktdesign und digitale Resilienz für komplexe Systeme. Klar, sicher und nutzerzentriert.';
@@ -27,7 +32,7 @@ const defaultStructuredData = {
   'mainEntity': {
     '@type': 'Person',
     'name': 'Ralph Bolliger',
-    'url': 'https://seventrees.io/',
+    'url': new URL('/', siteUrl).toString(),
     'jobTitle': 'UX Designer, Product Designer und Security Researcher',
     'description':
       'Ralph Bolliger gestaltet UX, Produktdesign und digitale Resilienz für komplexe digitale Systeme.',
