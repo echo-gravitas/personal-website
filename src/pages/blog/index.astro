@@ -24,6 +24,12 @@ const formatDate = (date: Date) =>
 const getPostUrl = (post: (typeof posts)[number]) =>
   `/blog/${post.data.topic}/${post.id}`;
 
+const siteUrl = Astro.site;
+
+if (!siteUrl) {
+  throw new Error('Astro site config is required for structured data URLs.');
+}
+
 const pageDescription =
   'Beobachtungen zu Cyber Security, Security Research, Privacy und KI abseits des Nachrichtengrundrauschens.';
 const structuredData = {
@@ -31,12 +37,12 @@ const structuredData = {
   '@type': 'CollectionPage',
   'name': 'Blog',
   'description': pageDescription,
-  'url': 'https://seventrees.io/blog',
+  'url': new URL('/blog', siteUrl).toString(),
   'mainEntity': posts.map((post) => ({
     '@type': 'Article',
     'headline': post.data.title,
     'description': post.data.description,
-    'url': `https://seventrees.io${getPostUrl(post)}`,
+    'url': new URL(getPostUrl(post), siteUrl).toString(),
     'datePublished': post.data.pubDate.toISOString(),
     'keywords': post.data.tags,
   })),

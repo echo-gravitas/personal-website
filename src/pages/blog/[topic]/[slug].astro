@@ -1,4 +1,5 @@
 ---
+import { Image, getImage } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Section from '../../../components/Section.astro';
@@ -31,9 +32,29 @@ const formatDate = (date: Date) =>
   }).format(date);
 
 const postUrl = `/blog/${post.data.topic}/${post.id}`;
-const absolutePostUrl = `https://seventrees.io${postUrl}`;
-const imageUrl = post.data.image
-  ? new URL(post.data.image, 'https://seventrees.io').toString()
+const siteUrl = Astro.site;
+
+if (!siteUrl) {
+  throw new Error('Astro site config is required for article URLs.');
+}
+
+const absolutePostUrl = new URL(postUrl, siteUrl).toString();
+const heroImage =
+  post.data.image && typeof post.data.image !== 'string'
+    ? post.data.image
+    : undefined;
+const optimizedOgImage = heroImage
+  ? await getImage({
+      src: heroImage,
+      width: 1200,
+      height: 630,
+      format: 'jpg',
+    })
+  : undefined;
+const imagePath =
+  typeof post.data.image === 'string' ? post.data.image : optimizedOgImage?.src;
+const imageUrl = imagePath
+  ? new URL(imagePath, siteUrl).toString()
   : undefined;
 const structuredData = {
   '@context': 'https://schema.org',
@@ -49,7 +70,7 @@ const structuredData = {
   'author': {
     '@type': 'Person',
     'name': 'Ralph Bolliger',
-    'url': 'https://seventrees.io/',
+    'url': new URL('/', siteUrl).toString(),
   },
   'citation': post.data.sources?.map((source) => source.url),
   'mainEntityOfPage': absolutePostUrl,
@@ -61,7 +82,7 @@ const structuredData = {
   description={post.data.description}
   canonicalPath={postUrl}
   imageAlt={post.data.imageAlt}
-  imagePath={post.data.image}
+  imagePath={imagePath}
   keywords={post.data.tags}
   ogType='article'
   structuredData={structuredData}
@@ -105,6 +126,18 @@ const structuredData = {
           }
         </div>
       </div>
+
+      {
+        heroImage && (
+          <Image
+            alt={post.data.imageAlt ?? ''}
+            src={heroImage}
+            width={1200}
+            class='mb-base-double rounded-2xl shadow-2xl'
+            data-reveal
+          />
+        )
+      }
 
       <div class='observation-content'>
         <Content />
