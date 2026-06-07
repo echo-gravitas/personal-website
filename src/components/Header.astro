@@ -13,13 +13,21 @@ import { SwatchBook } from '@lucide/astro';
     <span class='logo-mark size-full p-base-half' aria-hidden='true'></span>
   </a>
 
-  <button
-    title='T drücken oder klicken, um das Theme zu wechseln'
-    type='button'
-    aria-label='T drücken oder klicken, um das Theme zu wechseln'
-    data-theme-toggle
-    class='inline-flex size-10 cursor-pointer items-center justify-center rounded-full text-accent'
-  >
-    <SwatchBook aria-hidden='true' />
-  </button>
+  <nav class='flex items-center gap-base' aria-label='Hauptnavigation'>
+    <a
+      href='/beobachtungen'
+      class='font-mono text-small text-accent hover:underline'
+    >
+      Beobachtungen
+    </a>
+    <button
+      title='T drücken oder klicken, um das Theme zu wechseln'
+      type='button'
+      aria-label='T drücken oder klicken, um das Theme zu wechseln'
+      data-theme-toggle
+      class='inline-flex size-10 cursor-pointer items-center justify-center rounded-full text-accent'
+    >
+      <SwatchBook aria-hidden='true' />
+    </button>
+  </nav>
 </header>

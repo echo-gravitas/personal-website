@@ -1,0 +1,112 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/Section.astro';
+import LeadText from '../../components/typography/LeadText.astro';
+import NormalText from '../../components/typography/NormalText.astro';
+import LargeText from '../../components/typography/LargeText.astro';
+import { observationTopicLabels } from '../../scripts/observations';
+
+const isPublished = (entry: { data: { draft: boolean } }) =>
+  import.meta.env.DEV || !entry.data.draft;
+
+const posts = (await getCollection('beobachtungen'))
+  .filter(isPublished)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat('de-CH', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  }).format(date);
+
+const getPostUrl = (post: (typeof posts)[number]) =>
+  `/beobachtungen/${post.data.topic}/${post.id}`;
+
+const pageDescription =
+  'Beobachtungen zu Cyber Security, Security Research, Privacy und KI abseits des Nachrichtengrundrauschens.';
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  'name': 'Beobachtungen',
+  'description': pageDescription,
+  'url': 'https://seventrees.io/beobachtungen',
+  'mainEntity': posts.map((post) => ({
+    '@type': 'Article',
+    'headline': post.data.title,
+    'description': post.data.description,
+    'url': `https://seventrees.io${getPostUrl(post)}`,
+    'datePublished': post.data.pubDate.toISOString(),
+    'keywords': post.data.tags,
+  })),
+};
+---
+
+<BaseLayout
+  title='Beobachtungen · Ralph Bolliger'
+  description={pageDescription}
+  canonicalPath='/beobachtungen'
+  keywords={[
+    'Cyber Security',
+    'Security Research',
+    'Privacy',
+    'KI',
+    'Datenschutz',
+  ]}
+  structuredData={structuredData}
+>
+  <Section id='beobachtungen' margin='base'>
+    <div slot='left'>
+      <NormalText spaceAfter='small' weight='bold' tone='accent'>
+        <a href='#beobachtungen' class='underline-offset-4 hover:underline'>
+          Beobachtungen
+        </a>
+      </NormalText>
+    </div>
+    <div slot='right'>
+      <LeadText weight='normal' spaceAfter='large'>
+        {pageDescription}
+      </LeadText>
+
+      {
+        posts.length > 0 ? (
+          <div class='grid gap-base-double'>
+            {posts.map((post) => (
+              <article class='border-t pt-base' data-observation-reveal>
+                <LargeText as='h2' class='mb-base-half' weight='bold'>
+                  <a href={getPostUrl(post)} class='hover:underline'>
+                    {post.data.title}
+                  </a>
+                </LargeText>
+                <NormalText tone='muted' class='mb-base'>
+                  {post.data.summary ?? post.data.description}
+                </NormalText>
+                <div
+                  class='flex flex-wrap gap-base-half font-mono text-small text-muted'
+                  data-observation-meta
+                >
+                  <span>{formatDate(post.data.pubDate)}</span>
+                  <span>{observationTopicLabels[post.data.topic]}</span>
+                  {post.data.draft && <span>draft</span>}
+                </div>
+                <div
+                  class='mt-base-half flex flex-wrap gap-base-half'
+                  data-observation-tags
+                >
+                  {post.data.tags.map((tag) => (
+                    <span class='font-mono text-small text-accent'>#{tag}</span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <NormalText tone='muted'>
+            Noch keine veroeffentlichten Beobachtungen.
+          </NormalText>
+        )
+      }
+    </div>
+  </Section>
+</BaseLayout>
