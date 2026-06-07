@@ -7,7 +7,7 @@ import NormalText from '../../../components/typography/NormalText.astro';
 import { observationTopicLabels } from '../../../scripts/observations';
 
 export async function getStaticPaths() {
-  const posts = (await getCollection('beobachtungen')).filter(
+  const posts = (await getCollection('blog')).filter(
     (entry) => import.meta.env.DEV || !entry.data.draft,
   );
 
@@ -30,7 +30,7 @@ const formatDate = (date: Date) =>
     year: 'numeric',
   }).format(date);
 
-const postUrl = `/beobachtungen/${post.data.topic}/${post.id}`;
+const postUrl = `/blog/${post.data.topic}/${post.id}`;
 const absolutePostUrl = `https://seventrees.io${postUrl}`;
 const imageUrl = post.data.image
   ? new URL(post.data.image, 'https://seventrees.io').toString()
@@ -69,8 +69,8 @@ const structuredData = {
   <Section id='artikel' margin='base'>
     <div slot='left'>
       <NormalText spaceAfter='small' weight='bold' tone='accent'>
-        <a href='/beobachtungen' class='underline-offset-4 hover:underline'>
-          Beobachtungen
+        <a href='/blog' class='underline-offset-4 hover:underline'>
+          Blog
         </a>
       </NormalText>
     </div>
