@@ -10,7 +10,7 @@ import { observationTopicLabels } from '../../scripts/observations';
 const isPublished = (entry: { data: { draft: boolean } }) =>
   import.meta.env.DEV || !entry.data.draft;
 
-const posts = (await getCollection('beobachtungen'))
+const posts = (await getCollection('blog'))
   .filter(isPublished)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
@@ -22,16 +22,16 @@ const formatDate = (date: Date) =>
   }).format(date);
 
 const getPostUrl = (post: (typeof posts)[number]) =>
-  `/beobachtungen/${post.data.topic}/${post.id}`;
+  `/blog/${post.data.topic}/${post.id}`;
 
 const pageDescription =
   'Beobachtungen zu Cyber Security, Security Research, Privacy und KI abseits des Nachrichtengrundrauschens.';
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  'name': 'Beobachtungen',
+  'name': 'Blog',
   'description': pageDescription,
-  'url': 'https://seventrees.io/beobachtungen',
+  'url': 'https://seventrees.io/blog',
   'mainEntity': posts.map((post) => ({
     '@type': 'Article',
     'headline': post.data.title,
@@ -44,9 +44,9 @@ const structuredData = {
 ---
 
 <BaseLayout
-  title='Beobachtungen · Ralph Bolliger'
+  title='Blog · Ralph Bolliger'
   description={pageDescription}
-  canonicalPath='/beobachtungen'
+  canonicalPath='/blog'
   keywords={[
     'Cyber Security',
     'Security Research',
@@ -56,12 +56,10 @@ const structuredData = {
   ]}
   structuredData={structuredData}
 >
-  <Section id='beobachtungen' margin='base'>
+  <Section id='blog' margin='base'>
     <div slot='left'>
       <NormalText spaceAfter='small' weight='bold' tone='accent'>
-        <a href='#beobachtungen' class='underline-offset-4 hover:underline'>
-          Beobachtungen
-        </a>
+        <a href='#blog' class='underline-offset-4 hover:underline'> Blog </a>
       </NormalText>
     </div>
     <div slot='right'>
@@ -103,7 +101,7 @@ const structuredData = {
           </div>
         ) : (
           <NormalText tone='muted'>
-            Noch keine veroeffentlichten Beobachtungen.
+            Noch keine veroeffentlichten Blogbeitraege.
           </NormalText>
         )
       }
