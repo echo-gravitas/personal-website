@@ -1,11 +1,14 @@
 ---
+import { getImage } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Section from '../../components/Section.astro';
 import LeadText from '../../components/typography/LeadText.astro';
 import NormalText from '../../components/typography/NormalText.astro';
 import LargeText from '../../components/typography/LargeText.astro';
+import ogImage from '../../images/blog/boitumelo-o_tcYADlSt8-unsplash.jpg';
 import { observationTopicLabels } from '../../scripts/observations';
+import { getReadingTimeLabel } from '../../scripts/readingTime';
 
 const isPublished = (entry: { data: { draft: boolean } }) =>
   import.meta.env.DEV || !entry.data.draft;
@@ -31,7 +34,13 @@ if (!siteUrl) {
 }
 
 const pageDescription =
-  'Beobachtungen zu Cyber Security, Security Research, Privacy und KI abseits des Nachrichtengrundrauschens.';
+  'Analysen und Perspektiven zu UX Design, künstlicher Intelligenz, Datenschutz, Cybersecurity und digitalen Produkten. Für Menschen, die hinter den Technologie-Hype blicken wollen.';
+const optimizedOgImage = await getImage({
+  src: ogImage,
+  width: 1200,
+  height: 630,
+  format: 'jpg',
+});
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
@@ -53,6 +62,8 @@ const structuredData = {
   title='Blog · Ralph Bolliger'
   description={pageDescription}
   canonicalPath='/blog'
+  imageAlt='Abstrakte technische Struktur mit leuchtenden Verbindungen'
+  imagePath={optimizedOgImage.src}
   keywords={[
     'Cyber Security',
     'Security Research',
@@ -90,8 +101,11 @@ const structuredData = {
                   class='flex flex-wrap gap-base-half font-mono text-small text-muted'
                   data-observation-meta
                 >
-                  <span>{formatDate(post.data.pubDate)}</span>
-                  <span>{observationTopicLabels[post.data.topic]}</span>
+                  <span>{formatDate(post.data.pubDate)} &middot;</span>
+                  <span>
+                    {observationTopicLabels[post.data.topic]} &middot;
+                  </span>
+                  <span>{getReadingTimeLabel(post.body)}</span>
                   {post.data.draft && <span>draft</span>}
                 </div>
                 <div
