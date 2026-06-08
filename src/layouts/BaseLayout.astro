@@ -19,12 +19,14 @@ type Props = {
 const siteUrl = Astro.site;
 
 if (!siteUrl) {
-  throw new Error('Astro site config is required for canonical and social URLs.');
+  throw new Error(
+    'Astro site config is required for canonical and social URLs.',
+  );
 }
 
-const defaultTitle = 'Ralph Bolliger · UX Design für komplexe digitale Systeme';
+const defaultTitle = 'UX, KI & digitale Komplexität · Ralph Bolliger';
 const defaultDescription =
-  'Ralph Bolliger gestaltet UX, Produktdesign und digitale Resilienz für komplexe Systeme. Klar, sicher und nutzerzentriert.';
+  'Analysen und Perspektiven zu UX Design, künstlicher Intelligenz, Datenschutz, Cybersecurity und digitalen Produkten. Für Menschen, die hinter den Technologie-Hype blicken wollen.';
 
 const defaultStructuredData = {
   '@context': 'https://schema.org',
@@ -35,7 +37,7 @@ const defaultStructuredData = {
     'url': new URL('/', siteUrl).toString(),
     'jobTitle': 'UX Designer, Product Designer und Security Researcher',
     'description':
-      'Ralph Bolliger gestaltet UX, Produktdesign und digitale Resilienz für komplexe digitale Systeme.',
+      'Analysen und Perspektiven zu UX Design, künstlicher Intelligenz, Datenschutz, Cybersecurity und digitalen Produkten. Für Menschen, die hinter den Technologie-Hype blicken wollen.',
     'knowsAbout': [
       'UX Design',
       'Product Design',
@@ -70,7 +72,11 @@ const imageUrl = imagePath ? new URL(imagePath, siteUrl).toString() : undefined;
     <link rel='canonical' href={canonicalUrl} />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <meta name='description' content={description} />
-    {keywords.length > 0 && <meta name='keywords' content={keywords.join(', ')} />}
+    {
+      keywords.length > 0 && (
+        <meta name='keywords' content={keywords.join(', ')} />
+      )
+    }
     <meta property='og:site_name' content='Ralph Bolliger' />
     <meta property='og:locale' content='de_CH' />
     <meta property='og:type' content={ogType} />
@@ -79,7 +85,10 @@ const imageUrl = imagePath ? new URL(imagePath, siteUrl).toString() : undefined;
     <meta property='og:url' content={canonicalUrl} />
     {imageUrl && <meta property='og:image' content={imageUrl} />}
     {imageAlt && <meta property='og:image:alt' content={imageAlt} />}
-    <meta name='twitter:card' content={imageUrl ? 'summary_large_image' : 'summary'} />
+    <meta
+      name='twitter:card'
+      content={imageUrl ? 'summary_large_image' : 'summary'}
+    />
     <meta name='twitter:title' content={title} />
     <meta name='twitter:description' content={description} />
     {imageUrl && <meta name='twitter:image' content={imageUrl} />}

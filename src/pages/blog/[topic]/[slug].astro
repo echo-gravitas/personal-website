@@ -6,6 +6,10 @@ import Section from '../../../components/Section.astro';
 import LeadText from '../../../components/typography/LeadText.astro';
 import NormalText from '../../../components/typography/NormalText.astro';
 import { observationTopicLabels } from '../../../scripts/observations';
+import {
+  getReadingTimeLabel,
+  getReadingTimeMinutes,
+} from '../../../scripts/readingTime';
 
 export async function getStaticPaths() {
   const posts = (await getCollection('blog')).filter(
@@ -23,6 +27,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const readingTimeMinutes = getReadingTimeMinutes(post.body);
 
 const formatDate = (date: Date) =>
   new Intl.DateTimeFormat('de-CH', {
@@ -64,6 +69,7 @@ const structuredData = {
   'abstract': post.data.summary,
   'datePublished': post.data.pubDate.toISOString(),
   'dateModified': (post.data.updatedDate ?? post.data.pubDate).toISOString(),
+  'timeRequired': `PT${readingTimeMinutes}M`,
   'keywords': post.data.tags,
   'articleSection': observationTopicLabels[post.data.topic],
   'image': imageUrl,
@@ -103,6 +109,7 @@ const structuredData = {
         >
           <span>{formatDate(post.data.pubDate)}</span>
           <span>{observationTopicLabels[post.data.topic]}</span>
+          <span>{getReadingTimeLabel(post.body)}</span>
           {post.data.draft && <span>draft</span>}
         </div>
         <LeadText as='h1' weight='bold' spaceAfter='normal'>
