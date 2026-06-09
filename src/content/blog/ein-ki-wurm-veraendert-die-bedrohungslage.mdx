@@ -1,13 +1,14 @@
 ---
 title: 'Ein KI-Wurm verändert die Bedrohungslage'
 description:
-  'Ein Proof of Concept für adaptive KI-Würmer und die Frage, warum klassische
-  Abwehr gegen autonome Angreifer an Grenzen stösst.'
+  'Warum adaptive Malware für mich weniger nach Science Fiction klingt als nach
+  einer logischen Folge aus Automatisierung, schwacher Segmentierung und
+  billiger werdender Analyse.'
 summary:
-  'heise und c’t berichten über einen Forschungsprototyp, der zeigt, wie
-  KI-Agenten Angriffsstrategien pro Zielsystem anpassen können. Ich sehe darin
-  keinen Grund für Panik, aber einen klaren Hinweis, dass Verteidigung stärker
-  auf Segmentierung, Anomalien und minimale Rechte setzen muss.'
+  'Mich interessiert an KI-Würmern nicht der Schlagwortwert, sondern die
+  Verschiebung im Bedrohungsmodell: Angriffe können pro Ziel variieren,
+  Analysearbeit automatisieren und Verteidigung zwingen, stärker auf Verhalten,
+  Rechte und Segmentierung zu achten.'
 pubDate: 2026-06-05
 topic: 'cyber-security'
 tags:
@@ -30,110 +31,116 @@ sources:
 draft: false
 ---
 
-## Worum es geht
+## Meine These
 
-[heise und c’t berichten über einen Forschungsprototyp](https://www.youtube.com/watch?v=WZg06gFXaRA)
-von Forschenden der
-[University of Toronto, des Vector Institute der University of Cambridge, und weiterer Beteiligter](https://www.utoronto.ca/news/u-t-researchers-demonstrate-ai-worm-could-target-any-online-device).
-Der Prototyp zeigt einen KI-gestützten Wurm, der sich in einem isolierten
-Testnetz nicht nur weiterverbreitet, sondern seine Angriffsstrategie an das
-jeweilige Zielsystem anpasst.
+Ein KI-Wurm ist für mich nicht deshalb interessant, weil das Wort nach Zukunft
+klingt. Interessant ist die Architektur dahinter: Malware muss nicht mehr nur
+eine feste Kette aus vorbereiteten Exploits ausführen. Sie kann beobachten,
+ableiten und den nächsten Schritt pro Zielsystem anpassen.
 
-Für mich ist daran nicht der Begriff "KI-Wurm" entscheidend. Entscheidend ist
-die Verschiebung des gewohnten Musters eines Angriffs, hin zu situativer
-Angriffslogik. Die Malware ist nicht mehr nur ein Paket aus vorprogrammierten
-Exploits, sondern ein System, das beobachtet, ableitet und den nächsten Schritt
-generiert.
+Das verändert die Bedrohungslage nicht magisch, aber praktisch. Wenn Analyse,
+Entscheidung und Anpassung stärker automatisiert werden, sinken die Grenzkosten
+für neue Versuche. Genau dort entsteht Risiko: nicht durch unbesiegbare
+Angreifer, sondern durch skalierbare Anpassungsfähigkeit.
 
-## Warum das relevant ist
+Als Security-Researcher lese ich solche Arbeiten deshalb nicht als
+Paniksignal. Ich lese sie als Hinweis darauf, welche Verteidigungsannahmen
+brüchig werden.
 
-Klassische Würmer nutzen typischerweise bekannte Schwachstellen oder feste
-Verbreitungsmechanismen. Sobald die Lücke gepatcht ist, verliert der Wurm einen
-grossen Teil seiner Wirkung. Ein adaptiver Wurm verändert diese Dynamik. Er
-versucht nicht nur, dieselbe Technik überall anzuwenden, sondern entscheidet,
-welche bekannten Angriffsmuster zu welchem Ziel passen.
+## Warum mich adaptive Angriffe beschäftigen
 
-Das ist aus der Sicht der Verteidiger unangenehm, weil der Angriff nicht nur
-skaliert, sondern variiert. Verteidigende müssen dann nicht mehr nur nach einem
-bekannten Muster suchen, sondern nach Verhalten, das sich kontextabhängig
-verändert.
+Viele Sicherheitsmodelle beruhen noch immer auf der Idee, dass Angriffe
+erkennbar wiederholbar sind. Eine Kampagne nutzt bestimmte Indikatoren,
+bestimmte Exploits, bestimmte Bewegungsmuster. Verteidigung versucht, diese
+Muster zu erkennen, zu blockieren und daraus Regeln abzuleiten.
 
-## Die neue Asymmetrie
+Das bleibt wichtig. Aber adaptive Angriffe verschieben den Schwerpunkt.
+Statt überall denselben Pfad zu nehmen, kann ein Agent lokale Informationen
+nutzen: Welche Dienste laufen? Welche Versionen sind sichtbar? Welche
+Credentials wurden gefunden? Welche Systeme antworten? Welche Verbindung sieht
+nach einem sinnvollen nächsten Schritt aus?
 
-Besonders relevant finde ich die ökonomische Seite. Wenn ein solcher Wurm
-Rechenleistung kompromittierter Systeme nutzt, verschieben sich die Kosten.
-Angreifende müssen nicht zwingend jede Analyse selbst bezahlen. Die Opfer
-stellen unfreiwillig Infrastruktur bereit.
+Der Angriff wird damit nicht automatisch intelligent im menschlichen Sinn. Aber
+er wird weniger starr. Für Verteidigung ist das genug, um unangenehm zu werden.
 
-Das ist eine gefährliche Asymmetrie: Verteidigung kostet dauerhaft
-Aufmerksamkeit, Monitoring, Segmentierung und Betrieb. Der nächste Angriff kann
-dagegen teilweise auf der Infrastruktur laufen, die bereits kompromittiert
-wurde.
+## Die eigentliche Asymmetrie
 
-Dabei geht es nicht darum, dass Angreifende plötzlich magische Fähigkeiten
-haben. Es geht darum, dass Automatisierung die Grenzkosten neuer Versuche senkt.
-Das kann bestehende Sicherheitsprozesse überlasten.
+Mich interessiert besonders die ökonomische Seite. Verteidigung ist dauerhaft:
+Inventar pflegen, Logs auswerten, Patches testen, Rechte reduzieren,
+Segmentierung durchsetzen, Ausnahmen zurückbauen, Fehlalarme untersuchen.
 
-## Was der Prototyp nicht zeigt
+Angriff kann dagegen zunehmend experimentell werden. Wenn ein kompromittiertes
+System Rechenleistung, Netzwerkposition oder Kontext liefert, wird es selbst
+Teil der Angriffsökonomie. Der nächste Schritt muss nicht vollständig auf der
+Infrastruktur des Angreifers geplant und bezahlt werden. Teile der Analyse
+laufen dort, wo der Einbruch bereits gelungen ist.
 
-Ich halte es für wichtig, die Ergebnisse nicht zu überzeichnen. Der Test lief in
-einer kontrollierten Umgebung. Die Forschenden haben ein isoliertes Netzwerk
-genutzt und die Bedingungen bewusst so gestaltet, dass die Bedrohung untersucht
-werden konnte. Es handelt sich um einen Preprint, nicht um abschliessend
-peer-reviewte Forschung.
+Das ist die Asymmetrie, die ich ernst nehme. Nicht "KI macht alles kaputt",
+sondern: Automatisierung macht wiederholte, zielangepasste Versuche billiger.
+Wenn Verteidigung weiterhin stark manuell und statisch bleibt, vergrössert sich
+die Lücke.
 
-Der Wurm nutzte nach der Darstellung auch keine völlig neuen Zero-Day-Exploits,
-sondern bekannte Schwachstellen und Fehlkonfigurationen. Die eigentliche
-Neuerung liegt darin, dass ein Agent die Lage analysiert und passende
-Angriffswege auswählt.
+## Keine Übertreibung, aber auch kein Abwinken
 
-## Was sich für Verteidigung ändert
+Ich halte es für wichtig, Forschungsprototypen sauber einzuordnen. Ein
+isoliertes Testnetz ist nicht das offene Internet. Ein Preprint ist nicht
+dasselbe wie jahrelang bestätigte Praxis. Und ein adaptiver Wurm braucht immer
+noch reale Schwachstellen, Fehlkonfigurationen, Credentials oder schlechte
+Architektur.
 
-Patch Management bleibt wichtig, aber es reicht als alleinige Strategie nicht
-mehr. Wenn Angriffe dynamischer werden, müssen Verteidigende stärker auf
-Prinzipien setzen, die auch dann helfen, wenn nicht jeder einzelne
-Angriffs-Vektor im Voraus bekannt ist.
+Gerade deshalb ist der Prototyp relevant. Er zeigt nicht, dass Angriffe
+plötzlich ohne Schwachstellen funktionieren. Er zeigt, dass bekannte
+Schwachstellen und Fehlkonfigurationen dynamischer kombiniert werden können.
 
-Für mich gehören dazu vor allem Netzwerksegmentierung, minimale Rechte,
-Einschränkung lateraler Bewegung, gute Inventarisierung, Logging und
-anomaliebasierte Erkennung. Wer nicht weiss, welche Systeme existieren, welche
-Dienste laufen und welche Verbindungen normal sind, wird adaptive Angriffe
-schwer erkennen.
+Das ist näher an der Realität vieler Netzwerke, als mir lieb ist. Die meisten
+Organisationen scheitern nicht an einem einzelnen spektakulären Zero-Day,
+sondern an Inventarlücken, überprivilegierten Konten, flacher Netzarchitektur,
+alten Systemen und schlechter Sichtbarkeit.
 
-Auch IoT-Geräte und Randbereiche eines Netzwerks werden wichtiger. Sie sind oft
-schlechter gepflegt, schlechter überwacht und trotzdem nah genug an relevanten
-Systemen, um als Jump Hosts zu dienen.
+## Was ich daraus für Verteidigung ableite
 
-## Die eigentliche Beobachtung
+Patch Management bleibt notwendig. Aber es darf nicht die einzige Schutzidee
+sein. Gegen adaptive Angriffe helfen Prinzipien, die auch dann greifen, wenn der
+konkrete Angriffspfad vorher nicht bekannt ist.
 
-Ich sehe in dieser Forschung ein weiteres Beispiel dafür, dass KI Security nicht
-nur schneller macht, sondern Rollen verändert. Früher lag viel Arbeit bei
-Menschen, die Ziele analysieren, Angriffe anpassen und Fehler korrigieren
-mussten. Wenn ein Agent Teile dieser Arbeit übernimmt, verschiebt sich die
-Angriffsgeschwindigkeit und die Skalierbarkeit.
+Für mich stehen fünf Dinge im Vordergrund:
 
-Das bedeutet nicht, dass Verteidigende chancenlos sind. Es bedeutet, dass
-statische Abwehr weniger überzeugend wird. Signaturen, einzelne Patches und
-Checklisten bleiben nötig, aber sie müssen durch kontextbewusste Verteidigung
-ergänzt werden.
+- Netzwerksegmentierung, die laterale Bewegung real begrenzt.
+- Minimale Rechte für Dienste, Benutzerkonten und Geräte.
+- Sauberes Inventar, damit unbekannte Systeme nicht zum blinden Fleck werden.
+- Logging und Anomalieerkennung, die ungewöhnliche Beziehungen sichtbar machen.
+- Harte Aufmerksamkeit für IoT, Clients und Randbereiche, weil sie oft als
+  Einstieg und Sprungbrett dienen.
 
-## Worauf ich achten würde
+Diese Punkte sind nicht neu. Genau das ist der Punkt. KI ändert nicht alle
+Security-Grundlagen. Sie macht alte Nachlässigkeiten teurer.
 
-- Ist das Netzwerk so segmentiert, dass ein kompromittiertes System nicht frei
-  weiterwandern kann?
-- Haben Dienste und Geräte nur die Rechte, die sie wirklich brauchen?
-- Werden ungewöhnliche Verbindungen zwischen Systemen sichtbar?
-- Gibt es Inventar und Verantwortlichkeiten für IoT- und Randgeräte?
-- Sind Security-Teams darauf vorbereitet, Verhalten statt nur bekannte Muster zu
-  untersuchen?
+## Warum Signaturen nicht reichen
+
+Signaturen, IOC-Listen und konkrete Detection Rules bleiben nützlich. Aber sie
+sind schwach, wenn Verhalten pro Umgebung variiert. Wer nur nach bekannten
+Artefakten sucht, sieht zu spät, wenn der Angriffspfad neu kombiniert wurde.
+
+Ich würde deshalb stärker auf Beziehungs- und Verhaltensfragen schauen: Welche
+Systeme sprechen normalerweise miteinander? Welche Identität greift plötzlich
+auf ungewohnte Dienste zu? Welche Geräte initiieren Verbindungen, die nicht zu
+ihrer Rolle passen? Wo entstehen Muster, die technisch möglich, aber fachlich
+unplausibel sind?
+
+Adaptive Angriffe zwingen Verteidigung, weniger in einzelnen Events und stärker
+in Systemverhalten zu denken.
 
 ## Abschliessende Gedanken
 
-Der KI-Wurm aus der Forschung ist nicht ein Grund für Panik. Er ist ein klares
-Signal. Autonome, adaptive Angriffe sind nicht mehr nur ein hypothetisches
-Zukunftsszenario. Sie lassen sich in kontrollierten Umgebungen demonstrieren und
-werden damit zu einer realen Planungsgrundlage.
+Der KI-Wurm ist für mich kein Grund für Alarmismus. Er ist ein klares Signal,
+dass Angriffe beweglicher werden können, während viele Netzwerke noch immer
+darauf ausgelegt sind, dass Angriffe früh genug statisch erkannt werden.
 
-Security muss weniger von der Hoffnung leben und jede konkrete Angriffstechnik
-früh genug zu kennen. Sie muss Systeme so gestalten, dass auch adaptive Angriffe
-sichtbar, begrenzt und unterbrochen werden können.
+Security sollte deshalb weniger darauf hoffen, jede konkrete Technik vorab zu
+kennen. Besser ist es, Systeme so zu bauen, dass ein kompromittierter Knoten
+nicht frei weiterwandern kann, dass ungewöhnliches Verhalten sichtbar wird und
+dass Rechte nicht grosszügiger sind als nötig.
+
+KI verändert hier vor allem die Geschwindigkeit und Anpassungsfähigkeit. Genau
+deshalb werden klassische Grundlagen wie Segmentierung, Least Privilege und
+gute Beobachtbarkeit nicht langweiliger. Sie werden wichtiger.
