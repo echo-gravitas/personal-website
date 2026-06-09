@@ -136,8 +136,8 @@ const imageUrl = imagePath ? new URL(imagePath, siteUrl).toString() : undefined;
     <title>{title}</title>
   </head>
   <body>
+    <Header />
     <MainContainer>
-      <Header />
       <slot />
       <Footer />
     </MainContainer>

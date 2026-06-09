@@ -1,13 +1,14 @@
 ---
 title: 'WhatsApp-Zustellbestätigungen sind ein Datenschutz-Problem'
 description:
-  'Warum Zustellbestätigungen in Messengern mehr verraten können als gedacht und
-  weshalb Privatsphäre auch an unscheinbaren Protokolldetails hängt.'
+  'Warum Zustellbestätigungen in Messengern für mich ein gutes Beispiel dafür
+  sind, dass Privatsphäre an Metadaten, Protokolldesign und Produktgrenzen
+  hängt.'
 summary:
-  'Ein Video von Seytonic und das Paper "Careless Whisper" zeigen, wie stille
-  Zustellbestätigungen in WhatsApp und Signal zur Beobachtung von Aktivität,
-  Geräten und Tagesmustern genutzt werden können. Das Problem ist kein kaputter
-  Messenger, sondern ein Signal: Metadaten sind und bleiben gefährlich.'
+  'Mich interessiert an stillen Zustellbestätigungen nicht nur die konkrete
+  Schwachstelle. Sie zeigen, warum verschlüsselte Inhalte nicht reichen: Auch
+  automatische Statussignale können zu Sensoren für Aktivität, Geräte und
+  Tagesmuster werden.'
 pubDate: 2026-06-08
 topic: 'cyber-security'
 tags:
@@ -28,181 +29,139 @@ sources:
 draft: false
 ---
 
-## Worum es geht
+## Meine These
 
-[Seytonic](https://www.youtube.com/@Seytonic) greift in
-[einem Video](https://www.youtube.com/watch?v=HHEQVXNCrW8) das Paper
-[Careless Whisper](https://arxiv.org/abs/2411.11194) auf. Die Forschenden zeigen
-darin, dass Zustellbestätigungen in Messengern mehr verraten können, als viele
-Nutzerinnen und Nutzer erwarten würden.
+Zustellbestätigungen wirken wie ein Komfortdetail. Für mich sind sie ein
+Sicherheits- und Datenschutzsignal. Jedes automatische Protokollsignal, das ein
+Gerät in hoher Frequenz beantwortet, kann vom Feature zum Sensor werden.
 
-Das klingt zuerst nach einem Detail. Eine Nachricht wird gesendet, der Server
-nimmt sie entgegen, das Zielgerät empfängt sie, der Absender sieht eine
-Zustellbestätigung. Diese Rückmeldung ist für Messenger normal und kaum mehr
-wegzudenken. Sie zeigt, ob Kommunikation technisch angekommen ist.
+Das ist der Punkt, der mich an der Forschung zu stillen Zustellbestätigungen
+beschäftigt. Nicht, weil dadurch Ende-zu-Ende-Verschlüsselung wertlos wäre.
+Inhalte bleiben geschützt. Sondern weil Verschlüsselung allein nicht verhindert,
+dass ein System über Timing, Zustände und Erreichbarkeit Informationen preisgibt.
 
-Das Problem entsteht, wenn diese Rückmeldung nicht nur für die eigentliche
-Kommunikation genutzt wird, sondern als Messinstrument dient. Wer einem
-Zielgerät wiederholt präparierte Nachrichten oder Reaktionen sendet, kann aus
-den Antwortzeiten Muster ableiten. Nicht den Inhalt von Chats, sondern
-Metadaten: Ist ein Gerät gerade eingeschaltet? Ist die Messenger-App geöffnet?
-Nutzt die Person WLAN oder Mobilfunk? Sind mehrere Geräte online? Verändert sich
-das Muster zuverlässig zu bestimmten Tageszeiten?
+Metadaten sind nicht harmlos, nur weil sie keinen Chatinhalt enthalten.
 
-Nach Darstellung des Papers braucht es keine Installation auf dem Zielgerät.
-Schon die Telefonnummer kann als Ausgangspunkt ausreichen.
+## Warum ich Zustellbestätigungen ernst nehme
 
-## Der Schwachpunkt
+Messenger sind Vertrauensinfrastruktur. Menschen verwenden sie für Beziehungen,
+Arbeit, Politik, Gesundheit, Aktivismus, Familie und Konflikte. Wenn ein
+Messenger sagt, eine Nachricht sei zugestellt, wirkt das technisch banal. Aber
+diese Rückmeldung sagt: Ein bestimmtes Gerät oder Konto hat in einem bestimmten
+Moment auf eine bestimmte Art reagiert.
 
-Die Schwachstelle liegt nicht darin, dass Ende-zu-Ende-Verschlüsselung plötzlich
-gebrochen wäre. Inhalte bleiben verschlüsselt. Darum ist der Fall so
-interessant: Er zeigt, dass sichere Inhalte allein nicht ausreichen, wenn
-Protokollverhalten trotzdem in Echtzeit Rückschlüsse zulässt.
+Ein einzelnes Signal ist kaum interessant. Viele Signale über Zeit sind ein
+Muster. Und Muster sind in Security fast immer wertvoll.
 
-Zustellbestätigungen sind Metadaten. Sie sagen nicht, was jemand schreibt, aber
-sie sagen etwas darüber, wann ein Gerät erreichbar ist und wie es reagiert. Wenn
-diese Signale häufig genug abgefragt werden können, entsteht aus vielen kleinen
-technischen Rückmeldungen ein Verhaltensprofil.
+Wenn ein Angreifer wiederholt stille Reaktionen oder speziell präparierte
+Nachrichten senden kann, entstehen Timing-Daten. Daraus lassen sich Zustände
+ableiten: Ist ein Gerät erreichbar? Ist die App aktiv? Gibt es verknüpfte
+Desktop-Clients? Reagiert das Gerät eher wie im WLAN oder wie im Mobilfunknetz?
+Ändert sich das Verhalten morgens, abends, am Arbeitsplatz oder unterwegs?
 
-Für einzelne Nachrichten ist das unspektakulär. Nach kontinuierlichen Messungen
-zeigt sich aber ein anderes Bild. Dann wird aus einer einfachen
-Zustellbestätigung ein Sensor.
+Keine dieser Ableitungen muss perfekt sein. Überwachung muss selten perfekt
+sein, um schädlich zu werden. Oft reicht eine ausreichend gute Wahrscheinlichkeit.
 
-## Was die Forschenden konkret gezeigt haben
+## Der blinde Fleck der Verschlüsselungsdebatte
 
-Die Forschenden haben nicht nur theoretisch argumentiert, sondern mehrere
-Rückschlüsse praktisch demonstriert. Besonders anschaulich ist der Unterschied
-zwischen Gerätezuständen: Ein gesperrtes Smartphone reagierte anders als ein
-entsperrtes Smartphone. War WhatsApp oder Signal geöffnet, kamen die
-Zustellbestätigungen nochmals deutlich schneller zurück. Aus den Antwortzeiten
-liess sich ableiten, ob das Zielgerät ungenutzt, aktiv genutzt oder gerade mit
-geöffneter Messenger-App verwendet wurde.
+In der öffentlichen Diskussion wird Messenger-Sicherheit oft auf eine Frage
+reduziert: Sind die Inhalte Ende-zu-Ende-verschlüsselt?
 
-Auch der Netzwerkzustand wurde sichtbar. Über WLAN waren die Antwortzeiten
-stabiler und vorhersehbarer, über Mobilfunk zeitlich stärker gestreut. Das
-klingt technisch banal, ist aber aus Datenschutz-Sicht relevant: Wer über
-längere Zeit misst, kann daraus ableiten, wann eine Person wahrscheinlich zu
-Hause, im Büro oder unterwegs ist.
+Diese Frage ist wichtig, aber unvollständig. Kommunikation besteht nicht nur aus
+Text, Bild oder Audio. Sie besteht auch aus Zeitpunkt, Häufigkeit, Geräten,
+Beziehungen, Netzwerkpfaden und Zuständen. Wer nur Inhalte schützt, aber das
+Verhalten des Systems gut beobachtbar lässt, schützt Menschen nur teilweise.
 
-Ein weiterer Punkt betrifft Geräte-Fingerprinting. Die Forschenden konnten aus
-Zeitmustern Hinweise auf Gerätekategorien und Hersteller ableiten, etwa
-Unterschiede zwischen Apple-, Samsung- und Xiaomi-Geräten. Zusätzlich konnten
-sie erkennen, ob mehrere verknüpfte Geräte erreichbar waren. Desktop-Clients
-verschärfen das Problem, weil ein Arbeitslaptop und ein privater Rechner
-unterschiedliche Signale liefern können. Daraus kann ein Angreifer ableiten,
-wann welche Geräte online sind und daraus Tagesabläufe rekonstruieren.
+Als Security-Researcher finde ich solche Fälle deshalb lehrreich. Sie zeigen,
+dass Kryptografie und Produktdesign zusammen betrachtet werden müssen. Eine
+saubere Verschlüsselung kann neben einem Protokollverhalten stehen, das trotzdem
+Rückschlüsse auf Menschen zulässt.
 
-Besonders problematisch ist, dass die Messung still erfolgen kann. Im Paper
-werden Reaktionen und speziell präparierte Nachrichten beschrieben, die
-Zustellbestätigungen auslösen, ohne dass auf dem Zielgerät eine normale
-Benachrichtigung erscheinen muss. Bei WhatsApp beobachteten die Forschenden
-zudem sehr geringe technische Hürden für hohe Abfragefrequenzen. Im Video wird
-von bis zu einer Reaktion alle 50 Millisekunden gesprochen. Signal war durch
-Rate Limiting deutlich stärker begrenzt.
+## Das eigentliche Risiko
 
-Neben Überwachung beschreiben die Forschenden auch Ressourcenmissbrauch. Wenn
-ein Zielgerät dauerhaft solche stillen Signale verarbeiten muss, kann das Daten
-und Akkukapazität kosten. Im Video werden für WhatsApp bis zu 13 Gigabyte Daten
-pro Stunde und bis zu 18 Prozent Akkuverbrauch pro Stunde genannt. Bei Signal
-lag der mögliche Datenverbrauch wegen Rate Limiting deutlich tiefer.
+Das Risiko liegt nicht darin, dass jede Person jederzeit präzise verfolgt wird.
+So sollte man diese Forschung nicht lesen. Der realistischere Punkt ist
+schlichter und unangenehmer: Alltägliche Identifikatoren wie Telefonnummern,
+automatische Antworten und fehlende oder zu schwache Rate Limits können reichen,
+um Aktivitätsmuster zu messen.
 
-## Die Gefahr
+Für die meisten Menschen klingt das abstrakt. Für bestimmte Gruppen ist es
+konkret: Journalistinnen, Aktivisten, Stalking-Betroffene, politisch exponierte
+Personen, Whistleblower oder Menschen in Abhängigkeitsverhältnissen. Dort kann
+schon die Information, wann jemand aktiv, unterwegs, zuhause oder an einem
+Arbeitsgerät erreichbar ist, gefährlich sein.
 
-Das Risiko liegt nicht nur im Wissen, ob jemand gerade online ist. Interessant
-wird die Korrelation: Wenn ein Gerät morgens immer ab einem bestimmten Zeitpunkt
-anders reagiert, kann daraus ein Pendelmuster entstehen. Wenn ein Desktop-Client
-regelmässig zu bestimmten Zeiten erreichbar ist, kann das auf Arbeits- oder
-Heimgeräte hinweisen. Wenn mehrere Zielpersonen immer gleichzeitig Aktivität
-zeigen, können daraus soziale Beziehungen oder Kommunikationsmuster abgeleitet
-werden.
+Metadaten werden besonders kritisch, wenn sie mit anderen Informationen
+kombiniert werden: öffentlich bekannte Telefonnummern, Social-Media-Aktivität,
+Arbeitszeiten, Standortwissen, bekannte Beziehungen oder frühere
+Kontaktversuche. Dann entsteht aus technischen Rückmeldungen ein
+Verhaltensprofil.
 
-Solche Rückschlüsse sind nie wasserdicht. Sie sind probabilistisch. Überwachung
-muss nicht perfekt sein, um schädlich zu sein. Sie muss oft nur gut genug sein,
-um Gewohnheiten, Abwesenheiten, Routinen oder Beziehungen zu erkennen.
+## Die Produktverantwortung
 
-Das betrifft besonders Menschen mit erhöhtem Schutzbedarf: Journalistinnen,
-Aktivisten, Opfer von Stalking, politisch engagierte Personen, Whistleblower
-oder Personen, die schlicht nicht möchten, dass ihre Tagesstruktur aus
-Messenger-Signalen rekonstruiert werden kann.
+Nutzende können nur begrenzt reagieren. Sie können Telefonnummern weniger
+öffentlich machen, Privatsphäre-Einstellungen prüfen, Desktop-Clients
+reduzieren und bei Bedrohungslagen Metadaten ins eigene Bedrohungsmodell
+aufnehmen. Das ist sinnvoll, aber es reicht nicht.
 
-## Was mich daran stört
+Die entscheidenden Hebel liegen im Produkt und im Protokoll:
 
-Mich stört an diesem Fall weniger die einzelne technische Lücke als die
-Gewöhnung an Metadaten. In der öffentlichen Diskussion wird Sicherheit oft an
-einer einfachen Frage festgemacht: Ist der Inhalt verschlüsselt?
+- Fremde Konten sollten nicht beliebig viele stille Signale auslösen können.
+- Zustell- und Statussignale brauchen strenge Rate Limits.
+- Timing-Kanäle sollten gedämpft, verzögert oder verrauscht werden, wo es
+  vertretbar ist.
+- Kontaktbeziehungen sollten stärker bestimmen, welche Signale preisgegeben
+  werden.
+- Missbrauchsmuster müssen als Produktproblem behandelt werden, nicht nur als
+  Spam-Problem.
 
-Diese Frage ist wichtig, aber unvollständig. Information besteht nicht nur aus
-Inhalt. Sie besteht auch aus Zeitpunkt, Häufigkeit, Geräten, Beteiligten,
-Netzwerkpfaden und Zuständen. Wer diese Ebene ignoriert, überschätzt die
-Schutzwirkung von Kryptografie.
+Privatsphäre darf nicht davon abhängen, dass jede einzelne Person die
+Nebenkanäle eines Messengers versteht.
 
-Gute Verschlüsselung schützt den Text. Sie verhindert aber nicht, dass das
-System drumherum beobachtbar bleibt. Manchmal reicht genau diese Beobachtbarkeit
-aus, um Menschen zu gefährden.
+## Was ich nicht daraus ableite
 
-## Die Produktfrage
+Ich würde daraus nicht ableiten, dass sichere Messenger sinnlos sind. WhatsApp
+und Signal bieten für viele Menschen deutlich besseren Schutz als unsichere
+Alternativen. Der Punkt ist nicht, Messenger pauschal abzuwerten.
 
-Nutzerinnen und Nutzer können dieses Problem nur begrenzt selbst lösen. Man kann
-Privatsphäre-Einstellungen prüfen, die Sichtbarkeit einschränken, unbekannte
-Kontakte begrenzen und verdächtige Muster ernst nehmen. Das hilft, aber es
-verschiebt die Verantwortung schnell auf einzelne&mdash;oft nicht
-technikaffine&mdash;Personen.
+Der Punkt ist präziser: Gute Messenger müssen nicht nur Inhalte schützen,
+sondern auch die Spuren, die beim Transport entstehen. Ein Feature kann
+nützlich sein und trotzdem missbrauchbare Signale erzeugen. Genau diese
+Ambivalenz muss Sicherheitsdesign aushalten.
 
-Die wichtigere Frage ist eine Produkt- und Protokollfrage: Warum dürfen fremde
-Konten überhaupt in hoher Frequenz Signale erzeugen, die ein Zielgerät
-beantwortet? Warum sind Zustellbestätigungen gegenüber Unbekannten so
-informativen Timing-Kanälen ausgesetzt? Warum werden Missbrauchsmuster nicht
-früher durch Rate Limits, Dämpfung, Randomisierung oder strengere
-Kontaktbeziehungen begrenzt?
-
-Sicherheitsdesign muss davon ausgehen, dass jedes Signal missbraucht werden
-kann. Besonders Signale, die automatisch, still und ohne Nutzerinteraktion
-erzeugt werden.
-
-## Was nicht passieren darf
-
-Ich würde diesen Fall nicht als Argument gegen Signal oder WhatsApp lesen. Beide
-Dienste haben starke Sicherheitsmerkmale, die für sehr viele Menschen besser
-sind als unsichere Alternativen. Der Punkt ist nicht, keine Messenger mehr zu
-nutzen, sondern auch gute Messenger haben Metadaten-Probleme.
-
-Ebenso wäre es falsch, Ängste zu schüren. Die Forschung zeigt eine ernsthafte
-Klasse von Angriffen, aber sie bedeutet nicht, dass jede Person jederzeit
-präzise in Echtzeit verfolgt wird. Zwischen demonstrierter Angriffsmöglichkeit
-und flächendeckender Ausnutzung liegt Betrieb, Skalierung, Interesse und Risiko
-für Angreifende.
-
-Trotzdem ist die Lektion deutlich: Wenn ein Angriff ohne Malware, ohne
-Benachrichtigung und mit einem alltäglichen Identifier wie der Telefonnummer
-funktionieren kann, gehört er ernst genommen.
+Auch Panik hilft nicht. Zwischen demonstrierter Angriffsmöglichkeit und
+flächendeckender Ausnutzung liegen Aufwand, Skalierung, Interesse und Risiko für
+Angreifende. Aber sobald ein Angriff ohne Malware, ohne sichtbare
+Benachrichtigung und mit einer Telefonnummer als Ausgangspunkt denkbar ist,
+gehört er in die Produkt-Risikoanalyse.
 
 ## Worauf ich achten würde
 
-- Telefonnummern nicht unnötig öffentlich mit Identitäten verknüpfen.
-- In den Einstellungen prüfen, wer einen über die Telefonnummer finden kann.
-- In WhatsApp neue Privacy- und Anti-Spam-Einstellungen für unbekannte Konten
-  aktivieren, wo sie verfügbar sind.
-- Desktop-Clients nur dort verwenden, wo sie wirklich gebraucht werden.
-- Bei Stalking- oder Bedrohungslagen Metadaten als Teil des Bedrohungsmodells
-  behandeln, nicht nur Chat-Inhalte.
-- Messenger-Anbieter daran messen, wie sie Missbrauch von Zustell- und
-  Statussignalen begrenzen.
+Für einzelne Nutzende:
 
-Das sind keine perfekten Gegenmassnahmen. Sie reduzieren Angriffsfläche, lösen
-aber nicht das Grundproblem. Das Grundproblem sitzt im Design automatischer
-Rückmeldungen.
+- Telefonnummern nicht unnötig öffentlich mit Identitäten verknüpfen.
+- Sichtbarkeit über Telefonnummern und unbekannte Kontakte einschränken.
+- Desktop-Clients nur verwenden, wo sie wirklich gebraucht werden.
+- Bei Stalking- oder Bedrohungslagen Metadaten als Teil des Risikos behandeln.
+
+Für Anbieter:
+
+- Zustell- und Statussignale als missbrauchbare Sensoren modellieren.
+- Rate Limits, Kontaktregeln und Anti-Abuse-Mechanismen streng testen.
+- Timing-Daten nicht unnötig präzise und wiederholbar machen.
+- Schutz nicht nur für technisch versierte Nutzende bauen.
 
 ## Abschliessende Gedanken
 
-_Careless Whisper_ ist ein gutes Beispiel dafür, warum Cyber Security und
-Datenschutz nicht getrennt betrachtet werden dürfen. Ein System kann Inhalte
-stark verschlüsseln und trotzdem Verhaltensdaten preisgeben. Ein Feature kann
-harmlos wirken und trotzdem zur Beobachtung genutzt werden. Ein einzelnes
-technisches Signal kann, oft genug gemessen, zu einem Profil werden.
+Der Fall ist für mich ein gutes Beispiel dafür, warum Cyber Security und
+Datenschutz nicht getrennt gedacht werden dürfen. Ein System kann Inhalte stark
+verschlüsseln und trotzdem Verhaltensdaten preisgeben. Ein normales Feature
+kann, oft genug abgefragt, zu einem Messinstrument werden.
 
-Metadaten sind nicht ein Abfallprodukt von Kommunikation. Sie sind Teil der
-Kommunikation. Wer sichere Messenger entwickelt, muss deshalb nicht nur
-Nachrichten schützen, sondern auch die Spuren, die beim Transport entstehen.
+Metadaten sind kein Abfallprodukt von Kommunikation. Sie sind Teil der
+Kommunikation. Wer sichere Messenger baut, muss deshalb nicht nur Nachrichten
+schützen, sondern auch die Signale, die beim Senden, Zustellen und Anzeigen
+entstehen.
 
-Privatsphäre scheitert selten nur an grossen, dramatischen Hintertüren. Sie
-scheitert oft an kleinen, normalen Signalen, die niemand als Sensor geplant hat.
+Privatsphäre scheitert selten nur an grossen Hintertüren. Sie scheitert oft an
+kleinen, normalen Rückmeldungen, die niemand als Sensor geplant hat.

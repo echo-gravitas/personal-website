@@ -1,13 +1,13 @@
 ---
 title: 'Wenn KI-Nutzung zur Kostenfalle wird'
 description:
-  'Über Enterprise-AI, Token-Kosten und die Frage, warum generative KI nicht
-  automatisch zu effizienteren Organisationen führt.'
+  'Warum Unternehmen KI-Kosten nicht als nachgelagertes Controlling-Thema
+  behandeln sollten, sondern als Teil von Architektur, Produktqualität und
+  Governance.'
 summary:
-  'Mo Bitar beschreibt eine Entwicklung, die ich ebenfalls beobachte:
-  Unternehmen beginnen nach der ersten KI-Euphorie, Token-Kosten,
-  Nutzungsanreize und den realen Nutzen interner AI-Tools nüchterner zu
-  betrachten.'
+  'Ich halte KI nicht für nutzlos. Aber viele Organisationen messen Adoption,
+  bevor sie Wert messen. Sobald Token-Kosten sichtbar werden, zeigt sich, ob KI
+  Arbeit reduziert oder nur mehr Output erzeugt.'
 pubDate: 2026-06-05
 topic: 'ki'
 tags:
@@ -24,93 +24,110 @@ sources:
 draft: false
 ---
 
-## Worum es geht
+## Meine These
 
-Mo Bitar greift [in seinem Video](https://www.youtube.com/watch?v=lwjVjD3oQJg)
-eine Entwicklung auf, die ich ebenfalls beobachte und die in der
-Enterprise-KI-Debatte oft nur am Rand auftaucht: Die Kosten für generative KI
-steigen nicht abstrakt, sondern ganz konkret dort, wo Unternehmen anfangen,
-interne Nutzung zu skalieren.
+Die Kostenfrage bei generativer KI ist kein langweiliges Controlling-Thema. Sie
+ist ein Architektur- und Governance-Thema. Wer KI in einer Organisation
+einführt, entscheidet nicht nur über Tools. Er entscheidet über neue
+Verbrauchsmodelle, neue Anreize und neue Formen von schwer sichtbarer Arbeit.
 
-Für mich ist der zentrale Punkt nicht, dass KI nutzlos wäre. Der Punkt ist, dass
-ihr Nutzen in vielen Organisationen noch nicht sauber gegen ihre operativen
-Kosten, ihre Nebenwirkungen und ihre neuen Anreizsysteme gerechnet wird.
+Mich stört an vielen Enterprise-AI-Debatten, dass Nutzung zuerst als Erfolg
+gelesen wird. Viele aktive User, viele Prompts, viele generierte Artefakte,
+viele Agentenläufe. Das sieht nach Adoption aus. Es sagt aber noch wenig
+darüber, ob die Organisation wirklich bessere Entscheidungen trifft, weniger
+Risiko trägt oder effizienter liefert.
 
-## Meine Beobachtung
+Sobald Token-Kosten sichtbar werden, bricht diese Verwechslung auf. Dann zeigt
+sich, ob KI Wert erzeugt oder nur Aktivität.
 
-Ich sehe gerade eine Phase, in der Unternehmen KI erst als
-Produktivitätsversprechen feiern und kurz darauf merken, dass die Nutzung selbst
-zu einem relevanten Kostenfaktor wird. Besonders interessant ist für mich der
-Wechsel der Metrik: Am Anfang gilt hohe Nutzung als Zeichen von Adoption. Später
-wird dieselbe hohe Nutzung zum Problem, weil sie direkt in Token-Kosten
-übersetzt wird.
+## Adoption ist noch kein Nutzen
 
-Damit kippt die interne Logik. Teams, die viel generieren, wirken zunächst
-innovativ. Sobald die Rechnungen sichtbar werden, wird Effizienz wichtiger als
-reine Nutzung. Aus &laquo;wer nutzt am meisten KI?&raquo; wird &laquo;wer
-erzeugt brauchbare Ergebnisse mit möglichst wenig Rechenaufwand?&raquo;.
+Ich halte generative KI für sehr nützlich, wenn Aufgaben prüfbar sind: Code
+Refactoring, Tests vorbereiten, Daten transformieren, Recherche strukturieren
+oder Varianten für klar definierte Probleme erzeugen. Dort kann KI Tempo
+bringen, solange Menschen die Ergebnisse fachlich kontrollieren.
 
-## Warum das relevant ist
+Schwieriger wird es, wenn Organisationen vor allem Nutzung skalieren. Dann
+entstehen grosse Mengen Text, Spezifikation, Zusammenfassung und Code, die
+trotzdem gelesen, geprüft, integriert und verantwortet werden müssen. Der Output
+wächst schneller als die Fähigkeit, ihn sinnvoll zu bewerten.
 
-Ich halte generative KI für besonders verlockend, weil sie immer eine neue
-Antwort produzieren kann. Das ist für Brainstorming, Coding-Support oder erste
-Entwürfe nützlich. Gleichzeitig entsteht dadurch ein Verhalten, das leicht zur
-Schleife wird: noch ein Prompt, noch eine Variante, noch ein Versuch.
+Das ist für mich die zentrale Kostenfalle: Nicht jeder Token erzeugt Wert.
+Manche Tokens erzeugen nur mehr Material, das andere Menschen wieder abbauen
+müssen.
 
-In Organisationen kann diese Dynamik teuer werden. Nicht nur finanziell, sondern
-auch kognitiv. Wenn sehr viel Text, Code oder Spezifikation erzeugt wird, muss
-dieser Output immer noch gelesen, bewertet und verantwortet werden. Für mich
-verschiebt sich die Produktivitätsfrage deshalb von &laquo;Wie viel kann KI
-erzeugen?&raquo; zu &laquo;Was davon ist prüfbar, verwendbar und den Aufwand
-wert?&raquo;.
+## Die neue Produktivitätsfrage
 
-## Der ökonomische Druck
+Bei klassischer Software war die Kostenlogik oft relativ einfach: Lizenz kaufen,
+Zugriff geben, Nutzung fördern. Bei KI verschiebt sich das. Jede lange
+Konversation, jeder Agentenlauf, jede Variantenserie und jedes grosse
+Kontextfenster kann direkte Infrastrukturkosten auslösen.
 
-Ich sehe darin auch ein grösseres Problem für Anbietende generativer KI:
-Unternehmens-Kunden beginnen, Preise und Verbrauchsmodelle genauer zu
-hinterfragen. Das ist besonders relevant, wenn Anbietende gleichzeitig Wachstum,
-Infrastruktur und mögliche Profite finanzieren müssen.
+Damit verändert sich die Produktivitätsfrage. Sie lautet nicht mehr: "Wie viel
+kann KI erzeugen?" Sie lautet: "Welcher Teil davon ist prüfbar, verwendbar und
+den Verbrauch wert?"
 
-Token-basierte Abrechnung macht Kosten sichtbarer. Sie kann aber auch
-abschreckend wirken, sobald Auftraggebende merken, dass produktive Experimente,
-Fehlversuche und lange Kontexte nicht kostenlos sind. Ich glaube, dass KI
-dadurch weniger als magische Effizienzmaschine betrachtet wird und mehr als
-Infrastruktur mit messbaren Grenzkosten.
+Diese Frage ist unbequem, weil sie qualitative Bewertung verlangt. Ein Team kann
+sehr viel KI nutzen und trotzdem wenig lernen. Es kann viele Entwürfe
+produzieren und trotzdem keine besseren Entscheidungen treffen. Es kann Code
+generieren und gleichzeitig Review-Aufwand, Sicherheitsrisiken oder technische
+Schulden erhöhen.
 
-## Meine Einordnung
+## Kosten sind ein Designsignal
 
-Die nützliche Frage ist für mich nicht, ob KI eine Blase ist oder nicht. Sie ist
-zu grob gefasst. Sinnvoller ist die Unterscheidung zwischen verifizierbaren und
-nicht-verifizierbaren Aufgaben.
+Ich sehe Token-Kosten nicht nur als Preisproblem. Sie sind ein Signal dafür, ob
+ein Workflow sauber gestaltet ist. Ein präziser Workflow mit guter
+Aufgabenabgrenzung, kleinen Kontexten und klarer Verifikation kann Kosten
+begrenzen. Ein unklarer Workflow erzeugt Schleifen: noch ein Prompt, noch eine
+Variante, noch eine Zusammenfassung, noch ein Agentenlauf.
 
-Bei Code, Tests, Datenextraktion oder klar prüfbaren Transformationen sehe ich
-realen Wert, solange Menschen die Ergebnisse kontrollieren. Bei offenen
-Strategietexten, langen Spezifikationen oder massenhaftem Kommunikationsoutput
-wird der Nutzen für mich schneller diffus. Dort kann KI auch Arbeit erzeugen,
-die nur wie Fortschritt aussieht.
+Wenn diese Schleifen nicht sichtbar sind, entstehen falsche Anreize. Menschen
+optimieren dann auf Aktivität, weil Aktivität intern als Fortschritt gelesen
+wird. Gleichzeitig zahlen andere Budgets für Rechenaufwand, Review-Zeit und
+Nacharbeit.
 
-Das macht Kostenkontrolle nicht zu einem zweitrangigen Thema, sondern zu einem
-Teil der Produktqualität. Eine Organisation, die KI ernsthaft einsetzen will,
-muss nicht nur Prompts und Tools definieren, sondern auch Grenzen, Messpunkte
-und Verantwortlichkeiten.
+In diesem Sinn ist Kostenkontrolle Teil der Produktqualität. Ein KI-System, das
+seine Kosten nicht erklärbar macht, ist nicht reif für ernsthafte Nutzung.
 
-## Worauf ich achten würde
+## Was ich in Organisationen prüfen würde
 
-- Werden KI-Kosten pro Team, Produkt oder Workflow sichtbar gemacht?
-- Wird Nutzung als Erfolg gemessen oder werden Ergebnisse bewertet?
-- Gibt es klare Regeln für Aufgaben, bei denen KI-Ausgaben verifiziert werden
-  müssen?
-- Werden lange Kontexte, wiederholte Generierung und Agentenläufe als
-  Infrastrukturkosten behandelt?
-- Entsteht durch KI weniger Arbeit oder nur mehr Output?
+Ich würde KI-Governance nicht mit einer Tool-Liste beginnen, sondern mit
+Messpunkten:
+
+- Welche Workflows sparen nachweislich Zeit oder reduzieren Risiko?
+- Welche Aufgaben dürfen nur mit verifizierbaren Ergebnissen automatisiert
+  werden?
+- Welche Teams, Produkte oder Kunden verursachen welche KI-Kosten?
+- Werden lange Kontexte, Wiederholungen und Agentenläufe budgetiert?
+- Gibt es harte Grenzen, Warnungen und Verantwortliche für teure Workflows?
+- Wird Erfolg über Ergebnisqualität gemessen oder über Nutzung?
+
+Diese Fragen entscheiden darüber, ob KI kontrollierbare Infrastruktur wird oder
+eine teure Gewohnheit.
+
+## Die Anbieterlogik
+
+Für Anbieter generativer KI ist hoher Verbrauch attraktiv. Mehr Nutzung bedeutet
+mehr Rechenbedarf, mehr Infrastrukturbindung und oft mehr Umsatz. Das ist
+wirtschaftlich nachvollziehbar, aber es ist nicht automatisch im Interesse der
+Kunden.
+
+Als Nutzer oder Unternehmen sollte man deshalb misstrauisch werden, wenn
+Verbrauch selbst als Fortschritt verkauft wird. Ein gutes System sollte nicht
+maximal viele Tokens brauchen, sondern möglichst verlässlich zum richtigen
+Ergebnis führen.
+
+Bei Security würde niemand ein Tool nur deshalb feiern, weil es mehr Alerts
+produziert. Entscheidend ist, ob die richtigen Signale sichtbar werden und ob
+das Team damit bessere Entscheidungen trifft. Für KI gilt derselbe Massstab.
 
 ## Abschliessende Gedanken
 
-Das Video ist polemisch, aber die zugrunde liegende Beobachtung nehme ich ernst:
-Der nächste Reifegrad von Enterprise-KI wird nicht durch noch mehr Demo-Euphorie
-entstehen, sondern durch Kostenbewusstsein, gute Messung und ehrliche Bewertung
-der Ergebnisse.
+KI bleibt für mich ein starkes Werkzeug. Aber starke Werkzeuge brauchen gute
+Grenzen. Ohne Messung, Budgetierung und klare Verantwortung kann generative KI
+in Organisationen leicht zur Kostenmaschine werden, die Aktivität produziert und
+Urteilsfähigkeit verdeckt.
 
-KI bleibt für mich nützlich. Aber sie wird weniger überzeugend, wenn
-Organisationen nur ihre Nutzung skalieren und nicht gleichzeitig ihre
-Urteilsfähigkeit.
+Der nächste Reifegrad von Enterprise-KI entsteht nicht durch mehr Demo-Euphorie.
+Er entsteht, wenn Unternehmen ehrlich unterscheiden zwischen Nutzung, Output und
+Wert.

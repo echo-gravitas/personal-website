@@ -79,6 +79,7 @@
     --theme-muted: #a1a1a1;
     --theme-accent: #f8f8f5;
     --theme-border: #232323;
+    --theme-transition-duration: 200ms;
   }
 
   html {
@@ -86,8 +87,8 @@
     color: var(--theme-font);
     scroll-behavior: smooth;
     transition:
-      background-color 200ms ease,
-      color 200ms ease;
+      background-color var(--theme-transition-duration) ease,
+      color var(--theme-transition-duration) ease;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -99,11 +100,23 @@
   * {
     border-color: var(--theme-border);
     transition:
-      background-color 200ms ease,
-      border-color 200ms ease,
-      color 200ms ease,
-      fill 200ms ease,
-      stroke 200ms ease;
+      background-color var(--theme-transition-duration) ease,
+      border-color var(--theme-transition-duration) ease,
+      fill var(--theme-transition-duration) ease,
+      stroke var(--theme-transition-duration) ease;
+  }
+}
+
+@layer utilities {
+  .text-font,
+  .text-muted,
+  .text-accent {
+    transition:
+      background-color var(--theme-transition-duration) ease,
+      border-color var(--theme-transition-duration) ease,
+      color var(--theme-transition-duration) ease,
+      fill var(--theme-transition-duration) ease,
+      stroke var(--theme-transition-duration) ease;
   }
 }
 
@@ -111,11 +124,9 @@ body {
   font-family: var(--font-default);
   background-color: var(--theme-page);
   color: var(--theme-font);
-  padding-left: var(--spacing-base);
-  padding-right: var(--spacing-base);
   transition:
-    background-color 200ms ease,
-    color 200ms ease;
+    background-color var(--theme-transition-duration) ease,
+    color var(--theme-transition-duration) ease;
 }
 
 ::selection {
@@ -129,6 +140,9 @@ p span {
   background-color: var(--theme-accent);
   color: var(--theme-page);
   padding-inline: 0.25rem;
+  transition:
+    background-color var(--theme-transition-duration) ease,
+    color var(--theme-transition-duration) ease;
   /* border-radius: 3px; */
 }
 
@@ -142,7 +156,7 @@ footer span {
   display: block;
   background-color: var(--theme-page);
   mask: url('/img/logo.svg') center / calc(100% - 1.5rem) auto no-repeat;
-  transition: background-color 200ms ease;
+  transition: background-color var(--theme-transition-duration) ease;
 }
 
 .observation-content {
@@ -160,6 +174,7 @@ footer span {
   color: var(--theme-font);
   font-weight: var(--font-weight-bold);
   padding-top: var(--spacing-base);
+  transition: color var(--theme-transition-duration) ease;
 }
 
 .observation-content h2 {
@@ -174,6 +189,7 @@ footer span {
   color: var(--theme-accent);
   text-decoration: underline;
   text-underline-offset: 0.25rem;
+  transition: color var(--theme-transition-duration) ease;
 }
 
 .observation-content ul,
