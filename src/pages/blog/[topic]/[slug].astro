@@ -66,9 +66,7 @@ const optimizedOgImage = heroImage
   : undefined;
 const imagePath =
   typeof post.data.image === 'string' ? post.data.image : optimizedOgImage?.src;
-const imageUrl = imagePath
-  ? new URL(imagePath, siteUrl).toString()
-  : undefined;
+const imageUrl = imagePath ? new URL(imagePath, siteUrl).toString() : undefined;
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -104,9 +102,7 @@ const structuredData = {
   <Section id='artikel' margin='base'>
     <div slot='left'>
       <NormalText spaceAfter='small' weight='bold' tone='accent'>
-        <a href='/blog' class='underline-offset-4 hover:underline'>
-          Blog
-        </a>
+        <a href='/blog' class='underline-offset-4 hover:underline'> Blog </a>
       </NormalText>
     </div>
     <article slot='right' data-observation-reveal>
@@ -115,8 +111,8 @@ const structuredData = {
           class='mb-base flex flex-wrap gap-base-half font-mono text-small text-muted'
           data-observation-meta
         >
-          <span>{formatDate(post.data.pubDate)}</span>
-          <span>{observationTopicLabels[post.data.topic]}</span>
+          <span>{formatDate(post.data.pubDate)} &middot; </span>
+          <span>{observationTopicLabels[post.data.topic]} &middot; </span>
           <span>{getReadingTimeLabel(post.body)}</span>
           {post.data.draft && <span>draft</span>}
         </div>

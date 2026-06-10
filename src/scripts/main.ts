@@ -85,7 +85,14 @@ const revealText = () => {
   ].join(',');
   const textElements = gsap.utils
     .toArray<HTMLElement>(revealSelectors)
-    .filter((element, index, elements) => elements.indexOf(element) === index);
+    .filter((element, index, elements) => elements.indexOf(element) === index)
+    .filter((element) => {
+      const listItem = element.closest<HTMLElement>(
+        '[data-observation-list] [data-observation-reveal]',
+      );
+
+      return !listItem || listItem === element;
+    });
   const contentElements = textElements.filter(
     (element) => !element.closest('footer'),
   );
