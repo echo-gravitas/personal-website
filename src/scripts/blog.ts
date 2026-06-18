@@ -1,6 +1,13 @@
 const datePrefixPattern = /^\d{4}-\d{2}-\d{2}-/;
+const draftPrefix = 'draft-';
+const removeDraftPrefix = (id: string) =>
+  id.startsWith(draftPrefix) ? id.slice(draftPrefix.length) : id;
 
-export const getPostSlug = (id: string) => id.replace(datePrefixPattern, '');
+export const isDraftPost = (post: { id: string }) =>
+  post.id.startsWith(draftPrefix);
+
+export const getPostSlug = (id: string) =>
+  removeDraftPrefix(id).replace(datePrefixPattern, '');
 
 export const getPostUrl = (post: { id: string; data: { topic: string } }) =>
   `/blog/${post.data.topic}/${getPostSlug(post.id)}`;
@@ -19,7 +26,9 @@ export const assertPostFilenameMatchesPubDate = (post: {
 }) => {
   const expectedPrefix = `${getPostDatePrefix(post.data.pubDate)}-`;
 
-  if (!post.id.startsWith(expectedPrefix)) {
+  const idWithoutDraftPrefix = removeDraftPrefix(post.id);
+
+  if (!idWithoutDraftPrefix.startsWith(expectedPrefix)) {
     throw new Error(
       `Blog post "${post.id}" must start with its publication date: ${expectedPrefix}`,
     );

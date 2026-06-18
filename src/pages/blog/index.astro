@@ -10,18 +10,19 @@ import ogImage from '../../images/blog/boitumelo-o_tcYADlSt8-unsplash.jpg';
 import {
   assertPostFilenameMatchesPubDate,
   getPostUrl,
+  isDraftPost,
 } from '../../scripts/blog';
 import { observationTopicLabels } from '../../scripts/observations';
 import { getReadingTimeLabel } from '../../scripts/readingTime';
 
-const isPublished = (entry: { data: { draft: boolean } }) =>
-  import.meta.env.DEV || !entry.data.draft;
+const isVisible = (entry: { id: string }) =>
+  import.meta.env.DEV || !isDraftPost(entry);
 
 const blogPosts = await getCollection('blog');
 blogPosts.forEach(assertPostFilenameMatchesPubDate);
 
 const posts = blogPosts
-  .filter(isPublished)
+  .filter(isVisible)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const formatDate = (date: Date) =>
@@ -110,7 +111,7 @@ const structuredData = {
                     {observationTopicLabels[post.data.topic]} &middot;
                   </span>
                   <span>{getReadingTimeLabel(post.body)}</span>
-                  {post.data.draft && <span>draft</span>}
+                  {isDraftPost(post) && <span>draft</span>}
                 </div>
                 <div
                   class='mt-base-half flex flex-wrap gap-base-half'
