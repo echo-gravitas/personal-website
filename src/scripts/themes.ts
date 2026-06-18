@@ -1,10 +1,18 @@
 import { flavors, type AccentName, type FlavorName } from '@catppuccin/palette';
 
-const themeFlavors = ['frappe', 'latte'] as const satisfies FlavorName[];
+const themeFlavors = [
+  'frappe',
+  'latte',
+  'macchiato',
+  'mocha',
+] as const satisfies FlavorName[];
 const themeAccents = [
   'flamingo',
   'mauve',
-  'maroon',
+  'red',
+  'peach',
+  'green',
+  'teal',
   'sapphire',
   'lavender',
 ] as const satisfies AccentName[];
@@ -28,8 +36,8 @@ const createThemeTokens = (
 };
 
 export const themeTokens = Object.fromEntries(
-  themeFlavors.flatMap((flavorName) =>
-    themeAccents.map((accentName) => [
+  themeAccents.flatMap((accentName) =>
+    themeFlavors.map((flavorName) => [
       `${flavorName}-${accentName}`,
       createThemeTokens(flavorName, accentName),
     ]),

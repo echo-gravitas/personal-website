@@ -1,0 +1,174 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getImage } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/Section.astro';
+import LeadText from '../../components/typography/LeadText.astro';
+import NormalText from '../../components/typography/NormalText.astro';
+import LargeText from '../../components/typography/LargeText.astro';
+import ogImage from '../../images/blog/boitumelo-o_tcYADlSt8-unsplash.jpg';
+import {
+  assertPostFilenameMatchesPubDate,
+  getPostUrl,
+  isDraftPost,
+} from '../../scripts/blog';
+import { observationTopicLabels } from '../../scripts/observations';
+import { getReadingTimeLabel } from '../../scripts/readingTime';
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const blogPosts = await getCollection('blog');
+  blogPosts.forEach(assertPostFilenameMatchesPubDate);
+
+  const posts = blogPosts
+    .filter((entry) => import.meta.env.DEV || !isDraftPost(entry))
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+  return paginate(posts, { pageSize: 5 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const posts = page.data;
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat('de-CH', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  }).format(date);
+
+const siteUrl = Astro.site;
+
+if (!siteUrl) {
+  throw new Error('Astro site config is required for structured data URLs.');
+}
+
+const pageDescription =
+  'Erkenntnisse zu den Themen Cyber Security, Künstliche Intelligenz, Datenschutz und Social Media. Für Menschen, die hinter den Technologie-Hype blicken wollen.';
+const canonicalPath = page.url.current;
+const pageTitle =
+  page.currentPage === 1
+    ? 'Blog · Ralph Bolliger'
+    : `Blog · Seite ${page.currentPage} · Ralph Bolliger`;
+const optimizedOgImage = await getImage({
+  src: ogImage,
+  width: 1200,
+  height: 630,
+  format: 'jpg',
+});
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  'name': 'Blog',
+  'description': pageDescription,
+  'url': new URL(canonicalPath, siteUrl).toString(),
+  'mainEntity': posts.map((post) => ({
+    '@type': 'Article',
+    'headline': post.data.title,
+    'description': post.data.description,
+    'url': new URL(getPostUrl(post), siteUrl).toString(),
+    'datePublished': post.data.pubDate.toISOString(),
+    'keywords': post.data.tags,
+  })),
+};
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath={canonicalPath}
+  imageAlt='Abstrakte technische Struktur mit leuchtenden Verbindungen'
+  imagePath={optimizedOgImage.src}
+  keywords={[
+    'Cyber Security',
+    'Security Research',
+    'Privacy',
+    'KI',
+    'Datenschutz',
+  ]}
+  structuredData={structuredData}
+>
+  <Section id='blog' margin='base'>
+    <div slot='left'>
+      <NormalText spaceAfter='small' weight='bold' tone='accent'>
+        <a href='#blog' class='underline-offset-4 hover:underline'> Blog </a>
+      </NormalText>
+    </div>
+    <div slot='right'>
+      <LeadText weight='normal' spaceAfter='large'>
+        {pageDescription}
+      </LeadText>
+
+      {
+        posts.length > 0 ? (
+          <>
+            <div class='grid gap-base-double' data-observation-list>
+              {posts.map((post) => (
+                <article class='border-t pt-base' data-observation-reveal>
+                  <LargeText as='h2' class='mb-base-half' weight='bold'>
+                    <a
+                      href={getPostUrl(post)}
+                      class='text-accent hover:underline'
+                    >
+                      {post.data.title}
+                    </a>
+                  </LargeText>
+                  <NormalText tone='muted' class='mb-base'>
+                    {post.data.summary ?? post.data.description}
+                  </NormalText>
+                  <div
+                    class='flex flex-wrap gap-base-half font-mono text-small text-muted'
+                    data-observation-meta
+                  >
+                    <span>{formatDate(post.data.pubDate)} &middot;</span>
+                    <span>
+                      {observationTopicLabels[post.data.topic]} &middot;
+                    </span>
+                    <span>{getReadingTimeLabel(post.body)}</span>
+                    {isDraftPost(post) && <span>draft</span>}
+                  </div>
+                  <div
+                    class='mt-base-half flex flex-wrap gap-base-half'
+                    data-observation-tags
+                  >
+                    {post.data.tags.map((tag) => (
+                      <span class='font-mono text-small text-muted'>
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+            <nav
+              class='mt-base-double flex items-center justify-between border-t pt-base font-mono text-small'
+              aria-label='Seitennavigation'
+            >
+              <span>
+                {page.url.prev && (
+                  <a href={page.url.prev} class='text-accent hover:underline'>
+                    &laquo; Neuere Artikel
+                  </a>
+                )}
+              </span>
+              <span class='text-muted'>
+                {page.currentPage}/{page.lastPage}
+              </span>
+              <span>
+                {page.url.next && (
+                  <a href={page.url.next} class='text-accent hover:underline'>
+                    Ältere Artikel &raquo;
+                  </a>
+                )}
+              </span>
+            </nav>
+          </>
+        ) : (
+          <NormalText tone='muted'>
+            Noch keine veroeffentlichten Blogbeitraege.
+          </NormalText>
+        )
+      }
+    </div>
+  </Section>
+</BaseLayout>
