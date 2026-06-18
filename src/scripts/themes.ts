@@ -1,74 +1,49 @@
-export const themeTokens = {
-  dark: {
-    page: '#0b0d11',
-    font: '#cfd2bf',
-    muted: '#4f524f',
-    accent: '#cfd2bf',
-    border: '#4f524f',
-  },
-  light: {
-    page: '#fdfeff',
-    font: '#454340',
-    muted: '#a1a1a1',
-    accent: '#454340',
-    border: '#dddddd',
-  },
-  darkgreenred: {
-    page: '#262c2f',
-    font: '#f0f9ff',
-    muted: '#8b9298',
-    accent: '#ed5050',
-    border: '#595f63',
-  },
-  creamypinkblue: {
-    page: '#fbf6e3',
-    font: '#c62273',
-    muted: '#dda2b1',
-    accent: '#1676a4',
-    border: '#f0c4c7',
-  },
-  anthracitebrown: {
-    page: '#1f2123',
-    font: '#e3e5e6',
-    muted: '#818384',
-    accent: '#a27020',
-    border: '#505254',
-  },
-  bordeauxred: {
-    page: '#230e1c',
-    font: '#fff7f4',
-    muted: '#928287',
-    accent: '#f15052',
-    border: '#5a4851',
-  },
-  darkgreenorange: {
-    page: '#111107',
-    font: '#e2e4ea',
-    muted: '#787b78',
-    accent: '#feb024',
-    border: '#45463f',
-  },
-  creamyred: {
-    page: '#fffefe',
-    font: '#002340',
-    muted: '#81919f',
-    accent: '#ea1724',
-    border: '#c1c7cf',
-  },
-  darkbluepink: {
-    page: '#012645',
-    font: '#fffbff',
-    muted: '#8291a3',
-    accent: '#e51880',
-    border: '#445b74',
-  },
-} as const;
+import { flavors, type AccentName, type FlavorName } from '@catppuccin/palette';
+
+const themeFlavors = ['frappe', 'latte'] as const satisfies FlavorName[];
+const themeAccents = [
+  'flamingo',
+  'mauve',
+  'maroon',
+  'sapphire',
+  'lavender',
+] as const satisfies AccentName[];
+
+type ThemeFlavor = (typeof themeFlavors)[number];
+type ThemeAccent = (typeof themeAccents)[number];
+
+const createThemeTokens = (
+  flavorName: ThemeFlavor,
+  accentName: ThemeAccent,
+) => {
+  const colors = flavors[flavorName].colors;
+
+  return {
+    page: colors.base.hex,
+    font: colors.text.hex,
+    muted: colors.subtext0.hex,
+    accent: colors[accentName].hex,
+    border: colors.surface1.hex,
+  };
+};
+
+export const themeTokens = Object.fromEntries(
+  themeFlavors.flatMap((flavorName) =>
+    themeAccents.map((accentName) => [
+      `${flavorName}-${accentName}`,
+      createThemeTokens(flavorName, accentName),
+    ]),
+  ),
+) as Record<
+  `${ThemeFlavor}-${ThemeAccent}`,
+  ReturnType<typeof createThemeTokens>
+>;
 
 export type Theme = keyof typeof themeTokens;
 
 export const themes = Object.keys(themeTokens) as Theme[];
 
-export const defaultTheme: Theme = 'dark';
+export const defaultTheme: Theme = 'frappe-mauve';
 
 export const isTheme = (theme: string | undefined | null): theme is Theme =>
   typeof theme === 'string' &&
