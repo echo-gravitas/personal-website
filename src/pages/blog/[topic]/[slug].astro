@@ -9,6 +9,7 @@ import {
   assertPostFilenameMatchesPubDate,
   getPostSlug,
   getPostUrl,
+  isDraftPost,
 } from '../../../scripts/blog';
 import { observationTopicLabels } from '../../../scripts/observations';
 import {
@@ -21,7 +22,7 @@ export async function getStaticPaths() {
   blogPosts.forEach(assertPostFilenameMatchesPubDate);
 
   const posts = blogPosts.filter(
-    (entry) => import.meta.env.DEV || !entry.data.draft,
+    (entry) => import.meta.env.DEV || !isDraftPost(entry),
   );
 
   return posts.map((post) => ({
@@ -114,7 +115,7 @@ const structuredData = {
           <span>{formatDate(post.data.pubDate)} &middot; </span>
           <span>{observationTopicLabels[post.data.topic]} &middot; </span>
           <span>{getReadingTimeLabel(post.body)}</span>
-          {post.data.draft && <span>draft</span>}
+          {isDraftPost(post) && <span>draft</span>}
         </div>
         <LeadText as='h1' weight='bold' spaceAfter='normal'>
           {post.data.title}
@@ -132,7 +133,7 @@ const structuredData = {
         <div class='flex flex-wrap gap-base-half' data-observation-tags>
           {
             post.data.tags.map((tag) => (
-              <span class='font-mono text-small text-accent'>#{tag}</span>
+              <span class='font-mono text-small text-muted'>#{tag}</span>
             ))
           }
         </div>
