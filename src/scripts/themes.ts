@@ -1,20 +1,11 @@
 import { flavors, type AccentName, type FlavorName } from '@catppuccin/palette';
 
-const themeFlavors = [
-  'frappe',
-  'latte',
-  'macchiato',
-  'mocha',
-] as const satisfies FlavorName[];
+const themeFlavors = ['frappe', 'latte'] as const satisfies FlavorName[];
 const themeAccents = [
-  'flamingo',
   'mauve',
   'red',
-  'peach',
   'green',
-  'teal',
-  'sapphire',
-  'lavender',
+  'blue',
 ] as const satisfies AccentName[];
 
 type ThemeFlavor = (typeof themeFlavors)[number];
