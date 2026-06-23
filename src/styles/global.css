@@ -33,6 +33,24 @@
 }
 
 @font-face {
+  font-family: 'MonoLisa Text';
+  src: url('/fonts/0-MonoLisaText-normal.woff2') format('woff2');
+  font-weight: 1 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0020-007F;
+}
+
+@font-face {
+  font-family: 'MonoLisa Text';
+  src: url('/fonts/1-MonoLisaText-italic.woff2') format('woff2');
+  font-weight: 1 900;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0020-007F;
+}
+
+@font-face {
   font-family: 'Space Mono';
   src: url('/fonts/SpaceMono-Italic.ttf') format('truetype');
   font-weight: 400;
@@ -100,6 +118,10 @@
 
   :root[data-font='inter'] {
     --font-default: 'Inter', sans-serif;
+  }
+
+  :root[data-font='monolisa-text'] {
+    --font-default: 'MonoLisa Text', 'Inter', sans-serif;
   }
 
   html {
