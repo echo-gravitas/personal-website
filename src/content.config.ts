@@ -21,13 +21,13 @@ const blog = defineCollection({
         'ki',
       ]),
       tags: z.array(z.string()),
-      image: z.union([z.string().url(), image()]).optional(),
+      image: z.union([z.url(), image()]).optional(),
       imageAlt: z.string().optional(),
       sources: z
         .array(
           z.object({
             title: z.string(),
-            url: z.string().url(),
+            url: z.url(),
           }),
         )
         .optional(),

@@ -17,6 +17,40 @@
 }
 
 @font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MonoLisa Text';
+  src: url('/fonts/0-MonoLisaText-normal.woff2') format('woff2');
+  font-weight: 1 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0020-007F;
+}
+
+@font-face {
+  font-family: 'MonoLisa Text';
+  src: url('/fonts/1-MonoLisaText-italic.woff2') format('woff2');
+  font-weight: 1 900;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0020-007F;
+}
+
+@font-face {
   font-family: 'Space Mono';
   src: url('/fonts/SpaceMono-Italic.ttf') format('truetype');
   font-weight: 400;
@@ -80,6 +114,14 @@
     --theme-accent: #f8f8f5;
     --theme-border: #232323;
     --theme-transition-duration: 200ms;
+  }
+
+  :root[data-font='inter'] {
+    --font-default: 'Inter', sans-serif;
+  }
+
+  :root[data-font='monolisa-text'] {
+    --font-default: 'MonoLisa Text', 'Inter', sans-serif;
   }
 
   html {
