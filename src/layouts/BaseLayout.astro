@@ -2,6 +2,7 @@
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import MainContainer from '../components/MainContainer.astro';
+import { defaultFont, fonts } from '../scripts/fonts';
 import { defaultTheme, themeTokens } from '../scripts/themes';
 import '../styles/global.css';
 
@@ -108,7 +109,7 @@ const imageUrl = imagePath ? new URL(imagePath, siteUrl).toString() : undefined;
 
       gtag('config', 'G-E259F43NWW');
     </script>
-    <script define:vars={{ defaultTheme, themeTokens }}>
+    <script define:vars={{ defaultFont, fonts, defaultTheme, themeTokens }}>
       const themes = Object.keys(themeTokens);
       let theme =
         themes[Math.floor(Math.random() * themes.length)] ?? defaultTheme;
@@ -132,6 +133,18 @@ const imageUrl = imagePath ? new URL(imagePath, siteUrl).toString() : undefined;
       Object.entries(themeTokens[theme]).forEach(([token, value]) => {
         document.documentElement.style.setProperty(`--theme-${token}`, value);
       });
+
+      let font = defaultFont;
+
+      try {
+        const storedFont = localStorage.getItem('font');
+
+        if (fonts.includes(storedFont)) {
+          font = storedFont;
+        }
+      } catch {}
+
+      document.documentElement.dataset.font = font;
     </script>
     <title>{title}</title>
   </head>

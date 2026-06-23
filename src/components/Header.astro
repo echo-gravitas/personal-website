@@ -1,5 +1,5 @@
 ---
-import { SwatchBook } from '@lucide/astro';
+import { CaseSensitive, SwatchBook } from '@lucide/astro';
 ---
 
 <header
@@ -17,9 +17,18 @@ import { SwatchBook } from '@lucide/astro';
     </a>
 
     <nav class='flex items-center gap-base' aria-label='Hauptnavigation'>
-      <a href='/blog' class='font-mono text-normal text-accent hover:underline'>
+      <a href='/blog' class='text-normal text-accent hover:underline'>
         Blog
       </a>
+      <button
+        title='F drücken oder klicken, um die Schriftart zu wechseln'
+        type='button'
+        aria-label='F drücken oder klicken, um die Schriftart zu wechseln'
+        data-font-toggle
+        class='inline-flex size-10 cursor-pointer items-center justify-center rounded-full text-accent'
+      >
+        <CaseSensitive aria-hidden='true' />
+      </button>
       <button
         title='T drücken oder klicken, um das Theme zu wechseln'
         type='button'

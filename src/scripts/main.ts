@@ -1,6 +1,13 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
+  applyFont,
+  defaultFont,
+  fonts,
+  isFont,
+  type Font,
+} from './fonts';
+import {
   applyTheme,
   defaultTheme,
   isTheme,
@@ -32,6 +39,28 @@ const setNextTheme = () => {
   setTheme(nextTheme);
 };
 
+const getFont = (): Font => {
+  const font = document.documentElement.dataset.font;
+
+  return isFont(font) ? font : defaultFont;
+};
+
+const setFont = (font: Font) => {
+  applyFont(font);
+
+  try {
+    localStorage.setItem('font', font);
+  } catch {}
+};
+
+const setNextFont = () => {
+  const currentFont = getFont();
+  const currentIndex = fonts.indexOf(currentFont);
+  const nextFont = fonts[(currentIndex + 1) % fonts.length];
+
+  setFont(nextFont);
+};
+
 const isEditableElement = (element: EventTarget | null) =>
   element instanceof HTMLElement &&
   (element.isContentEditable ||
@@ -41,12 +70,22 @@ document.querySelector('[data-theme-toggle]')?.addEventListener('click', () => {
   setNextTheme();
 });
 
+document.querySelector('[data-font-toggle]')?.addEventListener('click', () => {
+  setNextFont();
+});
+
 document.addEventListener('keydown', (event) => {
-  if (event.key.toLowerCase() !== 't' || isEditableElement(event.target)) {
+  if (isEditableElement(event.target)) {
     return;
   }
 
-  setNextTheme();
+  if (event.key.toLowerCase() === 't') {
+    setNextTheme();
+  }
+
+  if (event.key.toLowerCase() === 'f') {
+    setNextFont();
+  }
 });
 
 const scrollToHashTarget = () => {
