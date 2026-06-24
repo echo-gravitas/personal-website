@@ -19,6 +19,7 @@ const blog = defineCollection({
         'datenschutz',
         'security-research',
         'ki',
+        'ux',
       ]),
       tags: z.array(z.string()),
       image: z.union([z.url(), image()]).optional(),
