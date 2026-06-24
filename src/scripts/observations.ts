@@ -3,4 +3,5 @@ export const observationTopicLabels = {
   'datenschutz': 'Datenschutz',
   'ki': 'KI',
   'security-research': 'Security Research',
+  'ux': 'UX',
 } as const;
