@@ -12,7 +12,6 @@ const blog = defineCollection({
       title: z.string(),
       description: z.string(),
       summary: z.string().optional(),
-      pubDate: z.date(),
       updatedDate: z.date().optional(),
       topic: z.enum([
         'cyber-security',
@@ -24,14 +23,17 @@ const blog = defineCollection({
       tags: z.array(z.string()),
       image: z.union([z.url(), image()]).optional(),
       imageAlt: z.string().optional(),
-      sources: z
-        .array(
-          z.object({
-            title: z.string(),
-            url: z.url(),
-          }),
-        )
-        .optional(),
+      sources: z.preprocess(
+        (value) => value ?? undefined,
+        z
+          .array(
+            z.object({
+              title: z.string(),
+              url: z.url(),
+            }),
+          )
+          .optional(),
+      ),
     }),
 });
 
