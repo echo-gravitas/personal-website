@@ -37,6 +37,8 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 const readingTimeMinutes = getReadingTimeMinutes(post.body);
 const pubDate = getPostPubDate(post);
+const sources = post.data.sources ?? [];
+const hasSources = sources.length > 0;
 
 const formatDate = (date: Date) =>
   new Intl.DateTimeFormat('de-CH', {
@@ -85,7 +87,7 @@ const structuredData = {
     'name': 'Ralph Bolliger',
     'url': new URL('/', siteUrl).toString(),
   },
-  'citation': post.data.sources?.map((source) => source.url),
+  ...(hasSources && { 'citation': sources.map((source) => source.url) }),
   'mainEntityOfPage': absolutePostUrl,
 };
 ---
@@ -156,13 +158,13 @@ const structuredData = {
       </div>
 
       {
-        post.data.sources && post.data.sources.length > 0 && (
+        hasSources && (
           <div class='mt-base-double border-t pt-base' data-observation-sources>
             <NormalText as='h2' class='mb-base' weight='bold'>
               Quellen
             </NormalText>
             <ul class='grid gap-base-half'>
-              {post.data.sources.map((source) => (
+              {sources.map((source) => (
                 <li>
                   <a
                     href={source.url}

@@ -23,14 +23,17 @@ const blog = defineCollection({
       tags: z.array(z.string()),
       image: z.union([z.url(), image()]).optional(),
       imageAlt: z.string().optional(),
-      sources: z
-        .array(
-          z.object({
-            title: z.string(),
-            url: z.url(),
-          }),
-        )
-        .optional(),
+      sources: z.preprocess(
+        (value) => value ?? undefined,
+        z
+          .array(
+            z.object({
+              title: z.string(),
+              url: z.url(),
+            }),
+          )
+          .optional(),
+      ),
     }),
 });
 
