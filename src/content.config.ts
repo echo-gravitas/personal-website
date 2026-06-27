@@ -12,7 +12,6 @@ const blog = defineCollection({
       title: z.string(),
       description: z.string(),
       summary: z.string().optional(),
-      pubDate: z.date(),
       updatedDate: z.date().optional(),
       topic: z.enum([
         'cyber-security',

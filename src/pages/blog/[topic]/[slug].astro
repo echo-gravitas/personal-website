@@ -6,7 +6,7 @@ import Section from '../../../components/Section.astro';
 import LeadText from '../../../components/typography/LeadText.astro';
 import NormalText from '../../../components/typography/NormalText.astro';
 import {
-  assertPostFilenameMatchesPubDate,
+  getPostPubDate,
   getPostSlug,
   getPostUrl,
   isDraftPost,
@@ -19,7 +19,6 @@ import {
 
 export async function getStaticPaths() {
   const blogPosts = await getCollection('blog');
-  blogPosts.forEach(assertPostFilenameMatchesPubDate);
 
   const posts = blogPosts.filter(
     (entry) => import.meta.env.DEV || !isDraftPost(entry),
@@ -37,6 +36,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 const readingTimeMinutes = getReadingTimeMinutes(post.body);
+const pubDate = getPostPubDate(post);
 
 const formatDate = (date: Date) =>
   new Intl.DateTimeFormat('de-CH', {
@@ -74,8 +74,8 @@ const structuredData = {
   'headline': post.data.title,
   'description': post.data.description,
   'abstract': post.data.summary,
-  'datePublished': post.data.pubDate.toISOString(),
-  'dateModified': (post.data.updatedDate ?? post.data.pubDate).toISOString(),
+  'datePublished': pubDate.toISOString(),
+  'dateModified': (post.data.updatedDate ?? pubDate).toISOString(),
   'timeRequired': `PT${readingTimeMinutes}M`,
   'keywords': post.data.tags,
   'articleSection': observationTopicLabels[post.data.topic],
@@ -112,7 +112,7 @@ const structuredData = {
           class='mb-base flex flex-wrap gap-base-half font-mono text-small text-muted'
           data-observation-meta
         >
-          <span>{formatDate(post.data.pubDate)} &middot; </span>
+          <span>{formatDate(pubDate)} &middot; </span>
           <span>{observationTopicLabels[post.data.topic]} &middot; </span>
           <span>{getReadingTimeLabel(post.body)}</span>
           {isDraftPost(post) && <span>draft</span>}
