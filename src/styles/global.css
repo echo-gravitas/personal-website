@@ -78,7 +78,7 @@
 
 @theme static {
   --font-default: 'Space Grotesk', sans-serif;
-  --font-mono: 'Space Mono', monospace;
+  --font-mono: var(--font-default);
 
   --color-page: var(--theme-page);
   --color-font: var(--theme-font);
@@ -192,6 +192,10 @@ footer span {
   padding-inline: 0;
 }
 
+.pgp-key-link {
+  font-family: 'Space Mono', monospace;
+}
+
 .logo-mark {
   display: block;
   background-color: var(--theme-page);
@@ -246,7 +250,7 @@ footer span {
 }
 
 .observation-content code {
-  font-family: var(--font-mono);
+  font-family: inherit;
   font-size: var(--text-normal);
 }
 
