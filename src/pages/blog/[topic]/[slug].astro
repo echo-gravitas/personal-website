@@ -111,7 +111,7 @@ const structuredData = {
     <article slot='right' data-observation-reveal>
       <div class='mb-base-double' data-observation-reveal>
         <div
-          class='mb-base flex flex-wrap gap-base-half font-mono text-small text-muted'
+          class='mb-base flex flex-wrap gap-base-half text-small text-muted'
           data-observation-meta
         >
           <span>{formatDate(pubDate)} &middot; </span>
@@ -135,7 +135,7 @@ const structuredData = {
         <div class='flex flex-wrap gap-base-half' data-observation-tags>
           {
             post.data.tags.map((tag) => (
-              <span class='font-mono text-small text-muted'>#{tag}</span>
+              <span class='text-small text-muted'>#{tag}</span>
             ))
           }
         </div>

@@ -116,7 +116,7 @@ const structuredData = {
                     {post.data.summary ?? post.data.description}
                   </NormalText>
                   <div
-                    class='flex flex-wrap gap-base-half font-mono text-small text-muted'
+                    class='flex flex-wrap gap-base-half text-small text-muted'
                     data-observation-meta
                   >
                     <span>{formatDate(getPostPubDate(post))} &middot;</span>
@@ -131,16 +131,14 @@ const structuredData = {
                     data-observation-tags
                   >
                     {post.data.tags.map((tag) => (
-                      <span class='font-mono text-small text-muted'>
-                        #{tag}
-                      </span>
+                      <span class='text-small text-muted'>#{tag}</span>
                     ))}
                   </div>
                 </article>
               ))}
             </div>
             <nav
-              class='mt-base-double flex items-center justify-between border-t pt-base font-mono text-small'
+              class='mt-base-double flex items-center justify-between border-t pt-base text-small'
               aria-label='Seitennavigation'
             >
               <span>
