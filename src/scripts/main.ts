@@ -1,12 +1,6 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import {
-  applyFont,
-  defaultFont,
-  fonts,
-  isFont,
-  type Font,
-} from './fonts';
+import { applyFont, defaultFont, fonts, isFont, type Font } from './fonts';
 import {
   applyTheme,
   defaultTheme,
@@ -147,11 +141,11 @@ const revealText = () => {
     window.location.hash ||
     window.matchMedia('(prefers-reduced-motion: reduce)').matches
   ) {
-    gsap.set(textElements, { autoAlpha: 1, y: 0 });
+    gsap.set(textElements, { autoAlpha: 1, filter: 'none', y: 0 });
     return;
   }
 
-  gsap.set(textElements, { autoAlpha: 0, y: 18 });
+  gsap.set(textElements, { autoAlpha: 0, filter: 'blur(25px)', y: 25 });
 
   const createRevealBatch = (elements: HTMLElement[], start: string) => {
     if (elements.length === 0) {
@@ -164,11 +158,12 @@ const revealText = () => {
       onEnter: (batch) => {
         gsap.to(batch, {
           autoAlpha: 1,
+          filter: 'blur(0px)',
           y: 0,
-          duration: 0.75,
-          ease: 'power4.out',
+          duration: 0.5,
+          ease: 'power1.out',
           stagger: 0.08,
-          clearProps: 'opacity,transform,visibility',
+          clearProps: 'filter,opacity,transform,visibility',
         });
       },
     });
