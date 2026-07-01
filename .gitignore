@@ -25,3 +25,7 @@ pnpm-debug.log*
 .vscode
 .agents
 .codex
+
+# Drafts
+draft*.md
+draft*.mdx
