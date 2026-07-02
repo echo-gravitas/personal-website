@@ -1,22 +1,6 @@
 @import 'tailwindcss';
 
 @font-face {
-  font-family: 'Space Grotesk';
-  src: url('/fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
-  font-weight: 300 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Space Mono';
-  src: url('/fonts/SpaceMono-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: 'MonoLisa Text';
   src: url('/fonts/0-MonoLisaText-normal.woff2') format('woff2');
   font-weight: 1 900;
@@ -53,6 +37,22 @@
 }
 
 @font-face {
+  font-family: 'Space Grotesk';
+  src: url('/fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  src: url('/fonts/SpaceMono-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Space Mono';
   src: url('/fonts/SpaceMono-Italic.ttf') format('truetype');
   font-weight: 400;
@@ -77,8 +77,7 @@
 }
 
 @theme static {
-  --font-default: 'Space Grotesk', sans-serif;
-  --font-mono: var(--font-default);
+  --font-default: 'MonoLisa Text', sans-serif;
 
   --color-page: var(--theme-page);
   --color-font: var(--theme-font);
@@ -118,8 +117,8 @@
     --theme-transition-duration: 200ms;
   }
 
-  :root[data-font='monolisa-text'] {
-    --font-default: 'MonoLisa Text', sans-serif;
+  :root[data-font='space-grotesk'] {
+    --font-default: 'Space Grotesk', sans-serif;
   }
 
   html {
@@ -186,6 +185,11 @@ p span {
   /* border-radius: 3px; */
 }
 
+strong,
+b {
+  font-weight: var(--font-weight-bold);
+}
+
 footer span {
   background-color: transparent;
   color: inherit;
@@ -250,12 +254,10 @@ footer span {
 }
 
 .observation-content code {
-  font-family: inherit;
-  font-size: var(--text-normal);
-}
-
-.observation-content pre {
-  overflow-x: auto;
-  border: 1px solid var(--theme-border);
-  padding: var(--spacing-base);
+  font-family: var(--font-mono);
+  /* border: 1px solid var(--theme-font); */
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  background-color: var(--theme-border);
+  color: var(--theme-text);
 }

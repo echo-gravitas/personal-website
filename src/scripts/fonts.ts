@@ -1,4 +1,4 @@
-export const fonts = ['space-grotesk', 'monolisa-text'] as const;
+export const fonts = ['monolisa-text', 'space-grotesk'] as const;
 
 export type Font = (typeof fonts)[number];
 
