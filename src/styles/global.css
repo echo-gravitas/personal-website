@@ -173,16 +173,15 @@ body {
   color: var(--theme-page);
 }
 
-p span {
+p mark {
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
+  padding-inline: 0.5rem;
   background-color: var(--theme-accent);
   color: var(--theme-page);
-  padding-inline: 0.25rem;
   transition:
     background-color var(--theme-transition-duration) ease,
     color var(--theme-transition-duration) ease;
-  /* border-radius: 3px; */
 }
 
 strong,
