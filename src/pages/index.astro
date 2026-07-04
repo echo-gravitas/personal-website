@@ -8,7 +8,7 @@ import LargeText from '../components/typography/LargeText.astro';
 import LeadText from '../components/typography/LeadText.astro';
 import NormalText from '../components/typography/NormalText.astro';
 import ogImage from '../images/blog/boitumelo-o_tcYADlSt8-unsplash.jpg';
-import portrait from '../images/smiling.jpg';
+import portrait from '../images/serious.jpg';
 
 const optimizedOgImage = await getImage({
   src: ogImage,
@@ -34,52 +34,39 @@ const howColumns = [
 
 const pathItems = [
   {
-    label: 'Digitale Kommunikation',
+    label: 'Performance Marketing',
     value:
       'Meine Wurzeln liegen in der digitalen Kommunikation. Dort habe ich gelernt, wie stark Technologie Aufmerksamkeit, Verhalten und Vertrauen beeinflusst.',
   },
   {
-    label: 'Projektmanagement',
+    label: 'Project Management',
     value:
       'Im Projektmanagement habe ich erlebt, was passiert, wenn gute Strategien auf tatsächliche Abhängigkeiten treffen. Seitdem verbinde ich technische Machbarkeit, klare Führung und menschliche Bedürfnisse.',
   },
   {
-    label: 'Product & Experience Design',
+    label: 'Product Design UI/UX',
     value:
       'Heute gestalte ich Interfaces, Workflows und digitale Produkte, die Orientierung schaffen. Mein Ziel sind Systeme, die ihre Komplexität tragen, ohne sie an die Nutzerinnen und Nutzer weiterzureichen.',
   },
   {
-    label: 'Unabhängige und sichere Kommunikation',
+    label: 'Infrastruktur-unabhängige Kommunikation',
     value:
-      'Neben Kundenprojekten baue ich unabhängige Software, experimentiere mit Elektronik und Funktechnik, und engagiere mich für digitale Sicherheit. Mich interessiert, wie Menschen und Organisationen vernetzt, selbstbestimmt und widerstandsfähig bleiben.',
+      'In meiner Freizeit entwickle ich freie Software, experimentiere mit Elektronik, Funktechnik, und engagiere mich für digitale Souveränität. Mich interessiert, wie Menschen und Organisationen vernetzt, selbstbestimmt und widerstandsfähig bleiben.',
   },
 ];
-const focusItems = [
-  {
-    title: 'Komplexe Interfaces',
-    text: 'Ich arbeite an Produkten, bei denen Fehlinterpretationen teuer werden können. Dort braucht es klare Strukturen, nachvollziehbare Informationen und Interfaces, die auch unter Belastung funktionieren.',
-  },
-  {
-    title: 'Digitale Produkte',
-    text: 'Gute digitale Produkte respektieren Menschen. Privatsphäre, Transparenz und Autonomie entstehen nicht erst in Privacy Policies, sondern im Product Design, Protokolldetails und Geschäftsmodellen.',
-  },
-  {
-    title: 'Systeme & Kommunikation',
-    text: 'Mich reizen Projekte, bei denen unter der Oberfläche viel passiert: resiliente Infrastruktur, unabhängige Netzwerke, sichere Kommunikation und technische Umgebungen mit echten Anforderungen.',
-  },
-];
+
 const rulesOnAI = [
   {
-    title: 'Menschliche Fähigkeiten müssen erhalten bleiben',
-    text: 'KI kann menschliches Denken beschleunigen, sie darf es nicht ersetzen. Wer Denken dauerhaft delegiert, verliert die Fähigkeit, Ergebnisse kritisch zu prüfen. Menschen müssen verstehen, beurteilen und handeln können.',
+    title: '1̣. Menschliche Kompetenz muss erhalten bleiben',
+    text: 'KI kann menschliches Denken unterstützen, sie darf es nicht ersetzen. Wer Denken dauerhaft delegiert, verliert die Fähigkeit, Ergebnisse kritisch zu prüfen. Menschen müssen verstehen, beurteilen und handeln können.',
   },
   {
-    title: 'Resilienz geht immer vor Effizienz',
+    title: '2. Resilienz geht immer vor Effizienz',
     text: 'Ein System, das nur auf Geschwindigkeit, Skalierung und Kosten optimiert ist, wird schnell verwundbar. Robust wird Technologie erst, wenn sie auch Ausfälle, Umwege und menschliche Grenzen einkalkuliert.',
   },
   {
-    title: 'Der Mensch trägt die Verantwortung',
-    text: 'Werkzeuge sind nie nur Werkzeuge. Sie verändern Entscheidungen, Abhängigkeiten und Verantwortung. Deshalb müssen wir Technologie nicht nur entwickeln, sondern auch ihre Folgen gestalten.',
+    title: '3. Der Mensch trägt die Verantwortung',
+    text: 'Werkzeuge sind nie nur Werkzeuge. Sie verändern Entscheidungen, Abhängigkeiten und Verantwortung. Deshalb müssen wir neue Technologien nicht nur entwickeln, sondern auch ihre Risiken kennen.',
   },
 ];
 ---
@@ -97,15 +84,18 @@ const rulesOnAI = [
     </div>
     <div slot='right'>
       <LeadText weight='normal' spaceAfter='large'>
-        Ich gestalte digitale Produkte für Menschen, die mit komplexen Systemen
-        arbeiten. Mein Fokus liegt auf Klarheit, Sicherheit, Vertrauen und
-        Handlungsfähigkeit. Technologie soll unterstützen, nicht blockieren.
+        <mark
+          >Ich designe digitale Produkte für Menschen, die mit komplexen
+          Systemen arbeiten. Mein Fokus liegt auf Klarheit, Sicherheit,
+          Vertrauen, Nachhaltigkeit und Handlungsfähigkeit. Technologie soll
+          unterstützen, nicht blockieren.</mark
+        >
       </LeadText>
-      <LeadText weight='normal'>
+      <LargeText weight='normal'>
         Komplexität verschwindet nicht durch gutes Design. Gutes Design
         entscheidet, ob sie beherrschbar bleibt. Ich helfe Organisationen dabei,
         digitale Systeme so zu bauen, dass sie verständlich, belastbar, sicher
-        und nachhaltig nutzbar sind.</LeadText
+        und nachhaltig nutzbar sind.</LargeText
       >
     </div>
   </Section>
@@ -132,66 +122,45 @@ const rulesOnAI = [
       </NormalText>
     </div>
     <div slot='right'>
-      <LargeText spaceAfter='large'
-        >Mein Weg führt von digitaler Kommunikation über Projektleitung bis tief
-        ins Product und Experience Design. Diese Kombination prägt meine Arbeit:
-        Ich denke nicht nur in Benutzeroberflächen, sondern in Systemen,
-        Abhängigkeiten und Entscheidungen.</LargeText
+      <LeadText spaceAfter='large'
+        >Mein Weg führt vom Performance Marketing über Project Management bis
+        tief ins Product Design digitaler Produkte. Diese Kombination prägt
+        meine Arbeit: Ich denke nicht nur in Benutzeroberflächen, sondern in
+        Systemen, Abhängigkeiten und Entscheidungen.</LeadText
       >
       <LargeText spaceAfter='large'
-        >Abseits von Kundenprojekten beschäftige ich mich mit Sicherheit,
+        >Neben meiner täglichen Arbeit beschäftige ich mich mit Sicherheit,
         Verhaltenspsychologie, Philosophie, Ethik, Software und Elektrotechnik.
         Nicht als Selbstzweck, sondern weil all diese Themen dieselbe Frage
         berühren:</LargeText
       >
       <LargeText spaceAfter='large'>
-        Wie bleibt Technologie menschlich, verständlich, verlässlich und sicher?</LargeText
+        Wie bleibt Technologie verständlich, verlässlich, sicher, nachhaltig und
+        resilient?</LargeText
       >
       <SplitList items={pathItems} />
-    </div>
-  </Section>
-  <Section id='fokus'>
-    <div slot='left'>
-      <NormalText spaceAfter='small' weight='bold' tone='accent'>
-        <a href='#fokus' class='underline-offset-4 hover:underline'>Fokus</a>
-      </NormalText>
-    </div>
-    <div slot='right'>
-      <LargeText class='mb-base-double'
-        >Besonders stark bin ich in Projekten, in denen Design mehr leisten muss
-        als gut auszusehen. Dort, wo Informationen kritisch sind, Prozesse
-        komplex werden und Vertrauen davon abhängt, ob Menschen ein System
-        wirklich verstehen.</LargeText
-      >
-      <Columns columns={focusItems} />
     </div>
   </Section>
   <Section id='ki'>
     <div slot='left'>
       <NormalText spaceAfter='small' weight='bold' tone='accent'>
         <a href='#ki' class='underline-offset-4 hover:underline'
-          >KI & menschliche Fähigkeiten</a
+          >KI & menschliche Kompetenz</a
         >
       </NormalText>
     </div>
     <div slot='right'>
-      <LargeText class='mb-base-double'
-        >Ich nutze KI pragmatisch, wenn sie Arbeit prüfbar beschleunigt,
-        Perspektiven öffnet oder Barrieren senkt. Ihr Wert zeigt sich für mich
-        nicht an Nutzung, Output oder Tokenverbrauch, sondern daran, ob Menschen
-        bessere Entscheidungen treffen und Verantwortung behalten.</LargeText
+      <LeadText class='mb-base-double'
+        >Ich nutze KI, wenn sie meine Arbeit nachhaltig unterstützt, neue
+        Perspektiven bietet und einen messbaren Mehrwert schafft. Ihr Wert zeigt
+        sich für mich nicht an ihrer Nutzung, sondern daran, ob ich bessere
+        Entscheidungen treffe und Verantwortung tragen kann.</LeadText
       >
       <LargeText class='mb-base-double'
-        >Gerade bei sensiblen Lösungen müssen Menschen nachvollziehen können,
-        was ein System tut, wo seine Grenzen liegen und wer Verantwortung trägt.
-        Technologie soll Fähigkeiten erweitern, nicht Organisationen von
-        undurchsichtigen Systemen abhängig machen.</LargeText
-      >
-      <LargeText class='mb-base-double'
-        >Die grösste Gefahr entsteht dort, wo Menschen sich daran gewöhnen, ihre
-        Denkleistung dauerhaft an KI auszulagern. Wenn Ergebnisse ohne
-        Verständnis übernommen werden, verkümmern Urteilsvermögen, Fachkompetenz
-        und die Fähigkeit, Fehler überhaupt zu erkennen.</LargeText
+        >Eine Gefahr sehe ich dort, wo Menschen sich daran gewöhnen, ihre
+        Denkleistung regelmässig an KI auszulagern. Wenn Ergebnisse ohne
+        Verständnis übernommen werden, verkümmern Urteilsvermögen, Kompetenz und
+        die Fähigkeit, Fehler überhaupt zu erkennen.</LargeText
       >
       <NormalText weight='bold' class='mt-base-double mb-base-double'
         >Meine Prinzipien</NormalText
@@ -211,19 +180,19 @@ const rulesOnAI = [
       </NormalText>
     </div>
     <div slot='right'>
-      <Image
-        alt='Porträt von Ralph Bolliger'
-        src={portrait}
-        data-reveal
-        class='mb-base-double rounded-2xl shadow-2xl'
-      />
       <LargeText class='mb-base-double'
         >Ich veröffentliche keine direkten Kontaktdaten im Netz. Wenn du meine
         Identität prüfen oder einen sicheren und verschlüsselten
         Kommunikationskanal öffnen möchtest, bietet dir mein öffentlicher
         OpenPGP-Schlüssel eine Möglichkeit, mir eine E-Mail zukommen zu lassen:</LargeText
       >
-      <NormalText>
+      <Image
+        alt='Bild: Porträt von Ralph Bolliger'
+        src={portrait}
+        data-reveal
+        class='mb-base-double rounded-2xl shadow-2xl'
+      />
+      <NormalText class='mb-base-double'>
         <a
           title='OpenPGP-Schlüssel öffnen'
           href='/pgp'
@@ -234,8 +203,8 @@ const rulesOnAI = [
           FC84 CC79 8DD1 C935 6857<br />6F3B EE36 9AC6 9EF1 7BD8
         </a>
       </NormalText>
-      <LargeText class='mt-base-double'
-        >Wer mit sensiblen Systemen und Informationen arbeitet, sollte Identität
+      <LargeText>
+        Wer mit sensiblen Systemen und Informationen arbeitet, sollte Identität
         nicht als Nebensache behandeln. Vertrauen beginnt damit, dass klar ist,
         mit wem man spricht.</LargeText
       >
