@@ -173,10 +173,10 @@ body {
   color: var(--theme-page);
 }
 
-p mark {
+mark {
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  padding-inline: 0.5rem;
+  padding: 0.25rem 0.5rem;
   background-color: var(--theme-accent);
   color: var(--theme-page);
   transition:

@@ -87,7 +87,7 @@ const structuredData = {
     'name': 'Ralph Bolliger',
     'url': new URL('/', siteUrl).toString(),
   },
-  ...(hasSources && { 'citation': sources.map((source) => source.url) }),
+  ...(hasSources && { citation: sources.map((source) => source.url) }),
   'mainEntityOfPage': absolutePostUrl,
 };
 ---
@@ -105,7 +105,7 @@ const structuredData = {
   <Section id='artikel' margin='base'>
     <div slot='left'>
       <NormalText spaceAfter='small' weight='bold' tone='accent'>
-        <a href='/blog' class='underline-offset-4 hover:underline'> Blog </a>
+        <a href='/blog' class='underline-offset-4 hover:underline'># Blog</a>
       </NormalText>
     </div>
     <article slot='right' data-observation-reveal>

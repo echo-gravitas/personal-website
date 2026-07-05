@@ -8,11 +8,7 @@ import LeadText from '../../components/typography/LeadText.astro';
 import NormalText from '../../components/typography/NormalText.astro';
 import LargeText from '../../components/typography/LargeText.astro';
 import ogImage from '../../images/blog/boitumelo-o_tcYADlSt8-unsplash.jpg';
-import {
-  getPostPubDate,
-  getPostUrl,
-  isDraftPost,
-} from '../../scripts/blog';
+import { getPostPubDate, getPostUrl, isDraftPost } from '../../scripts/blog';
 import { observationTopicLabels } from '../../scripts/observations';
 import { getReadingTimeLabel } from '../../scripts/readingTime';
 
@@ -90,7 +86,7 @@ const structuredData = {
   <Section id='blog' margin='base'>
     <div slot='left'>
       <NormalText spaceAfter='small' weight='bold' tone='accent'>
-        <a href='#blog' class='underline-offset-4 hover:underline'> Blog </a>
+        <a href='#blog' class='underline-offset-4 hover:underline'># Blog</a>
       </NormalText>
     </div>
     <div slot='right'>
