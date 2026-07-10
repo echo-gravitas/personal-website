@@ -1,6 +1,6 @@
 import { flavors, type AccentName, type FlavorName } from '@catppuccin/palette';
 
-const themeFlavors = ['frappe', 'latte'] as const satisfies FlavorName[];
+const themeFlavors = ['mocha', 'latte'] as const satisfies FlavorName[];
 const themeAccents = [
   'mauve',
   'red',
@@ -42,7 +42,7 @@ export type Theme = keyof typeof themeTokens;
 
 export const themes = Object.keys(themeTokens) as Theme[];
 
-export const defaultTheme: Theme = 'frappe-mauve';
+export const defaultTheme: Theme = 'mocha-red';
 
 export const isTheme = (theme: string | undefined | null): theme is Theme =>
   typeof theme === 'string' &&

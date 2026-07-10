@@ -110,9 +110,8 @@ const imageUrl = imagePath ? new URL(imagePath, siteUrl).toString() : undefined;
       gtag('config', 'G-E259F43NWW');
     </script>
     <script define:vars={{ defaultFont, fonts, defaultTheme, themeTokens }}>
-      const themes = Object.keys(themeTokens);
       let theme =
-        themes[Math.floor(Math.random() * themes.length)] ?? defaultTheme;
+        defaultTheme;
 
       try {
         const storedTheme = localStorage.getItem('theme');
